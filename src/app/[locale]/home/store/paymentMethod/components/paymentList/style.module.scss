@@ -1,0 +1,77 @@
+.paymentContainer {
+  flex: 2;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  //   max-width: 600px;
+  //   margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .paymentOption {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: space-between;
+  }
+
+  // input[type="radio"] {
+  //   margin-right: 10px;
+  // }
+
+  // label {
+  //   display: flex;
+  //   align-items: center;
+  //   cursor: pointer;
+  // }
+
+  .icon {
+    margin-left: 10px;
+    height: 24px;
+    width: auto;
+  }
+  .walletContainer {
+    background: #faf5fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .pay {
+    color: #9e32a4;
+    //styleName: Button;
+    // font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22.4px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: left;
+  }
+  input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #faf5fa;
+  }
+  label {
+    color: #321433;
+    //styleName: Label/Regular;
+    // font-family: Open Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: left;
+  }
+  #upload-photo {
+    border: 1px solid black;
+  }
+  .inputContainer {
+    // padding: 1rem 0;
+  }
+  .err {
+    color: red;
+    font-size: 0.8rem;
+  }
+}

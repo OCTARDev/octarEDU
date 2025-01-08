@@ -1,0 +1,72 @@
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  //   max-width: 500px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+
+  box-shadow: 0px 36px 79px 0px #0000001a;
+
+  box-shadow: 0px 144px 144px 0px #00000017;
+
+  box-shadow: 0px 325px 195px 0px #0000000d;
+
+  box-shadow: 0px 577px 231px 0px #00000003;
+
+  box-shadow: 0px 902px 253px 0px #00000000;
+  padding: 24px;
+  background: #ffffff;
+}
+
+.subtotal {
+  font-size: 18px;
+  font-weight: 500;
+  //styleName: Mobile Header;
+  // font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.6px;
+  letter-spacing: -0.30000001192092896px;
+  text-align: left;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.button {
+  background: linear-gradient(135deg, #4e5ae2 0%, #9e32a4 54.17%, #d552d8 100%);
+  border: none;
+  border-radius: 16px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  //styleName: Button;
+  // font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.4px;
+  letter-spacing: -0.30000001192092896px;
+  text-align: left;
+
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(178, 44, 248, 1) 0%,
+      rgba(107, 88, 232, 1) 100%
+    );
+  }
+}

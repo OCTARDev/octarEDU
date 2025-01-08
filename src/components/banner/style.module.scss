@@ -1,0 +1,75 @@
+.banner {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--grey-light);
+}
+
+.bannerBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.bannerContent {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.bannerTitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffea00;
+  letter-spacing: 2px;
+  animation: slideIn 1.5s ease-in-out forwards;
+}
+
+.bannerDiscount {
+  font-family: "Patua One", sans-serif;
+  font-size: 24px;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.highlight {
+  color: #85219f;
+}
+
+.bannerSubtext {
+  font-size: 16px;
+  color: #ddd;
+  margin-top: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

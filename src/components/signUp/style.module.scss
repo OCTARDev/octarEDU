@@ -1,0 +1,200 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  // width: 30rem;
+  // height: 35rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) !important;
+  border-radius: 1.5rem;
+  background: var(--grey-lightest, #faf5fa);
+  box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  outline: none;
+  padding: 2rem 0rem;
+  flex-direction: column;
+  max-width: 100%;
+  overflow-y: auto;
+  max-height: 90%;
+  display: block;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0rem 1.5rem;
+    // gap: 0.25rem;
+    width: 100%;
+    h1 {
+      color: #000;
+
+      /* Header/h3 */
+      // font-family: Open Sans;
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%; /* 2.8rem */
+      letter-spacing: -0.01875rem;
+    }
+    h2 {
+      color: #000;
+
+      /* Body */
+      // font-family: Open Sans;
+      font-size: 1.125rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 180%; /* 2.025rem */
+    }
+    .inputDiv {
+      margin: 1rem 0;
+      width: 100%;
+    }
+    .inputContainer {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      label {
+        display: block;
+      }
+      svg {
+        position: absolute;
+        margin: 10px;
+        color: white;
+        // min-width: 50px;
+        text-align: center;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        border-radius: 0.25rem;
+        border: 1px solid var(--grey-dark, #725073);
+        background: transparent;
+        // padding-left: 45px;
+      }
+    }
+    p {
+      color: red;
+      margin-bottom: 15px;
+    }
+    .err {
+      color: red;
+      margin-bottom: 10px;
+    }
+    .forgetPsd {
+      // display: block;
+      // width: 100%;
+      text-align: right;
+      color: var(--Dark, #506373);
+      // font-family: Open Sans;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      // line-height: 150%; /* 1.5rem */
+      letter-spacing: -0.01875rem;
+      text-decoration-line: underline;
+    }
+    .signIin {
+      border-radius: 0.5rem;
+      background: var(
+        --Gradiant,
+        linear-gradient(135deg, #4e5ae2 0%, #9e32a4 54.17%, #d552d8 100%)
+      );
+      color: var(--grey-white, #fff);
+      // font-family: Open Sans;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%; /* 1.4rem */
+      letter-spacing: -0.01875rem;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      width: 27rem;
+      padding: 0.75rem 1.5rem;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      max-width: 100%;
+    }
+  }
+  .firstDiv {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    .inputDiv {
+      margin: 0;
+    }
+  }
+  .firstDivRadio {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    .inputDiv {
+      width: auto;
+      margin: 0;
+
+      div {
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+      }
+    }
+    input[type="radio"] {
+      accent-color: #9e32a4;
+    }
+  }
+  .lastDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    p {
+      color: #000;
+      // font-family: Open Sans;
+      font-size: 1.125rem;
+      font-style: normal;
+      font-weight: 400;
+      margin: 0;
+    }
+    button {
+      color: var(--Primary, #572f88);
+      // font-family: Open Sans;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: -0.01875rem;
+      text-decoration-line: underline;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+}
+.password {
+  p {
+    color: black !important;
+    display: flex;
+    align-items: center;
+  }
+}

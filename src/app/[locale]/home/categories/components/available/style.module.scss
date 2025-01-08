@@ -1,0 +1,110 @@
+.aboutContainer {
+  width: 100%;
+  display: flex;
+  padding: 1.5rem 2.1875rem 1.5rem 4rem;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(78, 90, 226, 0.08) 0%,
+    rgba(158, 50, 164, 0.08) 54.17%,
+    rgba(213, 82, 216, 0.08) 100%
+  );
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    // padding: 1.5rem 19.1875rem 2.95919rem 4rem;
+    gap: 1rem;
+    margin: 5rem 0;
+    padding-top: 4rem;
+    div:nth-child(1) {
+      width: 100%;
+      h1 {
+        color: var(--grey-darkest, #321433);
+        // font-family: Open Sans;
+        font-size: 4rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 140%; /* 5.6rem */
+        letter-spacing: -0.01875rem;
+      }
+      .shape {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        svg {
+          position: absolute;
+          top: -0.3rem;
+          left: -0.5rem;
+          width: 14.02994rem;
+          height: 5.60044rem;
+        }
+      }
+    }
+    div:nth-child(2) {
+      p {
+        width: 80%;
+      }
+    }
+  }
+}
+@media (max-width: 893px) {
+  .aboutContainer {
+    padding: 1.5rem 4rem;
+    .content {
+      align-items: center;
+      justify-content: center;
+      padding-left: 0;
+      margin: 0 auto;
+      &:nth-child(1) {
+        div {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .aboutContainer {
+    padding: 1.5rem 0;
+    .content {
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      div:nth-child(1) {
+        .shape {
+          svg {
+            width: 9.83875rem;
+            height: 3.92738rem;
+            top: 0;
+            left: -1.8rem;
+            top: -0.8rem;
+          }
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 1.125rem;
+        }
+      }
+      div:nth-child(2) {
+        p {
+          width: 100%;
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  .aboutContainer {
+    .content {
+      padding-top: 0;
+      margin: 0;
+    }
+  }
+}

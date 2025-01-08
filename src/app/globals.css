@@ -1,0 +1,90 @@
+:root {
+  --grey-light: #f2daf2;
+  --grey-white: #fff;
+  --grey-darkest: #321433;
+  --Gradiant: linear-gradient(135deg, #4e5ae2 0%, #9e32a4 54.17%, #d552d8 100%);
+  --primary-dark: #9e32a4;
+  --grey-medium: #a887a8;
+  --grey-darkest: #321433;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: "__openSans_4cab73" !important;
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 1.5rem !important;
+    }
+    h2 {
+      font-size: 1rem !important;
+    }
+  }
+}
+a {
+  text-decoration: none;
+}
+/* img {
+  width: 100%;
+  height: auto;
+} */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(
+    --Gradiant,
+    linear-gradient(135deg, #4e5ae2 0%, #9e32a4 54.17%, #d552d8 100%)
+  );
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  /* background: var(--grey-light); */
+}
+a {
+  color: inherit;
+}
+
+/* @media (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  h2 {
+    font-size: 1rem !important;
+  }
+} */
+.arabic {
+  direction: rtl;
+  text-align: right;
+  right: 0;
+}
+.svgArabic {
+  right: 0;
+}
+.sans {
+  font-family: var(--font-sans);
+}
+.error {
+  color: red;
+  font-size: 0.9rem;
+  padding-top: 0.3rem;
+}

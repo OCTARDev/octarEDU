@@ -1,0 +1,57 @@
+.ourValuesContainer {
+  padding: 0 3rem;
+}
+.firstDiv {
+  h1 {
+    color: var(--primary-dark, #9e32a4);
+    text-align: center;
+    // font-family: Open Sans;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 140%; /* 5.6rem */
+    letter-spacing: -0.01875rem;
+  }
+}
+.secondDiv {
+  // display: flex;
+  // align-items: flex-start;
+  margin: 1.5rem 0;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  // gap: 1rem;
+
+  .singleDiv {
+    display: flex;
+    flex: 0 0 calc(33.33% - 10px); /* Three columns for large screens */
+
+    // width: auto;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    align-self: stretch;
+    border-radius: 0.5rem;
+    background: var(--grey-lightest, #faf5fa);
+    min-height: 17rem;
+    p:nth-child(2) {
+      color: var(--grey-darkest, #321433);
+      // font-family: Open Sans;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%; /* 1.4rem */
+      letter-spacing: -0.01875rem;
+    }
+    p:nth-child(3) {
+      color: var(--grey-darkest, #321433);
+
+      /* Body */
+      // font-family: Open Sans;
+      font-size: 1.125rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 180%; /* 2.025rem */
+    }
+  }
+}

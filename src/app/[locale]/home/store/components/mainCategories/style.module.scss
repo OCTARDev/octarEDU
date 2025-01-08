@@ -1,0 +1,60 @@
+.categories {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: #f9f9f9;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .categoryList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
+
+  .categoryItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 150px;
+
+    p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .categoryList {
+    gap: 1rem;
+  }
+
+  .categoryItem {
+    max-width: 120px;
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .categories {
+    padding: 1rem;
+  }
+
+  .categoryItem {
+    max-width: 100px;
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}

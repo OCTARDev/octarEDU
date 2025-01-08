@@ -1,0 +1,43 @@
+.historyContainer {
+  // display: flex;
+  padding: 5rem 3rem;
+  // align-items: center;
+  // gap: 5rem;
+  // flex-wrap: wrap;
+  .leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    // flex: 50%;
+    order: 2;
+    h1 {
+      color: var(--primary-dark, #9e32a4);
+
+      /* Header/h1 */
+      // font-family: Open Sans;
+      font-size: 4rem;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 140%; /* 5.6rem */
+      letter-spacing: -0.01875rem;
+    }
+    p {
+      color: #000;
+      // font-family: Open Sans;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 1.875rem */
+      letter-spacing: -0.01875rem;
+    }
+  }
+  .rightSide {
+    text-align: center;
+    order: 1;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

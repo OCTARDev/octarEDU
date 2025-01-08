@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  height: 100dvh;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  h1 {
+    position: absolute;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+  svg {
+    width: 50%;
+  }
+}
