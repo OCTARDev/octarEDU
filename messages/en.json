@@ -368,7 +368,8 @@
                 "adGroup": "AdGroup",
                 "smarty": "Smarty",
                 "vividly": "Vividly",
-                "vreal": "Vreal"
+                "vreal": "Vreal",
+                "affilliates":"Affilliates"
             },
             "newsletter_subscription": {
                 "title": "Subscribe newsletter",

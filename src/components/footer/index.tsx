@@ -247,6 +247,9 @@ const Footer = () => {
                 <a target="_blank" href="https://vreal.adgrouptech.com/">
                   <li>{t("content.sister_companies.vreal")} </li>
                 </a>
+                <a target="_blank" href="https://affiliate.octaredu.com/">
+                  <li>{t("content.sister_companies.affilliates")} </li>
+                </a>
               </ul>
             </div>
           </div>

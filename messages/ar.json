@@ -369,7 +369,8 @@
                 "adGroup": "الشركة الأم",
                 "smarty": "التعليم",
                 "vividly": "الميديا",
-                "vreal": "تكنولوجيا العقارات"
+                "vreal": "تكنولوجيا العقارات",
+                "affilliates":"التابعة"
             },
             "newsletter_subscription": {
                 "title": "الاشتراك في النشرة الإخبارية",
