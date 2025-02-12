@@ -22,6 +22,7 @@ import { loginSuccess } from "@/redux/reducers/auth/authSlice";
 import { useTranslations } from "next-intl";
 import OtpInput from "react-otp-input";
 import { useResendOTPMutation, useVerifyEmailMutation } from "@/redux/rtk/otp";
+import { log } from "util";
 
 type props = {
   open: boolean;
@@ -75,7 +76,9 @@ const OtpPage = () => {
     try {
       setErr("");
       if (otp.length === 6) {
-        await verify({ otp: otp }).unwrap();
+        const res = await verify({ otp: otp }).unwrap();
+        console.log(res);
+        
         await toast.success("Account verfied successfully");
         await router.push(`/${firstLink}/dashboard/home`);
       } else {
@@ -86,6 +89,8 @@ const OtpPage = () => {
       // await dispatch(loginSuccess());
       // await router.push(`/${firstLink}/dashboard/home`);
     } catch (error: any) {
+      console.log("e",error);
+      
       toast.error(`Error ${error?.data?.message}`);
     }
   };

@@ -4,6 +4,8 @@ import Image from "next/image";
 import img from "../../../../../../assets/blog/blog1.jpg";
 import { blogsArr } from "../../../components/data";
 const SingleBlogData = ({ id, data }: any) => {
+  console.log(data);
+  
   const singleBlog: any = data?.data;
   const paragraphArray = singleBlog?.blog_descriptions;
   //console.log("datadatadatadatadatadata", data?.data);

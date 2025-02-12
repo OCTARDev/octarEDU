@@ -22,6 +22,8 @@ import Link from "next/link";
 import { Box, MenuItem, Modal, Select, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import OtpInput from "react-otp-input";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "@/redux/reducers/auth/authSlice";
 
 type props = {
   open: boolean;
@@ -43,6 +45,7 @@ const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const SingUp = () => {
+  const dispatch = useDispatch();
   const t = useTranslations("signup");
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
@@ -106,8 +109,11 @@ const SingUp = () => {
           setLoading(false);
           toast.success(t("account_created"));
           if (typeof window !== "undefined") {
+            console.log("heyooo",response?.data.data);
+            
             localStorage.setItem("octar", JSON.stringify(response?.data?.data));
           }
+          dispatch(loginSuccess());
           // router.push(`/${lang}/dashboard/home`);
           router.push(`/${lang}/otp`);
         })
