@@ -8,14 +8,17 @@ import { fetchBlogPage, mainUrl } from "@/lib";
 import { useGetBlogsQuery } from "@/redux/rtk/homePage";
 import { usePathname } from "next/navigation";
 import Loader from "@/components/loader";
-const Blog = async () => {
+import { Pagination } from "@mui/material";
+
+const Blog =  () => {
   const [data, setData] = useState<any>(null);
+  const [page, setPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const pathname: string = usePathname();
   const isArabic = pathname.includes("/ar");
   let lang = pathname.split("/")[1];
   useEffect(() => {
-    fetch(`${mainUrl}/blogs`, {
+    fetch(`${mainUrl}/blogs?page=${page}`, {
       headers: {
         "X-App-Locale": `${lang}`,
       },
@@ -25,8 +28,11 @@ const Blog = async () => {
         setData(data);
         setLoading(false);
       });
-  }, []);
-
+  }, [lang,page]);
+  
+  const onPageChange = (event: React.ChangeEvent<unknown>, page: number) => {
+      setPage(page);
+    }
   // const { data, isLoading } = useGetBlogsQuery(lang);
   const allBlogs = data?.data?.data;
   if (isLoading) {
@@ -37,6 +43,10 @@ const Blog = async () => {
       <BlogHeader isArabic={isArabic} />
       {/* <BlogNav /> */}
       <SingleBlog lang={lang} allBlogs={allBlogs} isArabic={isArabic} />
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px' , marginBottom: '20px'}}>
+        <Pagination count={data?.data?.total_pages} page={page} onChange={onPageChange} />
+      </div>
+      
     </div>
   );
 };
