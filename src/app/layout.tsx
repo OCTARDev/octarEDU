@@ -48,6 +48,13 @@ export default function RootLayout({
   const CrispWithNoSSR = dynamic(() => import("../components/chatBot"));
   return (
     <html lang="en" className={`${openSans.className} ${openSans.variable}`}>
+      <head>
+      <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="lziSOzvWTWFOuMLTTCYvmA"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${openSans.className} ${openSans.variable}`}>
         <ToastContainer />
         {/* <CrispWithNoSSR /> */}
@@ -64,7 +71,6 @@ export default function RootLayout({
           `}
           </Script>
           <GoogleAnalytics gaId="G-VWY0773N6D" />
-
           {/* <Script id="newChat">
             {`
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
