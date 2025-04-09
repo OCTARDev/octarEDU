@@ -192,58 +192,13 @@ const NavBar = () => {
                   <Link href={`/${firstLink}/home/about`}>{tN("aboutUs")}</Link>
                 </li>
                 <li
-                  className={`${styles.dropbtn} ${
-                    pathname.includes("home/individual") ||
-                    pathname.includes("home/school")
-                      ? ` ${styles.active}`
-                      : ""
-                  } `}
+                  className={
+                    pathname.includes("home/individual") ? ` ${styles.active}` : ""
+                  }
                 >
-                  <span
-                    className={
-                      // pathname.includes("/home/individual") ||
-                      // pathname.includes("/home/school")
-                      //   ? `${styles.active} ${styles.dropbtn}`
-                      //   :
-
-                      `${styles.dropbtn}`
-                    }
-                  >
-                    {tN("subscriptions")}
-                  </span>
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
-                      fill="none"
-                    >
-                      <path
-                        d="M11.6538 2.00047L6.00002 7.6543L0.346191 2.00047L1.40002 0.946646L6.00002 5.54665L10.6 0.946646L11.6538 2.00047Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </span>
-                  <div className={styles.dropdown}>
-                    <ul
-                      className={`${styles["dropdown-content"]} ${
-                        isArabic && styles["align-right"]
-                      }`}
-                    >
-                      <li>
-                        <Link href={`/${firstLink}/home/individual`}>
-                          {tN("individual")}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href={`/${firstLink}/home/school`}>
-                          {tN("school")}
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
+                  <Link href={`/${firstLink}/home/individual/`}>{tN("subscriptions")}</Link>
                 </li>
+
                 <li
                   className={`${styles.dropbtn} ${
                     pathname.includes("home/educational-service")
