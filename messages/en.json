@@ -98,7 +98,8 @@
         "activities": "Activities",
         "songs": "Songs",
         "coloringCategories": "coloring categories",
-        "parents": "Parents Guide"
+        "parents": "Parents Guide",
+        "profile":"Profile"
     },
     "dashboardHome": {
         "howItWorks": "How it works ?",
@@ -176,6 +177,24 @@
         "pdfButton": "voice over",
         "activity": "activity",
         "parent": "Parents"
+    },
+    "dashboardProfile":{
+        "header":"Profile Management",
+        "editButton":"Edit Profile",
+        "information":"Profile Information",
+        "email":"email address",
+        "first":"first name",
+        "last":"last name",
+        "phone":"phone number",
+        "country":"country",
+        "passwordHeader":"update password",
+        "oldPassword":"old password",
+        "newPassword":"new password",
+        "cPassword":"Confirm New Password",
+        "submit":"submit",
+        "placeholderOldPassword":" Enter Old Password",
+        "placeholderNewPassword":" Enter New Password",
+        "placeholderCPassword":"Confirm Your Password"
     },
     "header": {
         "blog": "blog",

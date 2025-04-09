@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
   --grey-light: #f2daf2;
   --grey-white: #fff;
@@ -87,4 +92,11 @@ a {
   color: red;
   font-size: 0.9rem;
   padding-top: 0.3rem;
+}
+
+.input-control{
+  @apply flex flex-col gap-1;
+}
+.input-control>input,.input-control>select{
+  @apply border py-1 px-3 rounded-md;
 }

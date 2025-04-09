@@ -102,6 +102,17 @@ const DashNavBar = () => {
             Song
           </li>
         </Link>
+        <Link
+          href="/dashboard/slogan"
+          className={
+            pathname.includes("/dashboard/slogan") ? `${styles.active}` : ``
+          }
+        >
+          <li>
+            <SiActivitypub style={{ height: "20px", width: "25px" }} />
+            Song
+          </li>
+        </Link>
       </ul>
     </div>
   );

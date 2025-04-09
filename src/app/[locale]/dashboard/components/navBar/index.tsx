@@ -7,7 +7,7 @@ import { SiActivitypub } from "react-icons/si";
 import { GiLoveSong } from "react-icons/gi";
 import { useTranslations } from "next-intl";
 import { RiParentLine } from "react-icons/ri";
-
+import { CgProfile } from "react-icons/cg";
 const DashNavBar = () => {
   const pathname: string = usePathname();
   const t = useTranslations("dashboardNavBar");
@@ -17,7 +17,7 @@ const DashNavBar = () => {
   //console.log("firstLink", firstLink);
   return (
     <div className={`${styles.navContainer} ${isArabic ? "arabic" : ""}`}>
-      <ul>
+      <ul >
         <Link
           href={`/${firstLink}/dashboard/home`}
           className={
@@ -38,6 +38,19 @@ const DashNavBar = () => {
               />
             </svg>
             {t("home")}
+          </li>
+        </Link>
+        <Link
+          href={`/${firstLink}/dashboard/profile`}
+          className={`
+            ${pathname.includes("/dashboard/profile")
+              ? `${styles.active}`
+              : ``}
+          `}
+        >
+          <li>
+            <CgProfile  style={{ height: "20px", width: "25px" }} />
+            {t("profile")}
           </li>
         </Link>
         <Link
@@ -125,6 +138,7 @@ const DashNavBar = () => {
             {t("parents")}
           </li>
         </Link>
+
       </ul>
     </div>
   );

@@ -98,7 +98,8 @@
         "activities": "الانشطة",
         "songs": "الاغاني",
         "coloringCategories": "مجموعات التلوين",
-        "parents": "دليل الوالدين"
+        "parents": "دليل الوالدين",
+        "profile":" الملف الشخصي"
     },
     "dashboardHome": {
         "howItWorks": "كيف نستخدم   OCTAR ؟",
@@ -176,6 +177,24 @@
         "pdfButton": "النطق",
         "activity": "الانشطة",
         "parent": "الاباء"
+    },
+    "dashboardProfile": {
+    "header": "إدارة الملف الشخصي",
+    "editButton": "تعديل الملف الشخصي",
+    "information": "معلومات الملف الشخصي",
+    "email": "عنوان البريد الإلكتروني",
+    "first": "الاسم الأول",
+    "last": "الاسم الأخير",
+    "phone": "رقم الهاتف",
+    "country": "الدولة",
+    "passwordHeader": "تحديث كلمة المرور",
+    "oldPassword": "كلمة المرور الحالية",
+    "newPassword": "كلمة المرور الجديدة",
+    "cPassword": "تأكيد كلمة المرور الجديدة",
+    "submit":"تعديل",
+    "placeholderOldPassword":"ادخل الباسورد الحالية",
+    "placeholderNewPassword":"ادخل الباسورد الجديد",
+    "placeholderCPassword":"اكد الباسورد"
     },
     "header": {
         "blog": "المدونة",

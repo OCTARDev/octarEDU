@@ -198,39 +198,15 @@ const NavBar = () => {
                 >
                   <Link href={`/${firstLink}/home/individual/`}>{tN("subscriptions")}</Link>
                 </li>
-
                 <li
-                  className={`${styles.dropbtn} ${
-                    pathname.includes("home/educational-service")
-                      ? ` ${styles.active}`
-                      : ""
-                  } `}
+                  className={
+                    pathname.includes("home/educational-service") ? ` ${styles.active}` : ""
+                  }
                 >
-                  <span className={`${styles.dropbtn}`}>{tN("services")}</span>
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
-                      fill="none"
-                    >
-                      <path
-                        d="M11.6538 2.00047L6.00002 7.6543L0.346191 2.00047L1.40002 0.946646L6.00002 5.54665L10.6 0.946646L11.6538 2.00047Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </span>
-                  <div className={styles.dropdown}>
-                    <ul className={styles["dropdown-content"]}>
-                      <Link href={`/${firstLink}/home/educational-service`}>
-                        <li> {tN("educational")}</li>
-                      </Link>
-                      {/* <li>Advertisements</li>
-                      <li>Events</li> */}
-                    </ul>
-                  </div>
+                  <Link href={`/${firstLink}/home/educational-service/`}>{tN("services")}</Link>
                 </li>
+
+
                 <li
                   className={
                     pathname.includes("/home/contact-us")
