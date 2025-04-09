@@ -216,8 +216,8 @@ const Payment = () => {
   const seletedPayment = findData(selected);
 
   const checkOut = async (e: any) => {
-    e.preventDefault();
-    if (seletedPayment?.id === 2 || seletedPayment?.id === 3) {
+    e.preventDefault();    
+    if (seletedPayment?.id === 2 || seletedPayment?.id === 3 || seletedPayment?.id === 4) {
       const sendData = {
         payment_method_id: seletedPayment?.id,
         subscription_plan_id: seletedPayment?.Subscription_plan?.id,

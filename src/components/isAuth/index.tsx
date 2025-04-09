@@ -22,7 +22,7 @@ export default function IsAuth(Component: any) {
       if (!auth) {
         return router.push(`/${lang}/home`);
       }
-    }, []);
+    }, [auth]);
 
     if (!auth) {
       return;

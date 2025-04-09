@@ -14,13 +14,11 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    // <html lang={locale}>
     <section lang={locale}>
       <ToastContainer />
       <NextIntlClientProvider messages={messages}>
         {children}
       </NextIntlClientProvider>
     </section>
-    // </html>
   );
 }

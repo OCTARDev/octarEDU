@@ -71,26 +71,6 @@ export default function RootLayout({
           `}
           </Script>
           <GoogleAnalytics gaId="G-VWY0773N6D" />
-          {/* <Script id="newChat">
-            {`
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    var lang = navigator.language || navigator.userLanguage || "en"; // Fallback to "en" if no language detected
-if (!lang) {
-		return '000000000001/DEFAULT_WIDGET';
-	}
-
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67399ba62480f5b4f59f3ac6/1icsgg12q';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-      s1.setAttribute('data-tawk-language', lang); // Set widget language
-s0.parentNode.insertBefore(s1,s0);
-})();
-          `}
-          </Script> */}
-          {/* <TawkToWidget /> */}
         </WithTransition>
       </body>
     </html>
