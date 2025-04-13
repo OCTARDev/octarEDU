@@ -135,13 +135,13 @@ const WhatIsOctar = ({ data }: any) => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Image
-                  src={googleQr}
-                  alt="google play"
+                  src={appleQr}
+                  alt="app store"
                   className={styles.qr}
                 ></Image>
                 <Image
-                  src={appleQr}
-                  alt="app store"
+                  src={googleQr}
+                  alt="google play"
                   className={styles.qr}
                 ></Image>
               </div>
