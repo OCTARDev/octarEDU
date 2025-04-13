@@ -116,21 +116,24 @@ const WhatIsOctar = ({ data }: any) => {
           >
             <p>{t("des")}</p>
 
-            <div>
-              <a
-                href="https://apps.apple.com/eg/app/octar-3d-ar-coloring-for-kids/id6670721486"
-                target="_blank"
-              >
-                <Image src={appStore} alt="store" width="200"></Image>
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.adgroup.OCTAR"
-                target="_blank"
-              >
-                <Image src={playStore} alt="store" width="200"></Image>
-              </a>
+            <div className="flex flex-col items-center justify-center gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href="https://apps.apple.com/eg/app/octar-3d-ar-coloring-for-kids/id6670721486"
+                  target="_blank"
+                >
+                  <Image src={appStore} alt="store" width="200"></Image>
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.adgroup.OCTAR"
+                  target="_blank"
+                >
+                  <Image src={playStore} alt="store" width="200"></Image>
+                </a>
+              </div>
 
-              <div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Image
                   src={googleQr}
                   alt="google play"
