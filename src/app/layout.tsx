@@ -26,6 +26,7 @@ const open_sans = Open_Sans({
 export const metadata: Metadata = {
   title: "Octar",
   description: "Learning through Imagination",
+  
 };
 // const catamaran = Catamaran({
 //   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default function RootLayout({
           data-key="lziSOzvWTWFOuMLTTCYvmA"
           strategy="afterInteractive"
         />
+        <meta name="google-site-verification" content="Vvvhha5ULuRNSI7KP7PZLKiucU3VQfTRbBPkGw4fwNI" />
       </head>
       <body className={`${openSans.className} ${openSans.variable}`}>
         <ToastContainer />

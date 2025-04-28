@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import logo from "../../assets/logo.svg";
+import logo from "@/assets/logo.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -24,7 +24,11 @@ import { useTranslations } from "next-intl";
 import OtpInput from "react-otp-input";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "@/redux/reducers/auth/authSlice";
-
+import SideImageComponent from "../_components/SideImage";
+import Input from "@/shared/Input";
+import { FaRegUser, FaSchool } from "react-icons/fa";
+import { MdMailOutline } from "react-icons/md";
+import PasswordInput from "../_components/PasswordInput";
 type props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -145,7 +149,7 @@ const SingUp = () => {
       setData(res);
     };
     fetchApi();
-  }, []);
+  }, [lang]);
 
   const mapForErr = () => {
     if (err?.message) {
@@ -159,49 +163,21 @@ const SingUp = () => {
     }
   };
   const watchPassword = watch("password");
-
+  //validation checks under password
+  const validationChecks = [
+    { regex: /.{8,}/, message: `${t("password.requirement_1")}` },
+    { regex: /[A-Z]/, message: `${t("password.requirement_2")}` },
+    { regex: /[a-z]/, message: `${t("password.requirement_3")}` },
+    { regex: /[0-9]/, message: `${t("password.requirement_4")}` },
+    { regex: /[@$!%*?&]/, message: `${t("password.requirement_5")}` },
+  ];
   return (
     <div>
       <NavBar />
-      <div className={`${styles.loginContainer} ${isArabic && "arabic"}`}>
+      {/* <div className={`${styles.loginContainer} ${isArabic && "arabic"}`}>
         <div className={styles.content}>
-          <div style={{ paddingBottom: "1rem" }}>
-            <h1>{t("createAccount")}</h1>
-            <h2>{t("des")}</h2>
-          </div>
 
           <form onSubmit={handleSubmit(onSubmit)}>
-            {/* <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.5rem",
-              }}
-            >
-              <label>{t("accountType.label")}</label>
-              <div className={styles.firstDivRadio}>
-                {accountTypes?.map((e: any) => {
-                  return (
-                    <div className={styles.inputDiv} key={e?.id}>
-                      <div
-                        className={`${styles.inputContainer} ${styles.inputContainerRadio}`}
-                      >
-                        <input
-                          type="radio"
-                          {...register("account_type_id")}
-                          value={e?.id}
-                          disabled={e?.id === 2 ? true : false}
-                        />
-                        <label htmlFor="html">
-                          {isArabic ? e?.title_ar : e?.title_en}
-                        </label>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <p style={{ width: "100%" }}>{errors.account_type_id?.message}</p>
-            </div> */}
             <div className={styles.firstDiv}>
               <div className={styles.inputDiv}>
                 <label htmlFor="first_name">{t("firstName.label")}</label>
@@ -284,50 +260,7 @@ const SingUp = () => {
                 </button>
               </div>
 
-              <div className={styles.password}>
-                <p
-                  className={
-                    watchPassword?.length >= 8 ? styles.correct : styles.err
-                  }
-                >
-                  {watchPassword?.length >= 8 && <CheckIcon />}
-                  {t("password.requirement_1")}
-                </p>
-                <p
-                  className={
-                    /[A-Z]/.test(watchPassword) ? styles.correct : styles.err
-                  }
-                >
-                  {/[A-Z]/.test(watchPassword) && <CheckIcon />}
-                  {t("password.requirement_2")}
-                </p>
-                <p
-                  className={
-                    /[a-z]/.test(watchPassword) ? styles.correct : styles.err
-                  }
-                >
-                  {/[a-z]/.test(watchPassword) && <CheckIcon />}
-                  {t("password.requirement_3")}
-                </p>
-                <p
-                  className={
-                    /[0-9]/.test(watchPassword) ? styles.correct : styles.err
-                  }
-                >
-                  {/[0-9]/.test(watchPassword) && <CheckIcon />}
-                  {t("password.requirement_4")}
-                </p>
-                <p
-                  className={
-                    /[#?!@$%^&*-]/.test(watchPassword)
-                      ? styles.correct
-                      : styles.err
-                  }
-                >
-                  {/[#?!@$%^&*-]/.test(watchPassword) && <CheckIcon />}
-                  {t("password.requirement_5")}
-                </p>
-              </div>
+              
             </div>
             <div className={styles.inputDiv}>
               <label htmlFor="c_password">{t("confirmPassword.label")}</label>
@@ -362,10 +295,122 @@ const SingUp = () => {
           </form>
           {mapForErr()}
         </div>
-      </div>
-      {/* <div className={styles.otp}> */}
-
-      {/* </div> */}
+      </div> */}
+      <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 min-h-screen py-48 ${isArabic && "arabic"}`}>
+      {/* left form */}
+      <section className='flex flex-col gap-2 px-2'>
+        <div className='flex-grow flex flex-col items-center justify-center md:pb-10'>
+          <div className='flex flex-col gap-1 max-w-full'>
+            <h2 className='text-base sm:text-2xl font-bold mt-6'>{t("createAccount")}</h2>
+            <span className='text-start text-gray-500'>{t("des")}</span>
+            {/* form */}
+            <form className='mt-4 flex flex-col justify-center px-2 gap-4' onSubmit={handleSubmit(onSubmit)}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* first name */}
+                <Input
+                register={register}
+                icon={<FaRegUser size={18} className='text-gray-500'/>}
+                id={"first_name"}
+                placeholder={t("firstName.placeholder")}
+                type={"text"}
+                errors={errors}
+                />
+                {/* last name */}
+                <Input 
+                register={register}
+                icon={<FaRegUser size={18} className='text-gray-500'/>}
+                id={"last_name"}
+                placeholder={t("lastName.placeholder")}
+                type={"text"}
+                errors={errors}
+                />
+              </div>
+              
+              
+              {/* phone number */}
+              <div>
+              <label htmlFor="phone" >{t("phone")}</label>
+              <div
+                className="flex"
+                style={{ direction: "ltr", textAlign: "left" }}
+              >
+                <PhoneInput
+                  country={"us"}
+                  onChange={(value: any, country: any) => {
+                    setCountry(`+${country?.dialCode}`);
+                    setPhoneNO(value?.replace(`${country?.dialCode}`, ""));
+                  }}
+                  inputClass={styles["custom-phone-input"]}
+                />
+              </div>
+              </div>
+              <div className={styles.inputDiv}>
+                <label htmlFor="phone">{t("country.label")}</label>
+                <Select {...register("country")} fullWidth size="small">
+                  {countries?.map((e: any, index: number) => {
+                    return (
+                      <MenuItem value={e?.name} key={index}>
+                        {e?.name}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </div>
+              {/* email */}
+              <Input 
+                id="email"
+                placeholder={t("email.placeholder")}
+                register={register}
+                type={"email"}
+                icon={<MdMailOutline size={18} className='text-gray-500 font-bold'/>}
+                errors={errors}
+              />
+              {/* password */}
+              <PasswordInput
+              register={register}
+              placeholder={t("password.placeholder")}
+              id='password'
+              errors={errors}
+              />
+              {/* Validations */}
+              <ul className="mt-2 text-sm">
+                {validationChecks.map((check, index) => (
+                  <li key={index} className={check.regex.test(watchPassword) ? "text-green-500" : "text-red-500"}>
+                    {check.message}
+                  </li>
+                ))}
+              </ul>
+              
+              {/* confirm password */}
+              <PasswordInput 
+              register={register}
+              placeholder={t("confirmPassword.placeholder")}
+              id='c_password'
+              errors={errors}
+              />
+              {/* submit button */}
+              <div className='w-full mt-4'>
+                <button 
+                className='btn btn-primary w-full !py-3 !rounded-3xl' 
+                title='submit' 
+                type='submit'>
+                  {loading ? t("loading") : t("signupButton")}
+                </button>
+              </div>
+              {/* Link to login */}
+              <div className='text-sm text-center flex gap-1'>
+                <span>{t("alreadyHaveAccount.question")}</span>
+                <Link className='text-[#9e32a4] underline' href={`/${lang}/login`}>{t("alreadyHaveAccount.action")}</Link>
+              </div>
+            </form>
+            {mapForErr()}
+          </div>
+          
+        </div>
+      </section>
+      {/* right image */}
+      <SideImageComponent />
+    </div>
       <Footer />
     </div>
   );

@@ -100,3 +100,43 @@ a {
 .input-control>input,.input-control>select{
   @apply border py-1 px-3 rounded-md;
 }
+
+.nav-link{
+  @apply hover:text-[#a887a8];
+}
+.nav-link.active{
+    @apply text-[#9e32a4] font-bold;
+}
+
+.btn{
+  @apply px-2 sm:px-6 py-2 hover:cursor-pointer flex justify-center rounded-md font-semibold capitalize disabled:cursor-default;
+}
+
+.btn.btn-primary{
+  @apply  text-white disabled:bg-gradient-to-r disabled:bg-gray-500;
+  background: var(
+    --Gradiant,
+    linear-gradient(135deg, #4e5ae2 0%, #9e32a4 54.17%, #d552d8 100%)
+  );;
+}
+/* .btn.btn-secondary{
+  @apply bg-gray-300 hover:bg-gradient-primary text-[#9e32a4] hover:text-neutral10 disabled:bg-gradient-to-r disabled:bg-gray-500;
+} */
+.btn.btn-blue{
+  @apply bg-white text-[#9e32a4] border-[#9e32a4] border-2 rounded-lg hover:bg-blue-800 hover:text-white;
+}
+
+input,select,textarea{
+  @apply focus-visible:outline-none;
+}
+
+.input-c1{
+  @apply w-full flex items-center ps-2 gap-2 border overflow-hidden border-gray-300 rounded-2xl ;
+}
+
+.input-container{
+  @apply flex flex-col gap-1;
+}
+.input-container>input,.input-container>select,.input-container>textarea{
+  @apply border py-1 px-3 rounded-md;
+}
