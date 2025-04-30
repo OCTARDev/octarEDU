@@ -417,9 +417,13 @@
         "enterPass": "أدخل كلمة المرور",
         "forget": "هل نسيت كلمة المرور؟",
         "dont": "ليس لديك حساب",
-        "create": "سجل معنا "
+        "create": "سجل معنا ",
+        "youtube_link":"https://www.youtube.com/watch?v=cZkrWm0mOKc",
+        "youtube_label":"الفيديو التعريفي للتسجيل"
     },
     "signup": {
+        "youtube_link":"https://www.youtube.com/watch?v=cZkrWm0mOKc",
+        "youtube_label":"الفيديو التعريفي للتسجيل",
         "createAccount": "سجل معنا",
         "des": "ليس لديك حساب؟ قم بالتسجيل الآن للحصول على دخول فوري!",
         "accountType": {

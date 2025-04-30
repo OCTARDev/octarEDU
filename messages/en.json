@@ -416,9 +416,13 @@
         "enterPass": "Enter your password  ",
         "forget": "Forgot password ?",
         "dont": "Don’t have an account ?",
-        "create": "Sign up"
+        "create": "Sign up",
+        "youtube_link":"https://www.youtube.com/watch?v=L5615S2_zOQ",
+        "youtube_label":"Registeration tutorial video"
     },
     "signup": {
+        "youtube_link":"https://www.youtube.com/watch?v=L5615S2_zOQ",
+        "youtube_label":"Registeration tutorial video",
         "createAccount": "Sign up",
         "des": "Don’t have an account? Sign up now for instant access!",
         "accountType": {
@@ -471,6 +475,7 @@
         "loading": "Loading...",
         "account_created": "Account created successfully, Otp sent to youe email",
         "error_occurred": "An error occurred"
+
     },
     "forgetPassword": {
         "forgot_password": "Forget Password",

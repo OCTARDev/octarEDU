@@ -17,6 +17,9 @@ import Input from "@/shared/Input";
 import { FaRegUser } from "react-icons/fa";
 import PasswordInput from "../_components/PasswordInput";
 import SideImageComponent from "../_components/SideImage";
+import youtubeSVG from "@/assets/youtube.svg";
+import Image from "next/image";
+
 
 type props = {
   open: boolean;
@@ -128,6 +131,23 @@ const Login = () => {
                   <div className='text-sm text-center flex gap-1 justify-center'>
                     <span className='text-gray-500'>{t("dont")}</span>
                     <Link href={`/${firstLink}/sign-up`} className='text-primaryA1 hover:underline'>{t("create")}</Link>
+                  </div>
+                  {/* How To Register Video */}
+                  <div className="flex justify-center mt-2">
+                    <a 
+                    href={t("youtube_link")} 
+                    target="_blank" 
+                    className="border-2 w-fit px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+                      <span>
+                        <Image
+                      src={youtubeSVG}
+                      alt="youtube svg"
+                      width={32}
+                      height={32}
+                      />
+                      </span>
+                      <span>{t("youtube_label")}</span>
+                    </a>
                   </div>
                 </form>
                 

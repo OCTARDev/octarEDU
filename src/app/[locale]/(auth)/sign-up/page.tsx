@@ -29,11 +29,9 @@ import Input from "@/shared/Input";
 import { FaRegUser, FaSchool } from "react-icons/fa";
 import { MdMailOutline } from "react-icons/md";
 import PasswordInput from "../_components/PasswordInput";
-type props = {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setForm: React.Dispatch<React.SetStateAction<number>>;
-};
+import youtubeSVG from "@/assets/youtube.svg";
+
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -174,128 +172,6 @@ const SingUp = () => {
   return (
     <div>
       <NavBar />
-      {/* <div className={`${styles.loginContainer} ${isArabic && "arabic"}`}>
-        <div className={styles.content}>
-
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles.firstDiv}>
-              <div className={styles.inputDiv}>
-                <label htmlFor="first_name">{t("firstName.label")}</label>
-                <div className={styles.inputContainer}>
-                  <input
-                    {...register("first_name")}
-                    placeholder={t("firstName.placeholder")}
-                    type="text"
-                  />
-                </div>
-                <p>{errors.first_name?.message}</p>
-              </div>
-              <div className={styles.inputDiv}>
-                <label htmlFor="last_name">{t("lastName.label")}</label>
-                <div className={styles.inputContainer}>
-                  <input
-                    {...register("last_name")}
-                    placeholder={t("lastName.placeholder")}
-                    type="text"
-                  />
-                </div>
-                <p>{errors.last_name?.message}</p>
-              </div>
-            </div>
-
-            <div className={styles.inputDiv}>
-              <label htmlFor="phone">{t("phone")}</label>
-              <div
-                className={styles.inputContainer}
-                style={{ direction: "ltr", textAlign: "left" }}
-              >
-                <PhoneInput
-                  country={"us"}
-                  onChange={(value: any, country: any) => {
-                    setCountry(`+${country?.dialCode}`);
-                    setPhoneNO(value?.replace(`${country?.dialCode}`, ""));
-                  }}
-                  inputClass={styles["custom-phone-input"]}
-                />
-              </div>
-            </div>
-            <div className={styles.inputDiv}>
-              <label htmlFor="phone">{t("country.label")}</label>
-              <Select {...register("country")} fullWidth size="small">
-                {countries?.map((e: any, index: number) => {
-                  return (
-                    <MenuItem value={e?.name} key={index}>
-                      {e?.name}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </div>
-            <div className={styles.inputDiv}>
-              <label htmlFor="email">{t("email.label")}</label>
-              <div className={styles.inputContainer}>
-                <input
-                  {...register("email")}
-                  placeholder={t("email.placeholder")}
-                  type="text"
-                />
-              </div>
-              <p>{errors.email?.message}</p>
-            </div>
-            <div className={styles.inputDiv}>
-              <label htmlFor="password">{t("password.label")}</label>
-              <div className={styles.inputContainer}>
-                <input
-                  {...register("password")}
-                  type={show ? "text" : "password"}
-                  placeholder={t("password.placeholder")}
-                />
-                <button
-                  onClick={() => setShow(!show)}
-                  className={styles.eye}
-                  type="button"
-                  style={{ left: isArabic ? 12 : "95%" }}
-                >
-                  {show ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                </button>
-              </div>
-
-              
-            </div>
-            <div className={styles.inputDiv}>
-              <label htmlFor="c_password">{t("confirmPassword.label")}</label>
-              <div className={styles.inputContainer}>
-                <input
-                  {...register("c_password")}
-                  type={showC ? "text" : "password"}
-                  placeholder={t("confirmPassword.placeholder")}
-                />
-                <button
-                  onClick={() => setShowC(!showC)}
-                  className={styles.eye}
-                  type="button"
-                  style={{ left: isArabic ? 12 : "95%" }}
-                >
-                  {show ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                </button>
-              </div>
-              <p>{errors.c_password?.message}</p>
-            </div>
-            <div>
-              <button type="submit" className={styles.signIin}>
-                {loading ? t("loading") : t("signupButton")}
-              </button>
-            </div>
-            <div className={styles.lastDiv}>
-              <p>{t("alreadyHaveAccount.question")}</p>
-              <Link href={`/${lang}/login`}>
-                <button>{t("alreadyHaveAccount.action")}</button>
-              </Link>
-            </div>
-          </form>
-          {mapForErr()}
-        </div>
-      </div> */}
       <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 min-h-screen py-48 ${isArabic && "arabic"}`}>
       {/* left form */}
       <section className='flex flex-col gap-2 px-2'>
@@ -401,6 +277,23 @@ const SingUp = () => {
               <div className='text-sm text-center flex gap-1'>
                 <span>{t("alreadyHaveAccount.question")}</span>
                 <Link className='text-[#9e32a4] underline' href={`/${lang}/login`}>{t("alreadyHaveAccount.action")}</Link>
+              </div>
+              {/* How To Register Video */}
+              <div className="flex justify-center mt-2">
+                <a 
+                href={t("youtube_link")} 
+                target="_blank" 
+                className="border-2 w-fit px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+                  <span>
+                    <Image
+                  src={youtubeSVG}
+                  alt="youtube svg"
+                  width={32}
+                  height={32}
+                  />
+                  </span>
+                  <span>{t("youtube_label")}</span>
+                </a>
               </div>
             </form>
             {mapForErr()}
