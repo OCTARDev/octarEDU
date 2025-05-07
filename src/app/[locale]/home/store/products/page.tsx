@@ -40,6 +40,8 @@ const Products = () => {
   const pathname: string = usePathname();
   const isArabic = pathname.includes("/ar");
   const lang = pathname.split("/")[1];
+  console.log(lang);
+  
   const t = useTranslations("store");
   const productId = searchParams.get("single");
   const { data: ip, isLoading: ipLoading } = useGetIpQuery("");
@@ -237,7 +239,7 @@ const Products = () => {
                 <div className={styles.card} key={index}>
                   <Link
                     href={{
-                      pathname: "/home/store/single-product",
+                      pathname: `/${lang}/home/store/single-product`,
                       query: {
                         categoryID: productId,
                         productId: `${item?.id}`,
@@ -257,7 +259,7 @@ const Products = () => {
                   <div className={styles.details}>
                     <Link
                       href={{
-                        pathname: "/home/store/single-product",
+                        pathname: `/${lang}/home/store/single-product`,
                         query: {
                           categoryID: productId,
                           productId: `${item?.id}`,
