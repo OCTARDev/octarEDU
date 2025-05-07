@@ -1,5 +1,5 @@
 import React from 'react'
-import authImage from "@/assets/nobg.png";
+import authImage from "@/assets/bg.png";
 import Image from 'next/image'
 
 export default function SideImageComponent() {

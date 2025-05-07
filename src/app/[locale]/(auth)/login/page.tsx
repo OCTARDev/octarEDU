@@ -96,7 +96,7 @@ const Login = () => {
             {/* left form */}
             <section className='flex flex-col gap-2 px-2'>
               <div className='flex-grow flex flex-col items-center justify-center'>
-                <form className='flex flex-col gap-1 pb-4' onSubmit={handleSubmit(onSubmit)}>
+                <form className='flex flex-col gap-5 pb-4' onSubmit={handleSubmit(onSubmit)}>
                   <h1 className='text-3xl font-bold text-center'>{t("signIn")}</h1>
                   <span className='text-start text-gray-500 font-bold'>{t("des")}</span>
                   {/* form */}
@@ -117,7 +117,7 @@ const Login = () => {
                   />
                   {/* remember me &  Forgot password */}
                   <div className='flex gap-3 my-2 justify-end px-2 text-sm text-gray-500'>
-                    <Link className='hover:underline' href={`/${firstLink}/forget-password`}>{t("forget")}</Link>
+                    <Link className='hover:underline text-[#9e32a4] font-bold' href={`/${firstLink}/forget-password`}>{t("forget")}</Link>
                   </div>
                   {/* Button */}
                   <div>
@@ -130,10 +130,10 @@ const Login = () => {
                   {/* Link to register */}
                   <div className='text-sm text-center flex gap-1 justify-center'>
                     <span className='text-gray-500'>{t("dont")}</span>
-                    <Link href={`/${firstLink}/sign-up`} className='text-primaryA1 hover:underline'>{t("create")}</Link>
+                    <Link href={`/${firstLink}/sign-up`} className='text-[#9e32a4] font-bold hover:underline'>{t("create")}</Link>
                   </div>
                   {/* How To Register Video */}
-                  <div className="flex justify-center mt-2">
+                  <div className="flex justify-center mt-2 capitalize font-semibold">
                     <a 
                     href={t("youtube_link")} 
                     target="_blank" 
