@@ -15,6 +15,8 @@ import {
 } from "@/redux/rtk/categoriesBeforeLogin";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { FilterDropdown } from "@/components/dropdown";
+import { FaUser } from "react-icons/fa";
 const isAuthenticated = () => {
   try {
     if (typeof window !== "undefined") {
@@ -50,59 +52,14 @@ const CategoriesProducts = ({ lang }: { lang: string }) => {
   const isFirstRender = useRef(true);
   const [firstRender, setFirstRender] = useState(true);
   let params = {
-    word,
+    search:word,
     status,
     lang,
   };
+
   const t = useTranslations("dashBoardcoloring");
-  // const { data, isLoading, isFetching } =
-  //   useGetCategoriesBeforeLoginQuery(params);
   const [fetchApi, { data, isLoading, isFetching }] =
     useLazyGetCategoriesBeforeLoginQuery();
-  // const fetchApi = async () => {
-  //   await setLoading(true);
-  //   const data = await fetch(
-  //     `${mainUrl}/category-page?search=${word}&status=${status}`
-  //   )
-  //     .then((response) => {
-  //       setLoading(false);
-  //       return response.json();
-  //     })
-  //     .catch((e) => {
-  //       //console.log("EEEEEEEEEEEEEEEE", e);
-  //       setLoading(false);
-  //     });
-  //   setData(data);
-  // };
-  // React.useLayoutEffect(() => {
-  //   if (firstRender) {
-  //     setFirstRender(false);
-  //   } else {
-  //     fetchApi();
-  //   }
-  // }, [status]);
-  // React.useLayoutEffect(() => {
-  //   const fetchApi = async () => {
-  //     await setLoading(true);
-  //     const data = await fetch(
-  //       `${mainUrl}/category-page?search=${word}&status=${status}`
-  //     )
-  //       .then((response) => {
-  //         setLoading(false);
-  //         return response.json();
-  //       })
-  //       .catch((e) => {
-  //         //console.log("EEEEEEEEEEEEEEEE", e);
-  //         setLoading(false);
-  //       });
-  //     setData(data);
-  //   };
-  //   const delayDebounceFn = setTimeout(() => {
-  //     fetchApi();
-  //   }, 550);
-
-  //   return () => clearTimeout(delayDebounceFn);
-  // }, [word]);
   React.useLayoutEffect(() => {
     const delayDebounceFn = setTimeout(
       () => {
@@ -127,76 +84,61 @@ const CategoriesProducts = ({ lang }: { lang: string }) => {
   const lastPathName = pathname.split("/");
   let firstLink = lastPathName[1];
   const tN = useTranslations("categoriesPage");
+  const options = [
+    { label: tN("options.all"), value: "all" },
+    { label: tN("options.free") , value: "free" },
+    { label:tN("options.english"), value: "english" },
+    { label: tN("options.arabic"), value: "arabic" },
+  ]
   return (
     <>
       <div className={`${styles.container} ${isArabic && "arabic"}`}>
         <div className={styles.filter}>
           <div className={styles.header}>
-            <h1>{tN("availableCategories")}</h1>
-            <div className={styles.btns}>
-              <button
-                onClick={async () => setStatus("all")}
-                className={status === "all" ? styles.selected : ""}
+            <span className="bg-[#F2DAF2] rounded-full p-1">
+              <FaUser  color="#321433"/>
+            </span>
+            <h1 className="capitalize font-bold text-lg">{tN("availableCategories")}</h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className={styles.inputContainer}>
+              <input
+                placeholder={t("filters.search")}
+                onChange={(e) => {
+                  setWords(e.target.value);
+                }}
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
               >
-                {t("filters.all")}
-              </button>
-              <button
-                onClick={() => setStatus("free")}
-                className={status === "free" ? styles.selected : ""}
-              >
-                {t("filters.free")}
-              </button>
-              {/* <button
-                onClick={() => setStatus("featured")}
-                className={status === "featured" ? styles.selected : ""}
-              >
-                {t("filters.featured")}
-              </button> */}
-              <button
-                onClick={() => setStatus("english")}
-                className={status === "english" ? styles.selected : ""}
-              >
-                {t("filters.english")}
-              </button>
-              <button
-                onClick={() => setStatus("arabic")}
-                className={status === "arabic" ? styles.selected : ""}
-              >
-                {t("filters.arabic")}
-              </button>
+                <path
+                  d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                  stroke="#725073"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20.9999 20.9999L16.6499 16.6499"
+                  stroke="#725073"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              {/* {loading ? "Loading...." : ""} */}
             </div>
-          </div>
-          <div className={styles.inputContainer}>
-            <input
-              placeholder={t("filters.search")}
-              onChange={(e) => {
-                setWords(e.target.value);
-              }}
+            <FilterDropdown 
+              status={status}
+              setStatus={setStatus}
+              options={options}
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                stroke="#725073"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M20.9999 20.9999L16.6499 16.6499"
-                stroke="#725073"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            {/* {loading ? "Loading...." : ""} */}
           </div>
+
         </div>
         <div>
           <Grid

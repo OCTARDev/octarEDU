@@ -15,6 +15,8 @@ import {
   useGetColoringCategoriesQuery,
   useLazyGetColoringCategoriesQuery,
 } from "@/redux/rtk/coloringCategories";
+import { FaUser } from "react-icons/fa";
+import { FilterDropdown } from "@/components/dropdown";
 
 const style = {
   position: "absolute" as "absolute",
@@ -43,7 +45,7 @@ type auth = {
 };
 const Products = () => {
   // const [data, setData] = React.useState<any>();
-  const [word, setWord] = React.useState("");
+  const [word, setWords] = React.useState("");
   const [status, setStatus] = useState("all");
   const [firstRender, setFirstRender] = useState(true);
   const params = useSearchParams();
@@ -53,7 +55,7 @@ const Products = () => {
   const useData: auth = isAuthenticated();
   const [open, setOpen] = React.useState(false);
   const paramsApi = {
-    word,
+    search:word,
     status,
     lang,
   };
@@ -69,31 +71,6 @@ const Products = () => {
     Authorization: `Bearer ${token}`,
     "X-App-Locale": lang,
   };
-  // const fetchApi = async () => {
-  //   await setLoading(true);
-  //   const data = await fetch(
-  //     `${mainUrl}/category-user?search=${word}&status=${status}`,
-  //     {
-  //       headers: header,
-  //     }
-  //   )
-  //     .then((response) => {
-  //       setLoading(false);
-  //       return response.json();
-  //     })
-  //     .catch((e) => {
-  //       // //console.log("EEEEEEEEEEEEEEEE", e);
-  //       setLoading(false);
-  //     });
-  //   setData(data);
-  // };
-  // React.useLayoutEffect(() => {
-  //   if (firstRender) {
-  //     setFirstRender(false);
-  //   } else {
-  //     fetchApi();
-  //   }
-  // }, [status]);
   console.log("paramsApi", paramsApi);
   React.useLayoutEffect(() => {
     const delayDebounceFn = setTimeout(
@@ -110,91 +87,63 @@ const Products = () => {
     setSingleProduct(item);
     handleOpen();
   };
+    const tN = useTranslations("categoriesPage");
+    const options = [
+      { label: tN("options.all"), value: "all" },
+      { label: tN("options.free") , value: "free" },
+      { label:tN("options.english"), value: "english" },
+      { label: tN("options.arabic"), value: "arabic" },
+    ]
   console.log("dataNew", dataNew);
   return (
     <div>
       <div className={styles.filter}>
-        <div className={styles.header}>
-          <div className={styles.first}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-            >
-              <path
-                d="M12 12.5C10.9 12.5 9.95833 12.1083 9.175 11.325C8.39167 10.5417 8 9.6 8 8.5C8 7.4 8.39167 6.45833 9.175 5.675C9.95833 4.89167 10.9 4.5 12 4.5C13.1 4.5 14.0417 4.89167 14.825 5.675C15.6083 6.45833 16 7.4 16 8.5C16 9.6 15.6083 10.5417 14.825 11.325C14.0417 12.1083 13.1 12.5 12 12.5ZM4 20.5V17.7C4 17.1333 4.14583 16.6125 4.4375 16.1375C4.72917 15.6625 5.11667 15.3 5.6 15.05C6.63333 14.5333 7.68333 14.1458 8.75 13.8875C9.81667 13.6292 10.9 13.5 12 13.5C13.1 13.5 14.1833 13.6292 15.25 13.8875C16.3167 14.1458 17.3667 14.5333 18.4 15.05C18.8833 15.3 19.2708 15.6625 19.5625 16.1375C19.8542 16.6125 20 17.1333 20 17.7V20.5H4Z"
-                fill="#321433"
+          <div className={styles.header}>
+            <span className="bg-[#F2DAF2] rounded-full p-1">
+              <FaUser  color="#321433"/>
+            </span>
+            <h1 className="capitalize font-bold text-lg">{tN("availableCategories")}</h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className={styles.inputContainer}>
+              <input
+                placeholder={t("filters.search")}
+                onChange={(e) => {
+                  setWords(e.target.value);
+                }}
               />
-            </svg>
-            <h1>{t("coloringCategories")}</h1>
-          </div>
-          <div className={styles.btns}>
-            <button
-              onClick={async () => setStatus("all")}
-              className={status === "all" ? styles.selected : ""}
-            >
-              {t("filters.all")}
-            </button>
-            <button
-              onClick={() => setStatus("free")}
-              className={status === "free" ? styles.selected : ""}
-            >
-              {t("filters.free")}
-            </button>
-            {/* <button
-              onClick={() => setStatus("featured")}
-              className={status === "featured" ? styles.selected : ""}
-            >
-              {t("filters.featured")}
-            </button> */}
-            <button
-              onClick={() => setStatus("english")}
-              className={status === "english" ? styles.selected : ""}
-            >
-              {t("filters.english")}
-            </button>
-            <button
-              onClick={() => setStatus("arabic")}
-              className={status === "arabic" ? styles.selected : ""}
-            >
-              {t("filters.arabic")}
-            </button>
-          </div>
-        </div>
-        <div className={styles.inputContainer}>
-          <input
-            placeholder={t("filters.search")}
-            onChange={(e) => {
-              setWord(e.target.value);
-            }}
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-              stroke="#725073"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                  stroke="#725073"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20.9999 20.9999L16.6499 16.6499"
+                  stroke="#725073"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              {/* {loading ? "Loading...." : ""} */}
+            </div>
+            <FilterDropdown
+              status={status}
+              setStatus={setStatus}
+              options={options}
             />
-            <path
-              d="M20.9999 20.9999L16.6499 16.6499"
-              stroke="#725073"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          {/* {loading ? "Loading...." : ""} */}
+          </div>
+
         </div>
-      </div>
       {loading ? (
         <Loader />
       ) : (

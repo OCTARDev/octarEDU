@@ -99,7 +99,8 @@
         "songs": "Songs",
         "coloringCategories": "coloring categories",
         "parents": "Parents Guide",
-        "profile":"Profile"
+        "profile":"Profile",
+        "products":"Products"
     },
     "dashboardHome": {
         "howItWorks": "How it works ?",
@@ -359,7 +360,20 @@
         "title": "Title",
         "description": "Description",
         "targetDes": "Discover amazing creatures in OCTAR's Animals category. Designed for young explorers, this section brings six fascinating animals to life: the mighty lion, gentle elephant, tall giraffe, delicate butterfly, busy bee, and hopping frog. Through colorful AR experiences, children learn about animal characteristics, habitats, and behaviors. Watch as 2D drawings transform into interactive 3D models, allowing kids to observe and engage with these animals up close in a safe, virtual environment.",
-        "back": "Back to categories"
+        "back": "Back to categories",
+        "options":{
+            "all": "All",
+            "free":"free",
+            "english":"english",
+            "arabic":"اللغة العربية"
+        }
+    },
+    "codeCategoriesPage":{
+        "products":"Products",
+        "havecode":"Have a code ?",
+        "enterlabel":"Enter The Product Code To Block All Categories",
+        "searchlabel":"Insert Product Code",
+        "confirm":"Confirm"
     },
     "footer": {
         "send": "send",

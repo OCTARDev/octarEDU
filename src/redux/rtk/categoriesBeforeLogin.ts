@@ -10,9 +10,9 @@ export const categoriesBeforeLogin = createApi({
   baseQuery: baseQuery,
   endpoints: (builder) => ({
     getCategoriesBeforeLogin: builder.query({
-      query: ({ status, word, lang }) => ({
+      query: ({ status, search, lang }) => ({
         url: `/category-page`,
-        params: { status, word },
+        params: { status, search },
         headers: {
           "X-App-Locale": `${lang}`,
         },

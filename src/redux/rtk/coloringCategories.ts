@@ -8,13 +8,13 @@ export const coloringCategories = createApi({
   tagTypes: ["coloringCategories"],
   endpoints: (builder) => ({
     getColoringCategories: builder.query<any, any>({
-      query: ({ lang, word, status }) => ({
+      query: ({ lang, search, status }) => ({
         url: `category-user`,
         headers: {
           "X-App-Locale": `${lang}`,
         },
         params: {
-          search: word,
+          search,
           status: status,
         },
         providesTags: ["coloringCategory"],

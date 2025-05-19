@@ -16,6 +16,7 @@ import { Otp } from "../rtk/otp";
 import { coloringCategories } from "../rtk/coloringCategories";
 import { navigationMiddleware } from "../middleware";
 import { Profile } from "../rtk/profile";
+import { codeCategories } from "../rtk/CodeCategories";
 
 export const makeStore: any = () => {
   return configureStore({
@@ -36,6 +37,7 @@ export const makeStore: any = () => {
       [Otp.reducerPath]: Otp.reducer,
       [coloringCategories.reducerPath]: coloringCategories.reducer,
       [Profile.reducerPath]:Profile.reducer,
+      [codeCategories.reducerPath]: codeCategories.reducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
@@ -51,7 +53,8 @@ export const makeStore: any = () => {
         Activity.middleware,
         Otp.middleware,
         coloringCategories.middleware,
-        Profile.middleware
+        Profile.middleware,
+        codeCategories.middleware,
         // navigationMiddleware
       ),
   });
