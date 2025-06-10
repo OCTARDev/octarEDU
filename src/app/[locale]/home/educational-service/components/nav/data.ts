@@ -8,11 +8,21 @@ import aRColoringEnvironmentimg1 from "../../../../../../assets/Categories/5.web
 import aRColoringEnvironmentimg2 from "../../../../../../assets/Categories/6.webp";
 export const octarColoring = {
   id: 1,
-  title: "OCTAR Coloring",
-  contnet:
-    "Are you ready to unlock a world of creativity, fun, and interactive learning for students and kids? Meet OCTAR, the cutting-edge Augmented Reality (AR) app designed to transform your educational and leisure time into an extraordinary 3D experience. ",
-  img1: octarColoringimg1,
-  img2: octarColoringimg2,
+  sections:[
+    {
+      id: 1,
+      title: "Web-AR Application Development for Business",
+      content:
+        "Developing Web-AR augmented reality applications in the browser opens up new opportunities for brands and businesses.  Web-AR technology allows you to significantly increase the conversion rate and the primary sales. It is achieved due to the fact that the potential customers with an ordinary cell phone or tablet can try on your product directly in their space. This makes your product more user-friendly and the decision-making process much easier. The result is an up to 300% sales increase.",
+    },
+    {
+      id: 2,
+      title: "Web-AR Application Development for Education",
+      content:
+        "Web-AR technology is a powerful tool for education. It allows you to create interactive and engaging learning experiences that can significantly enhance the learning process. With Web-AR, students can visualize complex concepts, interact with 3D models, and engage in immersive learning activities. This not only makes learning more enjoyable but also improves retention and understanding of the material.",
+    }
+  ],
+  cover: octarColoringimg1,
 };
 
 export const aRColoringBooks = {

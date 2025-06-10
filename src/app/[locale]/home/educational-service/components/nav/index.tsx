@@ -1,83 +1,44 @@
 "use client";
 import React from "react";
 import styles from "./style.module.scss";
-import {
-  aRColoringBooks,
-  aRColoringBooksAR,
-  aRColoringEnvironment,
-  aRColoringEnvironmentAR,
-  aRColoringStories,
-  aRColoringStoriesAR,
-  octarColoring,
-  octarColoringAR,
-} from "./data";
-import Hero from "../hero";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useGetServiceCategoriesQuery } from "@/redux/rtk/services";
+import Loader from "@/components/loader";
+import Link from "next/link";
+
 const EducationsNav = () => {
-  const [value, setValue] = React.useState<string>("OCTAR Coloring");
   const pathname: string = usePathname();
   const isArabic = pathname.includes("/ar");
+  const lang = pathname.split("/")[1];
+  const lastPathName = pathname.split("/");
+  let firstLink = lastPathName[1];  
   const t = useTranslations("EducationalPage.filter");
-  const handleChange = (event: any) => {
-    //console.log("Value", event.target.value);
-    setValue(event.target.value);
-  };
-  let obj: any;
-  if (value === "OCTAR Coloring") {
-    obj = isArabic ? octarColoringAR : octarColoring;
-    //console.log("OCTAR Coloring true");
-  }
-  if (value === "AR Coloring Books") {
-    obj = isArabic ? aRColoringBooksAR : aRColoringBooks;
-  }
-  if (value === "AR Coloring Stories") {
-    obj = isArabic ? aRColoringStoriesAR : aRColoringStories;
-  }
-  if (value === "AR Coloring Environment") {
-    obj = isArabic ? aRColoringEnvironmentAR : aRColoringEnvironment;
-  }
+  const {data,isLoading,} = useGetServiceCategoriesQuery(lang);
+  const categories = data?.data?.categories;
+  console.log(categories);
 
+  if (isLoading ) {
+    return <Loader />;
+  }
   return (
     <>
       <div className={`${styles.hero} ${isArabic && "arabic"}`}>
-        <div>
-          <button
-            value="OCTAR Coloring"
-            onClick={handleChange}
-            className={value === "OCTAR Coloring" ? `${styles.active}` : ""}
-          >
-            {t("coloring")}
-          </button>
-          <button
-            value="AR Coloring Books"
-            onClick={handleChange}
-            className={value === "AR Coloring Books" ? `${styles.active}` : ""}
-          >
-            {t("books")}
-          </button>
-          <button
-            value="AR Coloring Stories"
-            onClick={handleChange}
-            className={
-              value === "AR Coloring Stories" ? `${styles.active}` : ""
-            }
-          >
-            {t("stories")}
-          </button>
-
-          <button
-            value="AR Coloring Environment"
-            onClick={handleChange}
-            className={
-              value === "AR Coloring Environment" ? `${styles.active}` : ""
-            }
-          >
-            {t("enviroment")}
-          </button>
+        <div className="flex justify-center">
+          {
+            categories?.map((c:any,i:number)=>{
+              return(
+              <Link
+                key={i}
+                href={`/${firstLink}/home/educational-service/single/${c?.id}`}
+              >
+                {c?.title}
+              </Link>
+              )
+            })
+          }
         </div>
       </div>
-      <Hero obj={obj} isArabic={isArabic} />
     </>
   );
 };

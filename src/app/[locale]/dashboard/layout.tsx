@@ -15,7 +15,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <DashHeader></DashHeader>
+      <DashHeader/>
       <div className={`${styles.container} ${isArabic ? "arabic" : ""}`}>
         <div className={styles.nav}>
           <DashNavBar />
