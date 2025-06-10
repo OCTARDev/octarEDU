@@ -43,7 +43,8 @@ const SingleService = () => {
           return(
             <section key={i} className="flex flex-col gap-2 my-8 items-center">
               <h3 className="font-bold text-2xl">{s?.title}</h3>
-              <p>{s?.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: s?.description }} />
+              {/* <p>{s?.description}</p> */}
               <div className="w-full h-full flex-shrink-0 relative">
                 <Image 
                 src={s?.media}
