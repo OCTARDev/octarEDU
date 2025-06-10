@@ -6,7 +6,7 @@ const EducationalService = () => {
   return (
     <div>
       <Header />
-      {/* <EducationsNav /> */}
+      <EducationsNav />
     </div>
   );
 };
