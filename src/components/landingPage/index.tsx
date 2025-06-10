@@ -12,7 +12,7 @@ import useSWR from "swr";
 import { usePathname } from "next/navigation";
 import { useGetHomeQuery } from "@/redux/rtk/homePage";
 
-const LandPage = async () => {
+const LandPage = () => {
   const pathname: string = usePathname();
   const isArabic = pathname.includes("/ar");
   const fullLink = pathname.split("/");

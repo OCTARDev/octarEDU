@@ -15,7 +15,6 @@ const SingleService = () => {
   const t = useTranslations("EducationalPage");
 
   const {data,isLoading} = useGetServiceQuery({lang,id});
-  console.log(data?.data);
   const slider = data?.data?.slider?.map((img:any,i:any)=>{
     return {
       src:img,
@@ -35,9 +34,19 @@ const SingleService = () => {
         images={slider}
         />
       </div>
+      <div>
+      </div>
       {/* Sections */}
       <div className="mt-12 px-12 flex flex-col gap-8 max-w-screen-xl mx-auto">
         <h2 className="font-bold text-4xl text-center mt-4 capitalize">{data?.data?.title}</h2>
+        <iframe
+          style={{width:"100%",height:"500px" ,border:"none"}}
+          src={data?.data?.video_url}
+          title="YouTube Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       {
         sections?.map((s:any,i:number)=>{
           return(
