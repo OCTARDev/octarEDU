@@ -10,13 +10,12 @@ import { upContainerVariant } from "@/animation";
 import { usePathname } from "next/navigation";
 import styles from "./style.module.scss";
 import { user } from "@/types";
-import { signOut } from "@/app/dashboard/lib";
 import SiwtchingForms from "../switchForms";
 import { useWindowSize } from "../widthSreen";
 import { logOut } from "@/redux/reducers/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useTranslations } from "next-intl";
-import VerifyWarning from "../VerifyWarning";
+import { signOut } from "@/app/[locale]/dashboard/lib";
 
 const NavBar = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -84,12 +83,6 @@ const NavBar = () => {
         className={`${styles.navContainer} `}
         transition={{ type: "tween", duration: 1, delay: 0.1 }}
       >
-        {
-        isLogged && !userData?.user?.email_verified_at && 
-        <div className="hidden xl:flex w-full">
-        <VerifyWarning />
-        </div>
-        }
         
         <div className={styles.header}>
           <div>
@@ -325,12 +318,6 @@ const NavBar = () => {
       </motion.div>
 
       <div className={styles.slidingNav}>
-      {
-        isLogged && !userData?.user?.email_verified_at && 
-        <div className="flex xl:hidden w-full">
-        <VerifyWarning />
-        </div>
-        }
         <nav>
           <ul>
             <li>

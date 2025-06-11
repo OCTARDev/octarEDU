@@ -1,28 +1,15 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/logo.svg";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./style.module.scss";
-import { Box, Modal, Typography } from "@mui/material";
-import { redirect, usePathname } from "next/navigation";
+import {  usePathname } from "next/navigation";
 import { toast } from "react-toastify";
-import { mainUrl } from "@/lib";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import NavBar from "@/components/navBar";
 import Footer from "@/components/footer";
-import Link from "next/link";
-import Swal from "sweetalert2";
-import { useLoginMutation } from "@/redux/rtk/auth";
-import { useDispatch } from "react-redux";
-import { loginSuccess } from "@/redux/reducers/auth/authSlice";
 import { useTranslations } from "next-intl";
 import OtpInput from "react-otp-input";
 import { useResendOTPMutation, useVerifyEmailMutation } from "@/redux/rtk/otp";
-import { log } from "util";
 
 type props = {
   open: boolean;
