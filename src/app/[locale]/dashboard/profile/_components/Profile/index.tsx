@@ -1,7 +1,9 @@
 "use client";
 import ErrorBoundary from '@/components/ErrorBoundary';
+import { useResendOTPMutation } from '@/redux/rtk/otp';
 import { useGetHelpQuery, useGetProfileQuery, useUpdateProfileMutation } from '@/redux/rtk/profile';
 import { useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaUser } from "react-icons/fa";
@@ -19,16 +21,20 @@ type FormValues = {
 
 
 export default function ProfileSection() {
-  const [disabled,setDisabled] = useState(true);
+  const [disabled,setDisabled] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const lang = pathname.split("/")[1];
   const { data,isLoading,isError,error} = useGetProfileQuery();
   const {data:helpData,isLoading:helpIsLoading,isError:helpIsError,error:helpError} = useGetHelpQuery();  
   const {reset,register,handleSubmit,formState:{errors}} = useForm<FormValues>();
-
+  console.log(data);
+  
   const t = useTranslations("dashboardProfile");
   useEffect(()=>{
     if(data){
       const {first_name,last_name,email,phone,country_code,country} = data?.data;
-      const numberOnly = country_code.replace(/\D/g,"");      
+      const numberOnly = country_code?.replace(/\D/g,"");      
       reset({first_name,last_name,email,phone,country_code:numberOnly,country})
     }
   },[data,reset]);
@@ -54,7 +60,13 @@ export default function ProfileSection() {
       
     }
   },[updateIsError,isSuccess,updateError])
-  
+  const [resendOTP] = useResendOTPMutation();
+  const handleResendOTP = async()=>{
+    const resendRes = await resendOTP({}).unwrap();
+    console.log("res",resendRes?.message);
+    toast.success(resendRes?.message ||"OTP Sent To your email ")
+    router.push(`/${lang}/otp`)
+  }
   return (
     <div className='flex flex-col gap-8'>
       <div className='flex md:justify-between md:flex-row flex-col'>
@@ -62,7 +74,7 @@ export default function ProfileSection() {
           <span className='bg-[#9E32A4]/20 p-2 rounded-full'><FaUser size={22} color='#9E32A4'/></span>
           <span>{t("header")}</span>
         </div>
-        <div>
+{/*         <div>
           <button 
           type='button'
           className='px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-800'
@@ -70,12 +82,12 @@ export default function ProfileSection() {
           >
             {t("editButton")}
           </button>
-        </div>
+        </div> */}
       </div>
       <ErrorBoundary isLoading={isLoading || helpIsLoading} isError={helpIsError || isError } error={error || helpError}>
       <section className='rounded-lg border p-3'>
         <h2 className='mb-10 font-bold text-2xl'>{t("information")}</h2>
-        <form className='flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
+        <form className='flex flex-col gap-4 capitalize' onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}
           <div className='input-control'>
             <label>{t("email")}</label>
@@ -86,6 +98,23 @@ export default function ProfileSection() {
               disabled
             />
           </div>
+          {
+            !data?.data?.email_verified_at && 
+          <div>
+            <button 
+            onClick={handleResendOTP}
+            type='button'
+            className='
+            bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 
+            px-4 py-3 hover:cursor-pointer flex justify-between items-center capitalize hover:scale-[1.05] 
+            transition-all duration-300'
+            >
+              please verify your email
+            </button>
+          </div>
+          }
+          
+
           {/* First and last Name */}
           <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
             <div className='input-control'>
@@ -136,6 +165,12 @@ export default function ProfileSection() {
                 />
               </div>
             </div>
+            {
+              !data?.data?.phone && 
+              <div className='text-xs text-red-500 font-semibold px-1 mt-2'>
+                Please Enter Your Phone Number
+              </div>
+            }
           </div>
           {errors.phone && 
             <p className='text-red-500 text-sm'>{errors?.phone.message}</p>}
@@ -158,7 +193,7 @@ export default function ProfileSection() {
           {/* Button */}
           <div className='flex justify-end'>
             <button 
-              className='px-4 py-2 bg-[#9A32A4] text-white rounded-xl hover:bg-[#9A32A4]/80 disabled:bg-black'
+              className='px-4 py-2 bg-[#9A32A4] text-white rounded-xl hover:bg-[#9A32A4]/80 disabled:bg-black capitalize'
               disabled={disabled}
               type='submit'
               >

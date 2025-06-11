@@ -64,13 +64,11 @@ const OtpPage = () => {
   }, [counter]);
   const t = useTranslations("login");
 
-  console.log("counter", counter);
   useEffect(() => {
     if (isSuccess) {
       router.push(`/${firstLink}/dashboard/home`);
     }
   }, [isSuccess]);
-  console.log("otp.length", otp.length);
   const onSubmit = async (e: any) => {
     e.preventDefault();
     try {

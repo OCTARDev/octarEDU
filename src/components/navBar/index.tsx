@@ -14,12 +14,12 @@ import { signOut } from "@/app/dashboard/lib";
 import SiwtchingForms from "../switchForms";
 import { useWindowSize } from "../widthSreen";
 import { logOut } from "@/redux/reducers/auth/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useTranslations } from "next-intl";
+import VerifyWarning from "../VerifyWarning";
 
 const NavBar = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const usssse: any = useSelector((state: any) => state?.auth);
   const { push } = useRouter();
   const pathname: string = usePathname();
   const isArabic = pathname.includes("/ar");
@@ -30,20 +30,15 @@ const NavBar = () => {
   const handleChange = () => {
     setOpen(!open);
   };
-  const goToDashBoard = async () => {
-    push("/dashboard");
-  };
   const dispatch = useDispatch();
 
   const [openForm, setOpenForm] = React.useState<boolean>(false);
-  const handleChangeForm = () => {
-    setOpenForm(!openForm);
-  };
   const getTheUserData: user | any =
     typeof window !== "undefined" ? localStorage.getItem("octar") : false;
   const userData = JSON.parse(getTheUserData);
   const isLoggedWithToken = userData?.token ? true : false;
-
+  console.log(userData);
+  
   const [isLogged, setIsLogged] = useState(false);
 
   useLayoutEffect(() => {
@@ -89,6 +84,13 @@ const NavBar = () => {
         className={`${styles.navContainer} `}
         transition={{ type: "tween", duration: 1, delay: 0.1 }}
       >
+        {
+        isLogged && !userData?.user?.email_verified_at && 
+        <div className="hidden xl:flex w-full">
+        <VerifyWarning />
+        </div>
+        }
+        
         <div className={styles.header}>
           <div>
             <span>Get in touch</span>
@@ -323,6 +325,12 @@ const NavBar = () => {
       </motion.div>
 
       <div className={styles.slidingNav}>
+      {
+        isLogged && !userData?.user?.email_verified_at && 
+        <div className="flex xl:hidden w-full">
+        <VerifyWarning />
+        </div>
+        }
         <nav>
           <ul>
             <li>
@@ -348,7 +356,7 @@ const NavBar = () => {
             </li>
           </ul>
         </nav>
-      </div>
+      </div> 
       <SlidingPane open={open} setOpen={setOpen} firstLink={firstLink} />
       <SiwtchingForms open={openForm} setOpen={setOpenForm}></SiwtchingForms>
     </>

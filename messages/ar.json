@@ -88,6 +88,10 @@
         "home": "الصفحة الرئيسية",
         "about": "عن"
     },
+    "warning":{
+        "h1":"قم بتفعيل الاكونت",
+        "h2":"من فضلك فعل الاكونت ليمكنك استخدام كل مزايا الموقع"
+    },
     "LocaleSwitcher": {
         "locale": "{locale, select, ar {Arabic} en {English} other {Unknown}}"
     },

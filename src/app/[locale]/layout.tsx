@@ -1,3 +1,4 @@
+import ClientProvider from "@/components/VerifyWarning";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ToastContainer, toast } from "react-toastify";

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { auth, clickSubscription, getIp, isAuthenticated } from "../../lib";
 import axios from "axios";
 import Loader from "@/components/loader";
@@ -10,9 +10,13 @@ import { mainUrl } from "@/lib";
 import { toast } from "react-toastify";
 import PaymentMethods from "../components/paymentMethods";
 import { useTranslations } from "next-intl";
-
+import { GoAlertFill } from "react-icons/go";
+import { IoMdClose } from "react-icons/io";
+import ErrorModal from "@/components/ErrorModal";
 const Payment = () => {
   const [data, setdata] = React.useState<any>();
+  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
   const [res, setRes] = useState<any>("");
   const [couponRes, setCouponRes] = useState<any>();
   const params = useSearchParams();
@@ -42,16 +46,24 @@ const Payment = () => {
   let couponCurrency = couponRes?.data?.data?.currency || "";
   let couponID = couponRes?.data?.data?.id;
 
-  const handlClick = async (single: any) => {
-    await setLoading(true);
-    let params = {
-      user_ip: ip,
-      subscription_id: id,
-    };
-    const data = await clickSubscription(params, lang);
-    await setLoading(false);
-    await setdata(data);
+const handlClick = async (single: any) => {
+  setLoading(true);
+  let params = {
+    user_ip: ip,
+    subscription_id: id,
   };
+  try {
+    const data = await clickSubscription(params, lang);
+    toast.success(data?.message);
+    setdata(data);
+  } catch (e: any) {
+    // Show confirmation dialog
+    setShowModal(true);
+  } finally {
+    setLoading(false);
+  }
+};
+
   const checkOutPayPal = async (dataa: any) => {
     const useData: auth = isAuthenticated();
     const token: any = useData?.token || "";
@@ -179,7 +191,7 @@ const Payment = () => {
   useEffect(() => {
     getData();
   }, []);
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchApi = async () => {
       await handlClick(id);
     };
@@ -300,6 +312,18 @@ const Payment = () => {
   console.log("data", data?.data?.subscription_plan);
   return (
     <div>
+      {showModal && (
+        <ErrorModal
+          onConfirm={() => {
+            setShowModal(false);
+            router.push(`/${lang}/dashboard/profile`);
+          }}
+          onCancel={() => {
+            setShowModal(false);
+            router.push(`/${lang}/dashboard/subscription`);
+          }}
+        />
+      )}
       <Link href={`/${lang}/dashboard/subscription`}>
         <div className={styles.nav}>
           <svg

@@ -12,6 +12,7 @@ export const Profile = createApi({
         method: "GET",
       }),
       providesTags: ["profile"],
+      keepUnusedDataFor: 0,
     }),
     getHelp: builder.query<any, void>({
       query: () => ({

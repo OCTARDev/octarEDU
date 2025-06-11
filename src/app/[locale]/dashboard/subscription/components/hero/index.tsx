@@ -12,14 +12,18 @@ import { useTranslations } from "next-intl";
 import { arPlans, enPlans } from "./staticData";
 import LottieContainer from "@/animation/lottie";
 import animation from "../../../../../../../Animation-gift.json";
+import { useGetProfileQuery } from "@/redux/rtk/profile";
+import ErrorModal from "@/components/ErrorModal";
 const Hero = ({ subscription_plans, loading }: any) => {
   const t = useTranslations("dashboardSubscription");
   const tN = useTranslations("individual");
+  const [showModal,setShowModal] = useState(false);
   const params = useSearchParams();
   const pathname: string = usePathname();
   const lang = pathname.split("/")[1];
   const isArabic = pathname.includes("/ar");
-
+  const {data:userData} = useGetProfileQuery();
+  const user = userData?.data;
   //console.log("lang", lang);
   const message = params.get("message");
   const [ip, setIp] = useState("");
@@ -44,7 +48,20 @@ const Hero = ({ subscription_plans, loading }: any) => {
       window.history.replaceState(null, "", `/${lang}/dashboard/subscription`);
     }
   };
-
+  const handleRoute = (id:any)=>{
+    if(user?.email_verified_at && user?.phone){
+    router.push(`/${lang}/dashboard/subscription/payment?id=${id}`)
+    }else{
+      setShowModal(true)
+    }
+  }
+  const handleCancelModal = ()=>{
+    setShowModal(false);
+  }
+  const handleConfirmModal = ()=>{
+    setShowModal(false);
+    router.push(`/${lang}/dashboard/profile`)
+  }
   useLayoutEffect(() => {
     if (message) {
       if (message == "Transaction Success") {
@@ -90,6 +107,14 @@ const Hero = ({ subscription_plans, loading }: any) => {
         </>
       ) : (
         <>
+        {
+          showModal && 
+          <ErrorModal 
+            onCancel={handleCancelModal}
+            onConfirm={handleConfirmModal}
+          />
+        }
+
           <div className={styles.plansContainer}>
             {subscription_plans?.map((single: any) => {
               return (
@@ -153,14 +178,16 @@ const Hero = ({ subscription_plans, loading }: any) => {
                     </ul>
                   </div>
                   <div className={styles.third}>
-                    <Link
-                      href={{
+                    <button
+                    type="button"
+                    onClick={()=>handleRoute(single?.id)}
+                      /* href={{
                         pathname: `/${lang}/dashboard/subscription/payment`,
                         query: { id: `${single?.id}` },
-                      }}
+                      }} */
                     >
-                      <button>{t("subscribe")}</button>
-                    </Link>
+                      {t("subscribe")}
+                    </button>
                   </div>
                 </div>
               );

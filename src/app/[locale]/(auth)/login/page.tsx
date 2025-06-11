@@ -31,6 +31,7 @@ const Login = () => {
   const lastPathName = pathname.split("/");
   let firstLink = lastPathName[1];
   const isArabic = pathname.includes("/ar");
+  const lang = pathname.split("/")[1];
   const [loading, setLoading] = useState<boolean>(false);
   const [login, { isLoading, isError, isSuccess, data }] = useLoginMutation();
   const dispatch = useDispatch();
@@ -67,6 +68,7 @@ const Login = () => {
       const res = await login({ ...data }).unwrap();
       await localStorage.setItem("octar", JSON.stringify(res.data));
       await dispatch(loginSuccess());
+      router.push(`/${lang}/home`);
       if (res?.data?.email_verified_at) {
         // await router.push(`/${firstLink}/dashboard/home`);
       } else {
@@ -74,6 +76,8 @@ const Login = () => {
       }
       // await router.push(`/${firstLink}/dashboard/home`);
     } catch (error: any) {
+      console.log(error);
+      
       toast.error(`${error.data.message}`);
     }
   };

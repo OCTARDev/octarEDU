@@ -63,26 +63,37 @@ export const getSongs = async () => {
 };
 
 export const clickSubscription = async (paramss: any, lang: string) => {
-  const useData: auth = isAuthenticated();
+  try {
+    const useData: auth = isAuthenticated();
+    const token: any = useData?.token || "";
 
-  const token: any = useData?.token || "";
+    const header = {
+      Authorization: `Bearer ${token}`,
+      "X-App-Locale": lang,
+      Accept: "application/json"
+    };
+    const { user_ip, subscription_id } = paramss;
+    const params = {
+      user_ip: user_ip,
+      subscription_id: subscription_id,
+    };
+    const queryParams = new URLSearchParams(params).toString();
 
-  const header = {
-    Authorization: `Bearer ${token}`,
-    "X-App-Locale": lang,
-  };
-  const { user_ip, subscription_id } = paramss;
-  const params = {
-    user_ip: user_ip,
-    subscription_id: subscription_id,
-  };
-  const queryParams = new URLSearchParams(params).toString();
+    const response = await fetch(
+      `${mainUrl}/subscription/click-subscription?${queryParams}`,
+      { headers: header }
+    );
 
-  const data = await fetch(
-    `${mainUrl}/subscription/click-subscription?${queryParams}`,
-    { headers: header }
-  ).then((response) => response.json());
-  return data;
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || "Failed to click subscription");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    throw new Error(error.message || "Unknown error");
+  }
 };
 
 export const checkOutPayPal = async (dataa: any) => {

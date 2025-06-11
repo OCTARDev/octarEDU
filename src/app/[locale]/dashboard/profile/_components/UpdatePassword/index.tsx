@@ -60,7 +60,7 @@ export default function UpdatePasswordSection() {
         }
       },[isError,isSuccess,error])
   return (
-    <section className='rounded-lg border p-3'>
+    <section className='rounded-lg border p-3 capitalize'>
         <h3 className='text-2xl font-bold mb-10'>{t("passwordHeader")}</h3>
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4'> 
             {/* old password */}
@@ -99,7 +99,7 @@ export default function UpdatePasswordSection() {
             {/* Button */}
             <div className='flex justify-end'>
                 <button 
-                className='px-4 py-2 bg-[#9A32A4] text-white rounded-xl hover:bg-[#9A32A4]/80 disabled:bg-black'
+                className='px-4 py-2 bg-[#9A32A4] text-white rounded-xl hover:bg-[#9A32A4]/80 disabled:bg-black capitalize'
                 type='submit'
                 >
                     {t("submit")}

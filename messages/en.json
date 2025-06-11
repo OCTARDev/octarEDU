@@ -88,6 +88,10 @@
         "home": "Home",
         "about": "About"
     },
+    "warning":{
+        "h1":"Account Verification Required",
+        "h2":"Please verify your account to access all features."
+    },
     "LocaleSwitcher": {
         "locale": "{locale, select, ar {Arabic} en {English} other {Unknown}}"
     },
@@ -487,7 +491,7 @@
             "action": "Sign in"
         },
         "loading": "Loading...",
-        "account_created": "Account created successfully, Otp sent to youe email",
+        "account_created": "Account created successfully, Otp sent to your email",
         "error_occurred": "An error occurred"
 
     },

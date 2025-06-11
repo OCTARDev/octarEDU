@@ -53,13 +53,10 @@ const SingUp = () => {
   const router = useRouter();
   const pathname: string = usePathname();
   const lang = pathname.split("/")[1];
-  const [otp, setOtp] = useState("");
   const isArabic = pathname.includes("/ar");
   const [err, setErr] = useState<any>();
   const [phone, setPhoneNO] = React.useState<any>();
   const [country_code, setCountry] = React.useState<any>();
-  const [show, setShow] = React.useState<boolean>(false);
-  const [showC, setShowC] = React.useState<boolean>(false);
   const schema = yup.object({
     first_name: yup.string().required(t("firstName.required")),
     last_name: yup.string().required(t("lastName.required")),
@@ -111,13 +108,13 @@ const SingUp = () => {
           setLoading(false);
           toast.success(t("account_created"));
           if (typeof window !== "undefined") {
-            console.log("heyooo",response?.data.data);
+            /* console.log("heyooo",response?.data.data); */
             
             localStorage.setItem("octar", JSON.stringify(response?.data?.data));
           }
           dispatch(loginSuccess());
           // router.push(`/${lang}/dashboard/home`);
-          router.push(`/${lang}/otp`);
+          router.push(`/${lang}/home`);
         })
         .catch(function (error) {
           setLoading(false);
@@ -126,12 +123,8 @@ const SingUp = () => {
         });
     } catch (e) {}
   };
-  const handleOpt = () => {};
-  const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
   const [data, setData] = React.useState<any>();
-  const accountTypes = data?.data?.account_types;
   const countries = data?.data?.countries;
   React.useEffect(() => {
     const fetchApi = async () => {
