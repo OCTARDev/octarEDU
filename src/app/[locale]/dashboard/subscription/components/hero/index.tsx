@@ -1,7 +1,6 @@
 "use client";
 import React, { useLayoutEffect, useState } from "react";
 import styles from "./style.module.scss";
-import { clickSubscription } from "@/app/dashboard/lib";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -14,6 +13,8 @@ import LottieContainer from "@/animation/lottie";
 import animation from "../../../../../../../Animation-gift.json";
 import { useGetProfileQuery } from "@/redux/rtk/profile";
 import ErrorModal from "@/components/ErrorModal";
+import { clickSubscription } from "../../../lib";
+
 const Hero = ({ subscription_plans, loading }: any) => {
   const t = useTranslations("dashboardSubscription");
   const tN = useTranslations("individual");
@@ -40,7 +41,7 @@ const Hero = ({ subscription_plans, loading }: any) => {
       user_ip: ip,
       subscription_id: single?.id,
     };
-    const data = await clickSubscription(params);
+    const data = await clickSubscription(params,lang);
     await setdata(data);
   };
   const click = () => {

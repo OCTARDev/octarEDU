@@ -1,10 +1,8 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./style.module.scss";
 import { mainUrl } from "@/lib";
 import Hero from "../hero";
-import axios from "axios";
-import { useUserIp } from "@/app/dashboard/components/getIp";
 import Loader from "@/components/loader";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
