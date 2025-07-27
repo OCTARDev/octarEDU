@@ -1,13 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
-import Header from "../header";
 import Image from "next/image";
-import img1 from "../../../../../../assets/productDisplay/Rectangle 39.png";
-import img2 from "../../../../../../assets/productDisplay/Rectangle 53.png";
-import img3 from "../../../../../../assets/productDisplay/Rectangle 54.png";
-import img4 from "../../../../../../assets/productDisplay/Rectangle 55.png";
-import img5 from "../../../../../../assets/productDisplay/Rectangle 56.png";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useGetIpQuery } from "@/redux/rtk/ip";
 import Loader from "@/components/loader";
@@ -17,17 +11,34 @@ import { useAddToCartMutation, useGetAllCartQuery } from "@/redux/rtk/cart";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
-import { Skeleton } from "@mui/material";
-import Link from "next/link";
+import FAQComponent from "../FAQ";
+import SimilarProducts from "../SimilarProducts";
+import KeyFeaturesComponent from "../Features";
+import { AnimatePresence } from "framer-motion";
+import { FaFacebookF, FaInstagramSquare, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { Play } from "lucide-react";
+import VideoModal from "@/components/VideoModal";
+import InTheBoxComponent from "../InTheBox";
+
+
+const vidsArray = [
+  {
+    id:1,
+    name:"Video",
+    src:"/vidtest.mp4"
+  }
+]
 
 const ProductDisplay = () => {
   const reducers: any = useSelector((reducer: any) => reducer?.auth);
+  const [showVideoModal, setShowVideoModal] = useState<boolean>(false);
+  const [currentVideo, setCurrentVideo] = useState<any | null>(null);
+  const [tapIndex , setTapIndex] = useState<number>(0);
   const searchParams = useSearchParams();
   const productId = searchParams.get("productId");
   const { data: ip, isLoading } = useGetIpQuery("");
   const [amount, setAmount] = useState<number>(1);
   const router = useRouter();
-  const [selectedId, setSelectedID] = useState();
   const [loading, setLoading] = useState(false);
   const pathname = usePathname();
   const lang = pathname.split("/")[1];
@@ -40,7 +51,7 @@ const ProductDisplay = () => {
     user_ip: ip?.ip,
     id: productId,
   };
-  const fireLogin = () => {
+  const fireLogin = async() => {
     return Swal.fire({
       title: "You need to login",
       text: "Please login to continue",
@@ -57,23 +68,11 @@ const ProductDisplay = () => {
     isLoading: productLoading,
     isFetching,
   } = useGetSingleProductQuery(params);
-  const {
-    data: cartData,
-    isLoading: carttLoading,
-    isFetching: cartFetching,
-  } = useGetAllCartQuery("");
-  const findSingleProduct = () => {
-    let singleProduct = cartData?.data?.cart.find(
-      (item: any) => item.product_id == productId
-    );
-    return singleProduct;
-  };
-
-  let initalNumber: number = Number(findSingleProduct()?.amount);
-  //console.log("initalNumber", initalNumber);
 
   const [addToCart, { isLoading: cartLoading }] = useAddToCartMutation();
   const singleItem = data?.data?.product;
+  /* console.log(singleItem); */
+  
   const [selectedImg, setSelectedImg] = useState<any>(
     singleItem?.media[0]?.file_path
   );
@@ -118,49 +117,25 @@ const ProductDisplay = () => {
       fireLogin();
     }
   };
-  const addToCartSimilarRequest = async (product_id: any) => {
-    setSelectedID(product_id);
-    let sendData = {
-      product_id: product_id,
-      user_ip: ip?.ip,
-      amount: 1,
-    };
-    try {
-      await addToCart(sendData).unwrap();
-      await toast.success("Added to Cart");
-    } catch (e: any) {
-      if (e?.status === 401) {
-        toast.error("You are not logged in");
-        Swal.fire({
-          title: "You need to login",
-          text: "Please login to continue",
-          icon: "warning",
-          confirmButtonText: "Login",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push(`/${lang}/login`);
-          }
-        });
-      }
-      Swal.fire({
-        title: "Error",
-        text: e?.data?.message,
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
-    }
+  const playVideo = (video:any) => {
+    setCurrentVideo(video);
+    setShowVideoModal(true);
   };
+
   if (isLoading || productLoading) {
     return <Loader />;
   }
-  //console.log("cartData", cartData?.data?.cart);
-
-  //console.log("productId", productId);
-  //console.log("filePath", singleItem?.media[0]?.file_path);
-  //console.log("selectedImg", selectedImg);
   return (
     <>
+      {
+        showVideoModal && currentVideo && 
+        <VideoModal 
+          setShowVideoModal={setShowVideoModal}
+          currentVideo={currentVideo}        
+        />
+      }
       <div className={styles.container}>
+        {/* left gallery */}
         <div className={styles.imageGallery}>
           <div className={styles.thumbnailList}>
             {singleItem?.media?.map((e: any) => {
@@ -178,7 +153,22 @@ const ProductDisplay = () => {
                 />
               );
             })}
+            {
+              singleItem?.videos?.map((v:any)=>{
+                return(
+                  <span 
+                  onClick={()=>playVideo(v)}
+                  key={v.id} 
+                  className="w-14 h-14 flex justify-center items-center cursor-pointer border-2 mb-1 rounded-lg"
+                  >
+                    <Play  size={28}/>
+                  </span>
+                  
+                )
+              })
+            }
           </div>
+          
           <div className={styles.mainImage}>
             {loading ? (
               <>Loading...</>
@@ -196,37 +186,42 @@ const ProductDisplay = () => {
             )}
           </div>
         </div>
-        <div className={styles.productDetails}>
-          <h2>{singleItem?.title}</h2>
-          <p className={styles.description}>
-            <strong>Description:</strong> {singleItem?.description}
-            <br />
-            <br />
-            {singleItem?.sub_info?.map((e: any) => {
-              return (
-                <div key={e?.id}>
-                  - {e?.key}: {e?.value}
-                  <br />
-                </div>
-              );
-            })}
-            {/* <br />
-            - key: Value
-            <br />
-            - key: Value
-            <br /> */}
-            <br />
-            {/* Neque auctor tincidunt pulvinar tristique pellentesque pretium quis.
-            Sed tortor sit orci aliquet nunc. */}
+        {/* right info */}
+        <div className="w-3/6 flex flex-col capitalize">
+          {/* Title */}
+          <h2 className="font-extrabold mb-4">{singleItem?.title}</h2>
+          {/* Description */}
+          <p className="flex flex-col">
+            <strong className="text-[#9e32a4]">Description:</strong>
+            <span className="text-gray-500 text-sm">{singleItem?.description}</span>
           </p>
-          <div className={styles.quantity}>
-            <button onClick={() => handleMinusAmount()}>-</button>
-            <span>{isNaN(amount) ? 0 : amount}</span>
-            <button onClick={() => handleAddAmount()}>+</button>
+          {/* Quantity and Discount  */}
+          <div className="flex items-center gap-4">
+            {/* quantity  */}
+            <div className={styles.quantity}>
+              <button onClick={() => handleMinusAmount()}>-</button>
+              <span>{isNaN(amount) ? 0 : amount}</span>
+              <button onClick={() => handleAddAmount()}>+</button>
+            </div>
+            {/* Discount  */}
+            {/* <div>
+              <input 
+              type="text" 
+              className="border p-2"
+              placeholder="Enter Discount Code"
+              />
+            </div> */}
           </div>
           <p className={styles.stock}>
             {singleItem?.available} items available in the stock
           </p>
+          <div className="my-2 flex items-center gap-4">
+            <span className="font-bold transition-all duration-500">Share:</span>
+            <FaFacebookF size={20} className="text-[#9e32a4] hover:text-[#a887a8] hover:cursor-pointer hover:scale-[1.25] transition-all duration-500"/>
+            <FaTwitter size={20} className="text-[#9e32a4] hover:text-[#a887a8] hover:cursor-pointer hover:scale-[1.25] transition-all duration-500"/>
+            <FaLinkedinIn size={20} className="text-[#9e32a4] hover:text-[#a887a8] hover:cursor-pointer hover:scale-[1.25] transition-all duration-500"/>
+            <FaInstagramSquare size={20} className="text-[#9e32a4] hover:text-[#a887a8] hover:cursor-pointer hover:scale-[1.25] transition-all duration-500"/>
+          </div>
           <div className={styles.cartContainer}>
             <div>
               <p className={styles.price}>
@@ -245,98 +240,34 @@ const ProductDisplay = () => {
           </div>
         </div>
       </div>
-      <div className={styles.grid}>
-        {isFetching ? (
-          <div>
-            <Skeleton variant="rectangular" width={"100%"} height={250} />
-            <Skeleton
-              variant="text"
-              sx={{ fontSize: "1rem" }}
-              width={70}
-              height={40}
-            />
-            <Skeleton
-              variant="text"
-              sx={{ fontSize: "1rem" }}
-              width={"100%"}
-              height={60}
-            />
-            <Skeleton variant="text" width={140} height={40} />
-          </div>
-        ) : (
-          <>
-            {data?.data?.similar_products?.map((item: any, index: number) => (
-              <div className={styles.card} key={index}>
-                <Link
-                  href={{
-                    pathname: "/home/store/single-product",
-                    query: {
-                      categoryID: productId,
-                      productId: `${item?.id}`,
-                    },
-                  }}
-                >
-                  <Image
-                    src={item.single_media?.file_path}
-                    alt={item.title}
-                    className={styles.image}
-                    width={341.33}
-                    height={274}
-                  />
-                </Link>
-
-                <div className={styles.details}>
-                  <Link
-                    href={{
-                      pathname: "/home/store/single-product",
-                      query: {
-                        categoryID: productId,
-                        productId: `${item?.id}`,
-                      },
-                    }}
-                  >
-                    <div className={styles.flex}>
-                      <h2>{item.title}</h2>
-                    </div>
-                    <p className={styles.description}>
-                      <span>Description: </span>
-                      {item.description}
-                    </p>
-                    <p className={styles.stock}>
-                      {item.available > 0
-                        ? "available in the stock"
-                        : "NOt available"}
-                    </p>
-                  </Link>
-                  <div className={styles.flex}>
-                    <div className={styles.flexFirst}>
-                      <p className={styles.price}>
-                        {item?.price} {item?.currency}
-                      </p>
-
-                      <p className={styles.originalPrice}>
-                        Instead of {item?.instead_of}
-                      </p>
-                    </div>
-                    <div>
-                      <button
-                        onClick={() => addToCartSimilarRequest(item?.id)}
-                        className={styles.button}
-                      >
-                        {item?.id === selectedId ? (
-                          <> {cartLoading ? "Adding..." : "Add to cart"}</>
-                        ) : (
-                          "Add to cart"
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </>
-        )}
+      <div className="w-full flex gap-2 items-center justify-center py-2 mt-4">
+        <button className={`btn ${tapIndex === 0 ? "bg-[#9e32a4] text-white":"text-[#9e32a4] border"} `} onClick={()=>setTapIndex(0)}>key features</button>
+        <button className={`btn ${tapIndex === 1 ? "bg-[#9e32a4] text-white":"text-[#9e32a4] border"}`} onClick={()=>setTapIndex(1)}>faqs</button>
+        <button className={`btn ${tapIndex === 2 ? "bg-[#9e32a4] text-white":"text-[#9e32a4] border"}`} onClick={()=>setTapIndex(2)}>In The Box</button>
       </div>
+      <AnimatePresence>
+      {
+        tapIndex === 0 ? (
+          <KeyFeaturesComponent data={singleItem?.key_features}/>
+        ) :
+        tapIndex === 1 ? (
+          <FAQComponent data={singleItem?.f_a_qs}/>
+        ) : 
+          tapIndex === 2 ? (
+            <InTheBoxComponent data={singleItem?.in_boxes}/>
+          ):
+        <></>
+      }
+      </AnimatePresence>
+      <SimilarProducts 
+        isFetching={isFetching}
+        data={data}
+        productId={productId}
+        lang={lang}
+        ip={ip}
+        addToCart={addToCart}
+        cartLoading={cartLoading}
+      />
       <Subtotal />
     </>
   );

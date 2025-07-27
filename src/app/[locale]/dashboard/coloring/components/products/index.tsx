@@ -93,6 +93,7 @@ const Products = () => {
       { label: tN("options.free") , value: "free" },
       { label:tN("options.english"), value: "english" },
       { label: tN("options.arabic"), value: "arabic" },
+      { label: tN("options.product"), value: "product" },
     ]
   console.log("dataNew", dataNew);
   return (

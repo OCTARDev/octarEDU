@@ -36,7 +36,7 @@ const NavBar = () => {
     typeof window !== "undefined" ? localStorage.getItem("octar") : false;
   const userData = JSON.parse(getTheUserData);
   const isLoggedWithToken = userData?.token ? true : false;
-  console.log(userData);
+  /* console.log(userData); */
   
   const [isLogged, setIsLogged] = useState(false);
 

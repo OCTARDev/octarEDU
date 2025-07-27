@@ -51,9 +51,9 @@ export const firstArr = [
             y2="0.496065"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_679_23439"
@@ -63,9 +63,9 @@ export const firstArr = [
             y2="7.70997"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_679_23439"
@@ -75,9 +75,9 @@ export const firstArr = [
             y2="21.9819"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint3_linear_679_23439"
@@ -87,9 +87,9 @@ export const firstArr = [
             y2="37.5985"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint4_linear_679_23439"
@@ -99,9 +99,9 @@ export const firstArr = [
             y2="7.71659"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint5_linear_679_23439"
@@ -111,9 +111,9 @@ export const firstArr = [
             y2="21.9819"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint6_linear_679_23439"
@@ -123,9 +123,9 @@ export const firstArr = [
             y2="37.5989"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint7_linear_679_23439"
@@ -135,9 +135,9 @@ export const firstArr = [
             y2="35.9069"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23439">
             <rect width="46.4658" height="48" fill="white" />
@@ -173,9 +173,9 @@ export const firstArr = [
             y2="50.4671"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23462">
             <rect width="50.2326" height="48" fill="white" />
@@ -209,9 +209,9 @@ export const firstArr = [
             y2="32.1093"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
         </defs>
       </svg>
@@ -274,9 +274,9 @@ export const firstArrArabic = [
             y2="0.496065"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_679_23439"
@@ -286,9 +286,9 @@ export const firstArrArabic = [
             y2="7.70997"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_679_23439"
@@ -298,9 +298,9 @@ export const firstArrArabic = [
             y2="21.9819"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint3_linear_679_23439"
@@ -310,9 +310,9 @@ export const firstArrArabic = [
             y2="37.5985"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint4_linear_679_23439"
@@ -322,9 +322,9 @@ export const firstArrArabic = [
             y2="7.71659"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint5_linear_679_23439"
@@ -334,9 +334,9 @@ export const firstArrArabic = [
             y2="21.9819"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint6_linear_679_23439"
@@ -346,9 +346,9 @@ export const firstArrArabic = [
             y2="37.5989"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint7_linear_679_23439"
@@ -358,9 +358,9 @@ export const firstArrArabic = [
             y2="35.9069"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23439">
             <rect width="46.4658" height="48" fill="white" />
@@ -396,9 +396,9 @@ export const firstArrArabic = [
             y2="50.4671"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23462">
             <rect width="50.2326" height="48" fill="white" />
@@ -432,9 +432,9 @@ export const firstArrArabic = [
             y2="32.1093"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
         </defs>
       </svg>
@@ -469,9 +469,9 @@ export const secondArr = [
             y2="40.597"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23450">
             <rect width="41.113" height="48" fill="white" />
@@ -509,9 +509,9 @@ export const secondArr = [
             y2="45.4623"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23452">
             <rect width="45.6048" height="48" fill="white" />
@@ -567,9 +567,9 @@ export const secondArr = [
             y2="37.2416"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_679_23454"
@@ -579,9 +579,9 @@ export const secondArr = [
             y2="47.9999"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_679_23454"
@@ -591,9 +591,9 @@ export const secondArr = [
             y2="14.0687"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint3_linear_679_23454"
@@ -603,9 +603,9 @@ export const secondArr = [
             y2="24.8276"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint4_linear_679_23454"
@@ -615,9 +615,9 @@ export const secondArr = [
             y2="23.4668"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint5_linear_679_23454"
@@ -627,9 +627,9 @@ export const secondArr = [
             y2="45.5521"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23454">
             <rect width="48" height="48" fill="white" />
@@ -667,9 +667,9 @@ export const secondArr = [
             y2="48.0856"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23448">
             <rect width="48" height="48" fill="white" />
@@ -708,9 +708,9 @@ export const secondArrArabic = [
             y2="40.597"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23450">
             <rect width="41.113" height="48" fill="white" />
@@ -748,9 +748,9 @@ export const secondArrArabic = [
             y2="45.4623"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23452">
             <rect width="45.6048" height="48" fill="white" />
@@ -806,9 +806,9 @@ export const secondArrArabic = [
             y2="37.2416"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_679_23454"
@@ -818,9 +818,9 @@ export const secondArrArabic = [
             y2="47.9999"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_679_23454"
@@ -830,9 +830,9 @@ export const secondArrArabic = [
             y2="14.0687"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint3_linear_679_23454"
@@ -842,9 +842,9 @@ export const secondArrArabic = [
             y2="24.8276"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint4_linear_679_23454"
@@ -854,9 +854,9 @@ export const secondArrArabic = [
             y2="23.4668"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <linearGradient
             id="paint5_linear_679_23454"
@@ -866,9 +866,9 @@ export const secondArrArabic = [
             y2="45.5521"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23454">
             <rect width="48" height="48" fill="white" />
@@ -906,9 +906,9 @@ export const secondArrArabic = [
             y2="48.0856"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#4E5AE2" />
-            <stop offset="0.541667" stop-color="#9E32A4" />
-            <stop offset="1" stop-color="#D552D8" />
+            <stop stopColor="#4E5AE2" />
+            <stop offset="0.541667" stopColor="#9E32A4" />
+            <stop offset="1" stopColor="#D552D8" />
           </linearGradient>
           <clipPath id="clip0_679_23448">
             <rect width="48" height="48" fill="white" />

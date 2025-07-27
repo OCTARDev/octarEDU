@@ -58,9 +58,9 @@ const Header = ({ isArabic }: any) => {
                     y2="167.444"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stop-color="#4E5AE2" />
-                    <stop offset="0.541667" stop-color="#9E32A4" />
-                    <stop offset="1" stop-color="#D552D8" />
+                    <stop stopColor="#4E5AE2" />
+                    <stop offset="0.541667" stopColor="#9E32A4" />
+                    <stop offset="1" stopColor="#D552D8" />
                   </linearGradient>
                   <linearGradient
                     id="paint1_linear_420_11133"
@@ -70,9 +70,9 @@ const Header = ({ isArabic }: any) => {
                     y2="167.444"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stop-color="#4E5AE2" />
-                    <stop offset="0.541667" stop-color="#9E32A4" />
-                    <stop offset="1" stop-color="#D552D8" />
+                    <stop stopColor="#4E5AE2" />
+                    <stop offset="0.541667" stopColor="#9E32A4" />
+                    <stop offset="1" stopColor="#D552D8" />
                   </linearGradient>
                 </defs>
               </svg>

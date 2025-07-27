@@ -370,7 +370,8 @@
             "all": "الكل",
             "free":"مجاني",
             "english":"english",
-            "arabic":"اللغة العربية"
+            "arabic":"اللغة العربية",
+            "product":"product"
         }
     },
     "codeCategoriesPage":{

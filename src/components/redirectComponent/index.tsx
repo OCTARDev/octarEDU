@@ -24,7 +24,7 @@ const RedirectHandler = () => {
     dispatch(resetRedirect());
   }, [pathName, router, dispatch]);
 
-  console.log("shouldRedirect", shouldRedirect);
+  /* console.log("shouldRedirect", shouldRedirect); */
 
   return null;
 };

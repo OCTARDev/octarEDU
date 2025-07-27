@@ -6,7 +6,7 @@
             "IntroducingOCTAR": "Introducing OCTAR",
             "where": "where",
             "creativity": "creativity",
-            "meet": "meet",
+            "meet": "meets",
             "learning": "learning",
             "through": "through",
             "imagination": "imagination",
@@ -369,7 +369,8 @@
             "all": "All",
             "free":"free",
             "english":"english",
-            "arabic":"اللغة العربية"
+            "arabic":"اللغة العربية",
+            "product":"المنتجات"
         }
     },
     "codeCategoriesPage":{

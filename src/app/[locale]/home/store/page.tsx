@@ -6,9 +6,9 @@ import ComingSoon from "@/shared/comingSoong";
 const page = () => {
   return (
     <div>
-      <Header />
-      <Categories />
-      {/* <ComingSoon /> */}
+      {/* <Header />
+      <Categories /> */}
+      <ComingSoon />
     </div>
   );
 };

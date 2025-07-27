@@ -89,7 +89,10 @@ const CategoriesProducts = ({ lang }: { lang: string }) => {
     { label: tN("options.free") , value: "free" },
     { label:tN("options.english"), value: "english" },
     { label: tN("options.arabic"), value: "arabic" },
-  ]
+  ];
+
+  console.log("organs",data?.data);
+  
   return (
     <>
       <div className={`${styles.container} ${isArabic && "arabic"}`}>
@@ -159,7 +162,7 @@ const CategoriesProducts = ({ lang }: { lang: string }) => {
                               e?.is_publish === 1 ? (
                                 <Link
                                   href={{
-                                    pathname: `/${firstLink}/home/categories/organs/single`,
+                                    pathname: `/${firstLink}/home/categories/${e?.slug || "organ"}/single`,
                                     query: { id: `${e?.id}` },
                                   }}
                                 >
