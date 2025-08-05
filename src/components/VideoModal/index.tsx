@@ -29,10 +29,13 @@ export default function VideoModal({
             <div className="bg-gray-900 rounded-lg aspect-video flex items-center justify-center">
             {/* Video player placeholder - replace with actual video component */}
             <div className=" aspect-video w-full h-full">
-                <video  controls className='w-full h-full'>
-                  <source src={currentVideo.link} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                src={`${currentVideo.link}`}
+                width="100%"
+                height="100%"
+                allow="autoplay"
+                className="w-full h-full rounded"
+                ></iframe>
             </div>
             </div>
         </div>
