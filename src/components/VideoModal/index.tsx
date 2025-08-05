@@ -30,7 +30,7 @@ export default function VideoModal({
             {/* Video player placeholder - replace with actual video component */}
             <div className=" aspect-video w-full h-full">
                 <video  controls className='w-full h-full'>
-                  <source src={currentVideo.src} type="video/mp4" />
+                  <source src={currentVideo.link} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
             </div>
