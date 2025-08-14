@@ -162,7 +162,7 @@ const CategoriesProducts = ({ lang }: { lang: string }) => {
                               e?.is_publish === 1 ? (
                                 <Link
                                   href={{
-                                    pathname: `/${firstLink}/home/categories/${e?.slug || "organ"}/single`,
+                                    pathname: `/${firstLink}/home/categories/${e?.title || "organ"}/single`,
                                     query: { id: `${e?.id}` },
                                   }}
                                 >
