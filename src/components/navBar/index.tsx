@@ -16,6 +16,7 @@ import { logOut } from "@/redux/reducers/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useTranslations } from "next-intl";
 import { signOut } from "@/app/[locale]/dashboard/lib";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const NavBar = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -85,11 +86,11 @@ const NavBar = () => {
       >
         
         <div className={styles.header}>
-          <div>
+          {/* <div>
             <span>Get in touch</span>
             <span>+20123456789</span>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <ul>
               <li
                 className={pathname.includes("/ar") ? ` ${styles.active}` : ""}
@@ -115,9 +116,12 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+            
+          </div> */}
+          <LanguageSwitcher />
+          
           <div>
-            <ul>
+            <ul className="flex gap-2 items-center capitalize">
               <li
                 className={
                   pathname.includes("/home/tutorial")
