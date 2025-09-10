@@ -69,9 +69,11 @@ const ProductDisplay = () => {
     isFetching,
   } = useGetSingleProductQuery(params);
 
+  console.log("data",data);
+  
   const [addToCart, { isLoading: cartLoading }] = useAddToCartMutation();
   const singleItem = data?.data?.product;
-  /* console.log(singleItem); */
+  console.log(singleItem);
   
   const [selectedImg, setSelectedImg] = useState<any>(
     singleItem?.media[0]?.file_path

@@ -1,5 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { MAIN_URL } from "../MAIN_URL";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "../helper/BaseQuery";
 
 export const cartApi = createApi({

@@ -10,7 +10,7 @@ export const baseQuery = async (args: any, api: any, extraOptions: any) => {
   const baseQueryFunction = fetchBaseQuery({
     baseUrl: MAIN_URL,
     prepareHeaders: (headers, { getState }) => {
-      const token = (getState() as RootState).auth.data.token;
+      const token = (getState() as RootState).auth?.data?.token;
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }

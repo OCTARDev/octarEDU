@@ -34,7 +34,7 @@ export default function FAQComponent({data}:props) {
           </div>
         </div>
         <div className="flex flex-col gap-2 md:px-5">
-          {data.map((faq, index) => (
+          {data?.map((faq, index) => (
             <div key={index} className="bg-white rounded-xl border border-gray-200 overflow-hidden capitalize">
               <button
                 onClick={() => toggleFaq(index)}

@@ -31,7 +31,7 @@ export default function KeyFeaturesComponent({data}:props) {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.map((feature, index) => (
+            {data?.map((feature, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300 capitalize">
                 <div className="bg-blue-100 rounded-lg p-3 inline-block mb-4">
                     <div className="text-[#d552d8] w-6 h-6">
