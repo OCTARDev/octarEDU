@@ -9,10 +9,7 @@
   }
 
   .categoryList {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4rem;
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4; 
   }
 
   .categoryItem {
@@ -20,12 +17,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 150px;
+/*     max-width: 150px; */
+    @apply bg-[#9e32a4]/20 hover:bg-[#9e32a4]/40 px-4 py-5 rounded-xl h-full w-full flex-grow;  
 
     p {
       margin-top: 0.5rem;
       font-size: 1rem;
       color: #333;
+      @apply font-bold capitalize text-center;
     }
   }
 }
@@ -37,7 +36,7 @@
   }
 
   .categoryItem {
-    max-width: 120px;
+    /* max-width: 120px; */
 
     p {
       font-size: 0.9rem;
@@ -51,7 +50,7 @@
   }
 
   .categoryItem {
-    max-width: 100px;
+    /* max-width: 100px; */
 
     p {
       font-size: 0.8rem;

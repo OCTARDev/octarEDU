@@ -338,7 +338,7 @@
     },
     "store": {
         "name": "Store",
-        "available": "Available categories",
+        "available": "Available Products",
         "products": "Products",
         "all": "All categories ",
         "age": "age",

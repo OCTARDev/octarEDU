@@ -2,10 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./style.module.scss";
-import img1 from "../../../../../assets/store/Group 154.png";
-import img2 from "../../../../../assets/store/Group 155.png";
-import img3 from "../../../../../assets/store/Group 156.png";
-import img4 from "../../../../../assets/store/Group 157.png";
 import Link from "next/link";
 import Loader from "@/components/loader";
 import { useGetMaincategoriesQuery } from "@/redux/rtk/categories";
@@ -45,6 +41,7 @@ const Categories = () => {
             query: { single: `${e.id}` },
           }}
           key={e.id}
+          className="w-full flex"
         >
           <div className={styles.categoryItem}>
             <Image
@@ -53,6 +50,7 @@ const Categories = () => {
               width={120}
               height={120}
               priority
+              className="!w-32"
               // loading="lazy"
               layout="responsive"
               onLoadingComplete={handleImageLoad} // Track image load
