@@ -328,7 +328,8 @@
     "individual": {
         "name": "Individual Subscription ",
         "list": {
-            "name": "Individual plans",
+            "name": "Pricing plans",
+            "body":"Choose the Perfect Plan for You",
             "dive": "Dive into OCTAR AR App's World OCTAR",
             "discover": "Discover endless 3D adventures and educational resources",
             "enjoy": "Enjoy a subscription tailored to your child's age group.",
