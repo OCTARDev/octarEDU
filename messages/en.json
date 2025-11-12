@@ -124,7 +124,9 @@
         "instead": "instead of",
         "free": "please consider subscribing to unlock full access",
         "freeTrialMessage": "Your free trial will be ended in",
-        "limited": "for a limited time"
+        "limited": "for a limited time",
+        "free-word":"free",
+        "features":"Features"
     },
     "dashboardSubscriptionPayment": {
         "back": "back",

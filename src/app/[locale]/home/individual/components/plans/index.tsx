@@ -91,79 +91,6 @@ const Plans = () => {
   console.log("plans", plans);
   return (
     <div className={`${styles.container} ${isArabic && "arabic"}`}>
-      {/* <div className={styles.leftDiv}>
-        <h3>{t("list.name")}</h3>
-        <ul>
-          <li>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M9.54998 17.9996L3.84998 12.2996L5.27498 10.8746L9.54998 15.1496L18.725 5.97461L20.15 7.39961L9.54998 17.9996Z"
-                  fill="black"
-                />
-              </svg>
-            </span>
-            <span>{t("list.dive")}</span>
-          </li>
-          <li>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M9.54998 17.9996L3.84998 12.2996L5.27498 10.8746L9.54998 15.1496L18.725 5.97461L20.15 7.39961L9.54998 17.9996Z"
-                  fill="black"
-                />
-              </svg>
-            </span>
-            <span>{t("list.discover")}</span>
-          </li>
-          <li>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M9.54998 17.9996L3.84998 12.2996L5.27498 10.8746L9.54998 15.1496L18.725 5.97461L20.15 7.39961L9.54998 17.9996Z"
-                  fill="black"
-                />
-              </svg>
-            </span>
-            <span>{t("list.enjoy")}</span>
-          </li>
-          <li>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M9.54998 17.9996L3.84998 12.2996L5.27498 10.8746L9.54998 15.1496L18.725 5.97461L20.15 7.39961L9.54998 17.9996Z"
-                  fill="black"
-                />
-              </svg>
-            </span>
-            <span>{t("list.unlock")}</span>
-          </li>
-        </ul>
-      </div> */}
       <div className="mb-10 space-y-4">
         <h1 className="font-bold text-4xl">{t("list.name")}</h1>
         <p>{t("list.body")}</p>
@@ -171,7 +98,7 @@ const Plans = () => {
       <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12`}>
         {plans?.map((single: any) => {
           return (
-            <Card {...single} key={single.id}/>
+            <Card data={single} isLogged={isLogged} key={single.id}/>
           );
         })}
       </div>
@@ -182,25 +109,33 @@ const Plans = () => {
 export default Plans;
 
 
-const Card = (data:{
-  id:number | string;
-  title:string;
-  price:string;
-  price_number:number;
-  instead_of:string;
-  instead_of_number:number;
-  is_instead_of:boolean;
-  period:string;
-  is_best_value:boolean;
-  is_free:boolean;
-  media?:string;
-  subscription_plan_descriptions:{
-    id:number;
-    subscription_plan_id:number;
-    content:string;
-    }[];
-
+const Card = ({data,isLogged}:
+  {
+    data:{
+      id:number | string;
+      title:string;
+      price:string;
+      price_number:number;
+      instead_of:string;
+      instead_of_number:number;
+      is_instead_of:boolean;
+      period:string;
+      is_best_value:boolean;
+      is_free:boolean;
+      media?:string;
+      subscription_plan_descriptions:{
+        id:number;
+        subscription_plan_id:number;
+        content:string;
+        }[];
+        },
+        isLogged:boolean;
+  
 })=>{
+  const tN = useTranslations("dashboardSubscription");
+  const pathname: string = usePathname();
+  const lang = pathname.split("/")[1];
+  const router = useRouter();
   return(
     <div className="border rounded-2xl  flex flex-col gap-4 h-full px-3 border-t-0 ">
       {/* Header */}
@@ -235,7 +170,7 @@ const Card = (data:{
           <foreignObject x="0" y="0" width="100%" height="100%">
             <div className="flex flex-col justify-center items-center text-white h-full pb-6">
               <h3 className="font-bold text-lg md:text-2xl">{data.title}</h3>
-              <p className="font-semibold">{data.price}</p>
+              <p className="font-semibold text-xl">{data.is_free ? tN("free-word") : data.price}</p>
             </div>
               
           </foreignObject>
@@ -256,7 +191,7 @@ const Card = (data:{
       }
       <div className="py-10 flex flex-col gap-4">
         <div>
-          <h4 className="mb-4 font-bold text-lg">Features</h4>
+          <h4 className="mb-4 font-bold text-lg">{tN("features")}</h4>
           <ul className="flex flex-col gap-4 px-4">
             {data.subscription_plan_descriptions.map((s)=>{
               return(
@@ -274,8 +209,30 @@ const Card = (data:{
           </ul>
         </div>
       </div>
-      <div className="mt-auto -mx-3">
-        <button className="text-center w-full py-4 bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)] text-white font-bold tracking-wider rounded-b-2xl">Subscribe Now</button>
+      <div className="mt-auto -mx-3 flex">
+        {isLogged ? (
+                  <button
+                    disabled={!!data.is_free}
+                    onClick={()=>router.push(`/${lang}/dashboard/subscription/payment?id=${data.id}`)}
+                    className={`
+                      text-center w-full py-4 
+                      text-white font-bold tracking-wider rounded-b-2xl 
+                      ${!!data.is_free ? "disabled:bg-gray-500" : "bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)]"}
+                      `}
+                  >
+
+                      {tN("subscribe")}
+                  </button>
+                ) : (
+                  <Link 
+                  className="text-center w-full py-4 bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)] text-white font-bold tracking-wider rounded-b-2xl"
+                  href={`/${lang}/sign-up`}>
+                    {tN("subscribe")}
+                  </Link>
+                )}
+{/*         <button className="text-center w-full py-4 bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)] text-white font-bold tracking-wider rounded-b-2xl">
+          Subscribe Now
+        </button> */}
       </div>
     </div>
   )
