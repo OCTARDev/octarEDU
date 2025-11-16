@@ -50,7 +50,7 @@ const Categories = () => {
               width={120}
               height={120}
               priority
-              className="!w-32"
+              className="!w-full"
               // loading="lazy"
               layout="responsive"
               onLoadingComplete={handleImageLoad} // Track image load
@@ -67,7 +67,7 @@ const Categories = () => {
   console.log("allImagesLoaded", allImagesLoaded);
   return (
     <div className={`${styles.categories} ${isArabic && "arabic"}`}>
-      <h2>{t("available")}</h2>
+      {/* <h2>{t("available")}</h2> */}
       {/* {!allImagesLoaded && <Loader />} */}
       <div className={styles.categoryList}>{mapping()}</div>
     </div>

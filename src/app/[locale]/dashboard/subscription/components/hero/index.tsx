@@ -14,6 +14,7 @@ import animation from "../../../../../../../Animation-gift.json";
 import { useGetProfileQuery } from "@/redux/rtk/profile";
 import ErrorModal from "@/components/ErrorModal";
 import { clickSubscription } from "../../../lib";
+import { PlanCard } from "@/app/[locale]/home/individual/components/plans";
 
 const Hero = ({ subscription_plans, loading }: any) => {
   const t = useTranslations("dashboardSubscription");
@@ -116,81 +117,10 @@ const Hero = ({ subscription_plans, loading }: any) => {
           />
         }
 
-          <div className={styles.plansContainer}>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-12 my-10`}>
             {subscription_plans?.map((single: any) => {
               return (
-                <div
-                  className={`${styles.rightDiv} ${
-                    single?.is_best_value === 1 ? styles.bestValue : ""
-                  }`}
-                  key={single?.id}
-                >
-                  <div
-                    className={`${styles.limited} ${
-                      isArabic ? styles.left : styles.right
-                    }`}
-                  >
-                    <p>{t("limited")}</p>
-                  </div>
-                  {single?.is_best_value === 1 ? (
-                    <div className={styles.bestValueIcon}>{t("bestValue")}</div>
-                  ) : (
-                    ""
-                  )}
-
-                  <div className={styles.first}>
-                    <h1>{single?.title}</h1>
-                    <h2>{single?.price}</h2>
-                    {single?.is_instead_of ? (
-                      <>
-                        <h3>
-                          {t("instead")} <span>{single?.instead_of} </span>
-                        </h3>
-                      </>
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                  <div className={styles.second}>
-                    <ul>
-                      {single?.subscription_plan_descriptions?.map(
-                        (li: any) => {
-                          return (
-                            <li key={li?.id}>
-                              <span>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                >
-                                  <path
-                                    d="M9.54998 17.9996L3.84998 12.2996L5.27498 10.8746L9.54998 15.1496L18.725 5.97461L20.15 7.39961L9.54998 17.9996Z"
-                                    fill="black"
-                                  />
-                                </svg>
-                              </span>
-                              <span>{li?.content}</span>
-                            </li>
-                          );
-                        }
-                      )}
-                    </ul>
-                  </div>
-                  <div className={styles.third}>
-                    <button
-                    type="button"
-                    onClick={()=>handleRoute(single?.id)}
-                      /* href={{
-                        pathname: `/${lang}/dashboard/subscription/payment`,
-                        query: { id: `${single?.id}` },
-                      }} */
-                    >
-                      {t("subscribe")}
-                    </button>
-                  </div>
-                </div>
+                <PlanCard data={single} key={single.key} isLogged={true}/>
               );
             })}
             {/* <div className={styles.rightDiv}>
@@ -243,7 +173,7 @@ const Hero = ({ subscription_plans, loading }: any) => {
           <p>Charged yearly</p>
         </div>
       </div> */}
-            <div className={styles.leftDiv}>
+            {/* <div className={styles.leftDiv}>
               <h3>{t("individualPlans")}</h3>
               <ul>
                 {dataMap?.map((e) => {
@@ -268,7 +198,7 @@ const Hero = ({ subscription_plans, loading }: any) => {
                   );
                 })}
               </ul>
-            </div>
+            </div> */}
           </div>
         </>
       )}

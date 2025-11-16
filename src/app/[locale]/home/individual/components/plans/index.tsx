@@ -98,7 +98,7 @@ const Plans = () => {
       <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12`}>
         {plans?.map((single: any) => {
           return (
-            <Card data={single} isLogged={isLogged} key={single.id}/>
+            <PlanCard data={single} isLogged={isLogged} key={single.id}/>
           );
         })}
       </div>
@@ -109,7 +109,7 @@ const Plans = () => {
 export default Plans;
 
 
-const Card = ({data,isLogged}:
+export const PlanCard = ({data,isLogged}:
   {
     data:{
       id:number | string;
@@ -137,7 +137,7 @@ const Card = ({data,isLogged}:
   const lang = pathname.split("/")[1];
   const router = useRouter();
   return(
-    <div className="border rounded-2xl  flex flex-col gap-4 h-full px-3 border-t-0 ">
+    <div className="border rounded-2xl  flex flex-col gap-4 h-full px-3 border-t-0 capitalize">
       {/* Header */}
       <div className="-mx-5"> 
         <svg
@@ -185,24 +185,24 @@ const Card = ({data,isLogged}:
         alt="Card Image"
         width={100}
         height={100}
-        className="w-full h-auto"
+        className="w-full h-48 object-contain"
         />
         </div>
       }
-      <div className="py-10 flex flex-col gap-4">
+      <div className="py-10 flex flex-col gap-4 ">
         <div>
           <h4 className="mb-4 font-bold text-lg">{tN("features")}</h4>
-          <ul className="flex flex-col gap-4 px-4">
+          <ul className="flex flex-col gap-4 px-2">
             {data.subscription_plan_descriptions.map((s)=>{
               return(
-                <li key={s.id} className="flex items-center gap-2">
-                  <span>
+                <li key={s.id} className="flex items-start gap-2">
+                  <span className="py-1">
                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect x="0.766784" y="0.766784" width="16.8693" height="16.8693" rx="8.43463" stroke="#9E32A4" stroke-width="1.53357"/>
                       <path d="M13.2908 6.13428L7.66776 11.7574L5.11182 9.20141" stroke="#9E32A4" stroke-width="1.53357" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </span>
-                  <span className="">{s.content}</span>
+                  <span className="text-sm">{s.content}</span>
                 </li>
               )
             })}
@@ -230,9 +230,6 @@ const Card = ({data,isLogged}:
                     {tN("subscribe")}
                   </Link>
                 )}
-{/*         <button className="text-center w-full py-4 bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)] text-white font-bold tracking-wider rounded-b-2xl">
-          Subscribe Now
-        </button> */}
       </div>
     </div>
   )
