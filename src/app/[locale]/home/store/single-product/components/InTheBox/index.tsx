@@ -38,11 +38,9 @@ export default function InTheBoxComponent({data}:props) {
             <div>
                 <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 capitalize">
                     <h3 className="text-xl text-center font-bold text-gray-900 mb-4">{data?.title}</h3>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="flex flex-col gap-3">
                         {data?.in_box_details?.map((category, index) => (
-                        <div key={index} className="bg-white rounded-lg p-3 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200">
-                            <span className="text-gray-700 font-medium text-sm">{category?.title}</span>
-                        </div>
+                            <p key={index} className="bg-white rounded-lg p-3 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200" dangerouslySetInnerHTML={{__html: category?.title || ''}}/>
                         ))}
                     </div>
                 </div>

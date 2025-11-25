@@ -30,16 +30,11 @@ export default function KeyFeaturesComponent({data}:props) {
             </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-col gap-4">
             {data?.map((feature, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300 capitalize">
-                <div className="bg-blue-100 rounded-lg p-3 inline-block mb-4">
-                    <div className="text-[#d552d8] w-6 h-6">
-                        <Image width={24} height={24} src={feature?.icon?.file_path} alt='icon' className='w-6 h-6' />
-                    </div>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm" dangerouslySetInnerHTML={{__html: feature.description || ''}}/>
                 </div>
             ))}
             </div>
