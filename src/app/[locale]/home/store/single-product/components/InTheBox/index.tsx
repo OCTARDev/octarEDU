@@ -1,15 +1,6 @@
+import { motion } from 'framer-motion';
 import React from 'react'
-const inboxes = {
-    title: "Educational Categories",
-    categories: [
-        'Alphabet', 'Numbers', 'Animals', 'Professions', 
-        'Space', 'Fruits', 'Hygiene', 'And More...'
-    ]
-}
-const categories = [
-    'Alphabet', 'Numbers', 'Animals', 'Professions', 
-    'Space', 'Fruits', 'Hygiene', 'And More...'
-  ];
+
   type props = {
     data:box;
 }
@@ -26,14 +17,21 @@ type box = {
 }
 export default function InTheBoxComponent({data}:props) {
   return (
-    <div className="py-12 bg-white">
+    <motion.div 
+        initial={{opacity:0,x:100}}
+        animate={{opacity:1,x:0}}
+        transition={{duration:1.5}} 
+        className="py-12 bg-white"
+        >
         <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">What is Inside the Box</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                High-quality educational cards divided into categories for different ages, plus everything you need to get started
-            </p>
+           {/*
+           <div className="text-center mb-10">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">What is Inside the Box</h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    High-quality educational cards divided into categories for different ages, plus everything you need to get started
+                </p>
             </div>
+            */} 
             
             <div>
                 <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 capitalize">
@@ -46,6 +44,6 @@ export default function InTheBoxComponent({data}:props) {
                 </div>
             </div>
         </div>
-    </div>
+    </motion.div>
   )
 }
