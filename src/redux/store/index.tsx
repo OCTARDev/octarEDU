@@ -18,6 +18,7 @@ import { navigationMiddleware } from "../middleware";
 import { Profile } from "../rtk/profile";
 import { codeCategories } from "../rtk/CodeCategories";
 import { servicesAPI } from "../rtk/services";
+import { SubscriptionsAPI } from "../rtk/subscriptions";
 
 export const makeStore: any = () => {
   return configureStore({
@@ -40,6 +41,8 @@ export const makeStore: any = () => {
       [Profile.reducerPath]:Profile.reducer,
       [codeCategories.reducerPath]: codeCategories.reducer,
       [servicesAPI.reducerPath]:servicesAPI.reducer,
+      [SubscriptionsAPI.reducerPath]:SubscriptionsAPI.reducer,
+      
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
@@ -57,7 +60,8 @@ export const makeStore: any = () => {
         coloringCategories.middleware,
         Profile.middleware,
         codeCategories.middleware,
-        servicesAPI.middleware
+        servicesAPI.middleware,
+        SubscriptionsAPI.middleware
         // navigationMiddleware
       ),
   });

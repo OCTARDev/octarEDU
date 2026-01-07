@@ -115,6 +115,7 @@
         "yourSubscriptionPlan": "Your subscription plan",
         "subscriptionMessage": "Not subscribed",
         "subscribe": "Subscribe",
+        "contact_us":"Contact Us",
         "benefits": "Benefits for",
         "parents": "parents",
         "kids": "kids",
@@ -427,7 +428,12 @@
         "inquiry": "Email us your inquiry",
         "leave": "Leave your inquiry to our team and we will get back to you as soon as possible.",
         "subject": "Subject",
-        "phone": "Your Phone"
+        "phone": "Your Phone",
+        "details":"Details",
+        "country":"Country",
+        "nursery_name":"Nursery Name",
+        "contact_person_name":"Contact Person Name",
+        "number_student":"Number Of Students"
     },
     "login": {
         "signIn": "Sign in",

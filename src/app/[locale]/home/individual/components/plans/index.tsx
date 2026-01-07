@@ -121,7 +121,7 @@ export const PlanCard = ({data,isLogged}:
       is_instead_of:boolean;
       period:string;
       is_best_value:boolean;
-      is_free:boolean;
+      is_nursery:boolean;
       media?:string;
       subscription_plan_descriptions:{
         id:number;
@@ -136,6 +136,11 @@ export const PlanCard = ({data,isLogged}:
   const pathname: string = usePathname();
   const lang = pathname.split("/")[1];
   const router = useRouter();
+  const handleSendButton = ()=>{
+    if(!isLogged) return router.push(`/${lang}/sign-up`)
+    if(data.is_nursery) return router.push(`/${lang}/dashboard/subscription/contact-us`)
+    return router.push(`/${lang}/dashboard/subscription/payment?id=${data.id}`)
+  }
   return(
     <div className="border rounded-2xl  flex flex-col gap-4 h-full px-3 border-t-0 capitalize">
       {/* Header */}
@@ -170,7 +175,7 @@ export const PlanCard = ({data,isLogged}:
           <foreignObject x="0" y="0" width="100%" height="100%">
             <div className="flex flex-col justify-center items-center text-white h-full pb-6">
               <h3 className="font-bold text-lg md:text-2xl">{data.title}</h3>
-              <p className="font-semibold text-xl">{data.is_free ? tN("free-word") : data.price}</p>
+              <p className="font-semibold text-xl">{data.is_nursery ? tN("free-word") : data.price}</p>
             </div>
               
           </foreignObject>
@@ -210,26 +215,17 @@ export const PlanCard = ({data,isLogged}:
         </div>
       </div>
       <div className="mt-auto -mx-3 flex">
-        {isLogged ? (
-                  <button
-                    disabled={!!data.is_free}
-                    onClick={()=>router.push(`/${lang}/dashboard/subscription/payment?id=${data.id}`)}
-                    className={`
-                      text-center w-full py-4 
-                      text-white font-bold tracking-wider rounded-b-2xl 
-                      ${!!data.is_free ? "disabled:bg-gray-500" : "bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)]"}
-                      `}
-                  >
-
-                      {tN("subscribe")}
-                  </button>
-                ) : (
-                  <Link 
-                  className="text-center w-full py-4 bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)] text-white font-bold tracking-wider rounded-b-2xl"
-                  href={`/${lang}/sign-up`}>
-                    {tN("subscribe")}
-                  </Link>
-                )}
+        <button
+          onClick={handleSendButton}
+          className={`
+            text-center w-full py-4 
+            text-white font-bold tracking-wider rounded-b-2xl 
+            bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_50%,#BF44C6_100%)] hover:bg-[linear-gradient(180deg,#D552D8_0%,#E07DE2_60%,#BF44C6_100%)]
+            `}
+        >
+            {data.is_nursery ? tN("contact_us") : tN("subscribe") } 
+        </button>
+                 
       </div>
     </div>
   )

@@ -191,7 +191,7 @@ const ProductDisplay = () => {
         {/* right info */}
         <div className="w-3/6 flex flex-col capitalize">
           {/* Title */}
-          <h2 className="font-extrabold mb-4">{singleItem?.title}</h2>
+          <h2 className="!font-extrabold mb-4">{singleItem?.title}</h2>
           {/* Description */}
           <p className="flex flex-col">
             <strong className="text-[#9e32a4]">Description:</strong>

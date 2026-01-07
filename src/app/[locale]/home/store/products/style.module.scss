@@ -90,6 +90,9 @@
 }
 .details {
   padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .description {

@@ -31,6 +31,7 @@ import { useGetIpQuery } from "@/redux/rtk/ip";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useTranslations } from "next-intl";
+import TruncateWithTooltip from "@/components/TruncateWithTooltip";
 
 function valuetext(value: number) {
   return `${value}`;
@@ -236,7 +237,7 @@ const Products = () => {
           ) : (
             <>
               {data?.data?.data?.map((item: any, index: number) => (
-                <div className={styles.card} key={index}>
+                <div className={`${styles.card} flex flex-col`} key={index}>
                   <Link
                     href={{
                       pathname: `/${lang}/home/store/single-product`,
@@ -267,17 +268,17 @@ const Products = () => {
                       }}
                     >
                       <div className={styles.flex}>
-                        <h2>{item.title}</h2>
+                        <h2 className="font-bold">{item.title}</h2>
                       </div>
                       <p className={styles.description}>
-                        <span>{t("description")}: </span>
-                        {item.description}
+                        <span className="capitalize">{t("description")}: </span>
+                        {TruncateWithTooltip({text:item.description,maxLength:60})}
                       </p>
                       <p className={styles.stock}>
                         {item.available > 0 ? t("stock") : "NOt available"}
                       </p>
                     </Link>
-                    <div className={styles.flex}>
+                    <div className={`${styles.flex} mt-auto`}>
                       <div className={styles.flexFirst}>
                         <p className={styles.price}>
                           {item?.price} {item?.currency}

@@ -115,6 +115,7 @@
         "yourSubscriptionPlan": "خطة الاشتراك الخاصة بك",
         "subscriptionMessage": "غير مشترك",
         "subscribe": "اشترك",
+        "contact_us":"تواصل معنا",
         "benefits": "مزايا الاشتراك في تطبيق OCTAR",
         "parents": "الاباء",
         "kids": "الابناء",
@@ -125,7 +126,7 @@
         "free": "يرجي الاشتراك لاستكمال المغامرة",
         "freeTrialMessage": "ترجبتكم المجانية مع أوكتار ستنتهي في",
         "limited": "لفترة محدودة",
-        "free-word":"مجاني",
+        "free-word":"تواصل معنا",
         "features":"مميزات"
     },
     "dashboardSubscriptionPayment": {
@@ -428,7 +429,12 @@
         "inquiry": "أرسل لنا استفسارك عبر البريد الإلكتروني",
         "leave": "اترك استفسارك لفريقنا وسنقوم بالرد عليك في أقرب وقت ممكن.",
         "subject": "الموضوع",
-        "phone": "رقم الهاتف"
+        "phone": "رقم الهاتف",
+        "details":"التفاصيل",
+        "country":"الدولة",
+        "nursery_name":"اسم الحضانة",
+        "contact_person_name":"اسم الشخص",
+        "number_student":"عدد الطلاب"
     },
     "login": {
         "signIn": "تسجيل دخول",
