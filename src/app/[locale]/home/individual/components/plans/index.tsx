@@ -175,7 +175,7 @@ export const PlanCard = ({data,isLogged}:
           <foreignObject x="0" y="0" width="100%" height="100%">
             <div className="flex flex-col justify-center items-center text-white h-full pb-6">
               <h3 className="font-bold text-lg md:text-2xl">{data.title}</h3>
-              <p className="font-semibold text-xl">{data.is_nursery ? tN("free-word") : data.price}</p>
+              <p className="font-semibold text-xl">{data.is_nursery ? tN("nursery-word") : data.price}</p>
             </div>
               
           </foreignObject>

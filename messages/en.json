@@ -127,7 +127,8 @@
         "freeTrialMessage": "Your free trial will be ended in",
         "limited": "for a limited time",
         "free-word":"free",
-        "features":"Features"
+        "features":"Features",
+        "nursery-word":"Nursery"
     },
     "dashboardSubscriptionPayment": {
         "back": "back",
