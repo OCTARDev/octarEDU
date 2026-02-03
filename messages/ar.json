@@ -104,7 +104,9 @@
         "coloringCategories": "مجموعات التلوين",
         "parents": "دليل الوالدين",
         "profile":" الملف الشخصي",
-        "products":"المنتجات"
+        "products":"المنتجات",
+        "lessonPlan":"خطة الدروس",
+        "studentNursery":"حضانات الطلاب"
     },
     "dashboardHome": {
         "howItWorks": "كيف نستخدم   OCTAR ؟",

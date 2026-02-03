@@ -8,13 +8,23 @@ import { GiLoveSong } from "react-icons/gi";
 import { useTranslations } from "next-intl";
 import { RiParentLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
+import { useGetSubscriptionStatusQuery } from "@/redux/rtk/userSubscription";
+import { useGetIpQuery } from "@/redux/rtk/ip";
+import { useSelector } from "react-redux";
+import { useGetProfileQuery } from "@/redux/rtk/profile";
+
 const DashNavBar = () => {
   const pathname: string = usePathname();
   const t = useTranslations("dashboardNavBar");
   const isArabic = pathname.includes("/ar");
   const lastPathName = pathname.split("/");
-  let firstLink = lastPathName[1];
-  //console.log("firstLink", firstLink);
+  const firstLink = lastPathName[1];
+  
+  const {data} = useGetProfileQuery();
+  const subscriptionState = data?.data?.subscription?.subscription_plan;
+  console.log("profile",subscriptionState);
+  
+  
   return (
     <div className={`${styles.navContainer} ${isArabic ? "arabic" : ""} capitalize`}>
       <ul >
@@ -157,9 +167,29 @@ const DashNavBar = () => {
         >
           <li>
             <RiParentLine style={{ height: "20px", width: "25px" }} />
-            {t("parents")}
+            {
+              subscriptionState?.is_nursery ?  t("lessonPlan") : t("parents")
+            }
           </li>
         </Link>
+        {
+          subscriptionState.is_nursery ? (
+          <Link
+            href={`/${firstLink}/dashboard/studentNursery`}
+            className={
+              pathname.includes("/dashboard/studentNursery")
+                ? `${styles.active}`
+                : ``
+            }
+          >
+            <li>
+              <RiParentLine style={{ height: "20px", width: "25px" }} />
+              {t("studentNursery")}
+            </li>
+          </Link>
+          ) : null
+        }
+
 
       </ul>
     </div>

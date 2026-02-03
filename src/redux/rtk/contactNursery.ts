@@ -4,7 +4,6 @@ import { baseQuery } from "../helper/BaseQuery";
 export const SubscriptionsAPI = createApi({
   reducerPath: "SubscriptionsAPI",
   baseQuery,
-  tagTypes: ["profile","help"],
   endpoints: (builder) => ({
 
     SubscriptionContactUs:builder.mutation<any,any>({

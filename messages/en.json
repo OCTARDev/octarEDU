@@ -104,7 +104,9 @@
         "coloringCategories": "coloring categories",
         "parents": "Parents Guide",
         "profile":"Profile",
-        "products":"Products"
+        "products":"Products",
+        "lessonPlan":"Lesson Plan",
+        "studentNursery":"Student Nursery"
     },
     "dashboardHome": {
         "howItWorks": "How it works ?",

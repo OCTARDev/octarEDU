@@ -1,31 +1,14 @@
 "use client";
-import axios from "axios";
-import { useUserIp } from "../components/getIp";
-import { clickSubscription, getIp } from "../lib";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import Hero from "./components/hero";
-import { useEffect, useState } from "react";
+import { useGetIpQuery } from "@/redux/rtk/ip";
 
 const MainSubPage = () => {
-  const ipSecond = useUserIp();
-  const [ip, setIp] = useState<any>("");
-  const getData = async () => {
-    const res = await axios.get("https://api.ipify.org/?format=json");
-    // //console.log(res.data);
-    // //console.log("testttttttttttttttttttt", res.data.ip);
-    setIp(res.data.ip);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+  const {data} = useGetIpQuery("");
   return (
     <div>
-      <Header ip={ip} />
-      {/* <Hero ip={ip} /> */}
-      <Footer ip={ip} />
+      <Header ip={data?.ip} />
+      <Footer ip={data?.ip} />
     </div>
   );
 };

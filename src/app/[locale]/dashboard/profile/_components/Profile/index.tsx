@@ -28,7 +28,7 @@ export default function ProfileSection() {
   const { data,isLoading,isError,error} = useGetProfileQuery();
   const {data:helpData,isLoading:helpIsLoading,isError:helpIsError,error:helpError} = useGetHelpQuery();  
   const {reset,register,handleSubmit,formState:{errors}} = useForm<FormValues>();
-  console.log(data);
+  /* console.log(data); */
   
   const t = useTranslations("dashboardProfile");
   useEffect(()=>{

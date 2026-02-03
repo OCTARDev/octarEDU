@@ -6,80 +6,22 @@ import Hero from "../hero";
 import Loader from "@/components/loader";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useGetSubscriptionStatusQuery } from "@/redux/rtk/userSubscription";
 
-const isAuthenticated = () => {
-  try {
-    if (typeof window !== "undefined") {
-      const userData: any = localStorage.getItem("octar");
-      return JSON.parse(userData);
-    }
-  } catch (e) {
-    //console.log("Error", e);
-  }
-};
-type auth = {
-  token?: string;
-};
+
 const Header = ({ ip }: any) => {
-  const [data, setData] = React.useState<any>();
-  const [word, setWord] = React.useState("");
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const useData: auth = isAuthenticated();
   const pathname: string = usePathname();
   const lang = pathname.split("/")[1];
-  //console.log("lang", lang);
   const t = useTranslations("dashboardSubscription");
-  const token: any = useData?.token || "";
 
-  const header = {
-    Authorization: `Bearer ${token}`,
-    "X-App-Locale": lang,
-  };
-  React.useLayoutEffect(() => {
-    const fetchApi = async () => {
-      await setLoading(true);
-      const data = await fetch(`${mainUrl}/subscription?user_ip=${ip}&`, {
-        headers: header,
-      })
-        .then((response) => {
-          setLoading(false);
-          return response.json();
-        })
-        .catch((e) => {
-          setLoading(false);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-      setData(data);
-    };
-
-    if (ip) {
-      fetchApi();
-    }
-  }, [ip, lang]);
+  const {data,isLoading} = useGetSubscriptionStatusQuery({lang,user_ip:ip})
   const userData: any = data?.data;
   const subscription_plans = userData?.account_type_details?.subscription_plans;
-  console.log("userData", userData?.renew);
-  // //console.log("userData", userData);
-  // //console.log("subscription_plans", subscription_plans);
-  // const getData = async () => {
-  //   const res = await axios.get("https://api.ipify.org/?format=json");
-  //   //console.log(res.data);
-  //   //console.log("testttttttttttttttttttt", res.data.ip);
-  // };
 
-  // useEffect(() => {
-  //   //passing getData method to the lifecycle method
-  //   getData();
-  // }, []);
-  // if (loading) {
-  //   return <Loader></Loader>;
-  // }
-  //console.log("userData?.renewal", userData?.renew?.renew_date);
+
   return (
     <>
-      {loading || !userData ? (
+      {isLoading || !userData ? (
         <>{<Loader />}</>
       ) : (
         <>
@@ -140,7 +82,7 @@ const Header = ({ ip }: any) => {
           <Hero
             subscription_plans={subscription_plans}
             ip={ip}
-            loading={loading}
+            loading={isLoading}
           />
         </>
       )}

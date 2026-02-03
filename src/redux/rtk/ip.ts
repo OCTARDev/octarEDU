@@ -4,8 +4,8 @@ export const userIP = createApi({
   reducerPath: "userIP",
   baseQuery: fetchBaseQuery({ baseUrl: "/" }),
   endpoints: (builder) => ({
-    getIp: builder.query<any, any>({
-      query: (name) => ({
+    getIp: builder.query({
+      query: () => ({
         url: `https://api.ipify.org`,
         params: {
           format: "json",

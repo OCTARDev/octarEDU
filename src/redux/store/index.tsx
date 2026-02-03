@@ -18,7 +18,9 @@ import { navigationMiddleware } from "../middleware";
 import { Profile } from "../rtk/profile";
 import { codeCategories } from "../rtk/CodeCategories";
 import { servicesAPI } from "../rtk/services";
-import { SubscriptionsAPI } from "../rtk/subscriptions";
+import { SubscriptionsAPI } from "../rtk/contactNursery";
+import { userSubscription } from "../rtk/userSubscription";
+import { StudentNurseryAPI } from "../rtk/studentNursery";
 
 export const makeStore: any = () => {
   return configureStore({
@@ -42,6 +44,8 @@ export const makeStore: any = () => {
       [codeCategories.reducerPath]: codeCategories.reducer,
       [servicesAPI.reducerPath]:servicesAPI.reducer,
       [SubscriptionsAPI.reducerPath]:SubscriptionsAPI.reducer,
+      [userSubscription.reducerPath]:userSubscription.reducer,
+      [StudentNurseryAPI.reducerPath]:StudentNurseryAPI.reducer,
       
     },
     middleware: (getDefaultMiddleware) =>
@@ -61,7 +65,9 @@ export const makeStore: any = () => {
         Profile.middleware,
         codeCategories.middleware,
         servicesAPI.middleware,
-        SubscriptionsAPI.middleware
+        SubscriptionsAPI.middleware,
+        userSubscription.middleware,
+        StudentNurseryAPI.middleware,
         // navigationMiddleware
       ),
   });
