@@ -173,7 +173,7 @@ const DashNavBar = () => {
           </li>
         </Link>
         {
-          subscriptionState.is_nursery ? (
+          subscriptionState?.is_nursery ? (
           <Link
             href={`/${firstLink}/dashboard/studentNursery`}
             className={
