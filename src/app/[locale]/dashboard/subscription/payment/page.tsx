@@ -127,6 +127,37 @@ const handlClick = async (single: any) => {
     return data;
   };
 
+  const checkOutStripe = async (dataa: any) => {
+    const useData: auth = isAuthenticated();
+    const token: any = useData?.token || "";
+    setLoading(true);
+    const header = {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json",
+      "X-App-Locale": lang,
+    };
+    const data = await axios
+      .post(
+        `${mainUrl}/strip/check-out`,
+        {
+          ...dataa,
+        },
+        {
+          headers: header,
+        }
+      )
+      .then((res: any) => {
+        setLoading(false);
+        setRes(res?.data);
+      })
+      .catch(() => {
+        setLoading(false);
+        toast.error("please try again");
+      });
+
+    return data;
+  };
+
   const checkOutWallet = async (dataa: any) => {
     const useData: auth = isAuthenticated();
     const token: any = useData?.token || "";
@@ -228,25 +259,22 @@ const handlClick = async (single: any) => {
   const seletedPayment = findData(selected);
 
   const checkOut = async (e: any) => {
-    e.preventDefault();    
+    e.preventDefault();
+    const sendData = {
+      payment_method_id: seletedPayment?.id,
+      subscription_plan_id: seletedPayment?.Subscription_plan?.id,
+      coupon_id: percentage ? couponID : 0,
+    };
+
+    if (seletedPayment?.id === 5) {
+      return checkOutStripe(sendData);
+    }
+
     if (seletedPayment?.id === 2 || seletedPayment?.id === 3 || seletedPayment?.id === 4) {
-      const sendData = {
-        payment_method_id: seletedPayment?.id,
-        subscription_plan_id: seletedPayment?.Subscription_plan?.id,
-        coupon_id: percentage ? couponID : 0,
-      };
-      // //console.log("sendData", sendData);
-      const res = await checkOutPayMob(sendData);
-      return res;
+      return checkOutPayMob(sendData);
     }
     if (seletedPayment?.id === 1) {
-      const sendData = {
-        payment_method_id: 1,
-        subscription_plan_id: seletedPayment?.Subscription_plan?.id,
-        coupon_id: percentage ? couponID : 0,
-      };
-      const res = await checkOutPayPal(sendData);
-      return res;
+      return checkOutPayPal(sendData);
     }
     if (seletedPayment?.id !== 1 && seletedPayment?.id !== 2) {
       const sendData: any = {
@@ -305,6 +333,20 @@ const handlClick = async (single: any) => {
   const cardPay = data?.data?.payment_method?.filter((e: any) => {
     return e?.type === "card";
   });
+  const subscriptionPlan =
+    seletedPayment?.Subscription_plan ?? data?.data?.subscription_plan;
+  const subscriptionCurrency = subscriptionPlan?.price?.includes("$")
+    ? "USD"
+    : "EGP";
+  const couponMatchesPlanCurrency =
+    couponCurrency === subscriptionCurrency ||
+    (couponCurrency === "EGY" && subscriptionCurrency === "EGP");
+  const planPrice = Number(subscriptionPlan?.real_price);
+  const finalPrice = couponMatchesPlanCurrency
+    ? subscriptionCurrency === "EGP"
+      ? Math.ceil(planPrice - (Number(percentage) / 100) * planPrice)
+      : planPrice - (Number(percentage) / 100) * planPrice
+    : planPrice;
 
   if (loading) {
     return <Loader />;
@@ -371,120 +413,19 @@ const handlClick = async (single: any) => {
             <p className={styles.special}>{t("yourPlanDetails")}</p>
           </div>
           <div>
-            <p> {seletedPayment?.Subscription_plan?.title}</p>
+            <p>{subscriptionPlan?.title}</p>
             <p>
-              {payType == "1" || payType == "2" ? (
+              {subscriptionPlan && (
                 <>
-                  {seletedPayment?.id === 1 ? (
+                  {couponMatchesPlanCurrency && (
                     <>
-                      {couponCurrency === "USD" ? (
-                        <>
-                          {Number(
-                            seletedPayment?.Subscription_plan?.real_price
-                          )}
-                          -{` ${percentage}% `} = $
-                          {Number(
-                            seletedPayment?.Subscription_plan?.real_price
-                          ) -
-                            (Number(percentage) / 100) *
-                              Number(
-                                seletedPayment?.Subscription_plan?.real_price
-                              )}
-                          / {seletedPayment?.Subscription_plan?.period}
-                        </>
-                      ) : (
-                        <>
-                          <>$</>
-                          {Number(
-                            seletedPayment?.Subscription_plan?.real_price
-                          )}
-                          /{seletedPayment?.Subscription_plan?.period}
-                        </>
-                      )}
+                      {planPrice} - {percentage}% ={" "}
                     </>
-                  ) : (
-                    <></>
                   )}
-                  {seletedPayment?.id === 2 ? (
-                    <>
-                      {couponCurrency === "EGY" ? (
-                        <>
-                          {Number(
-                            seletedPayment?.Subscription_plan?.real_price
-                          )}
-                          -{` ${percentage}% `} =
-                          {Math.ceil(
-                            Number(
-                              seletedPayment?.Subscription_plan?.real_price
-                            ) -
-                              (Number(percentage) / 100) *
-                                Number(
-                                  seletedPayment?.Subscription_plan?.real_price
-                                )
-                          )}
-                          <span>EGP</span> /
-                          {seletedPayment?.Subscription_plan?.period}
-                        </>
-                      ) : (
-                        <>
-                          {Number(
-                            seletedPayment?.Subscription_plan?.real_price
-                          )}
-                          <span>EGP</span> /
-                          {seletedPayment?.Subscription_plan?.period}
-                        </>
-                      )}
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                  {seletedPayment?.id !== 1 && seletedPayment?.id !== 2 ? (
-                    <>
-                      {couponCurrency === "EGY" ? (
-                        <>
-                          {Number(
-                            seletedPayment?.Subscription_plan?.real_price
-                          )}
-                          -{` ${percentage}% `} =
-                          {Math.ceil(
-                            Number(
-                              seletedPayment?.Subscription_plan?.real_price
-                            ) -
-                              (Number(percentage) / 100) *
-                                Number(
-                                  seletedPayment?.Subscription_plan?.real_price
-                                )
-                          )}
-                          <span>EGP</span> /
-                          {seletedPayment?.Subscription_plan?.period}
-                        </>
-                      ) : (
-                        <>
-                          {Number(
-                            seletedPayment?.Subscription_plan?.real_price
-                          )}
-                          <span>EGP</span> /
-                          {seletedPayment?.Subscription_plan?.period}
-                        </>
-                      )}
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                </>
-              ) : (
-                <>
-                  <p> {data?.data?.subscription_plan?.title}</p>
-                  {Number(data?.data?.subscription_plan?.real_price) -
-                    (Number(percentage) / 100) *
-                      Number(data?.data?.subscription_plan?.real_price)}
-                  <span>
-                    {data?.data?.subscription_plan?.price?.includes("$")
-                      ? "USD"
-                      : "EGP"}
-                  </span>{" "}
-                  /{data?.data?.subscription_plan?.period}
-                  <h1>{payType} </h1>
+                  {subscriptionCurrency === "USD" && "$"}
+                  {finalPrice}
+                  {subscriptionCurrency === "EGP" && <span>EGP</span>} /
+                  {subscriptionPlan?.period}
                 </>
               )}
             </p>
