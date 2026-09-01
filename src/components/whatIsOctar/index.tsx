@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./style.module.scss";
-import phones from "../../assets/phones.svg";
+import phones from "../../assets/phones.jpeg";
 import { motion, useInView, useAnimation } from "framer-motion";
 import {
   leftContainerVariant,
@@ -56,7 +56,7 @@ const WhatIsOctar = ({ data }: any) => {
           //   when: "beforeChildren",
           // }}
           >
-            <p>{t("aboutus")}</p>
+            {/* <p>{t("aboutus")}</p> */}
             <h1>
               {t("what")} <span></span>
               <motion.span
@@ -102,6 +102,7 @@ const WhatIsOctar = ({ data }: any) => {
               alt="video"
               onLoad={onImageLoad}
               priority
+              className="max-w-4xl"
             ></Image>
           </motion.div>
           <motion.div
@@ -114,7 +115,8 @@ const WhatIsOctar = ({ data }: any) => {
               duration: 0.9,
             }}
           >
-            <p>{t("des")}</p>
+            <p className="!font-bold">{t("des1")}</p>
+            <p>{t("des2")}</p>
 
             <div className="flex flex-col items-center justify-center gap-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
