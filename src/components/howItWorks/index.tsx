@@ -2,10 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import Image from "next/image";
-import img1 from "../../assets/how it works/Group 144.webp";
-import img2 from "../../assets/how it works/Group 146.webp";
-import img3 from "../../assets/how it works/Group 145.webp";
-import img4 from "../../assets/how it works/Group 147.webp";
+import img1 from "../../assets/how it works/1.png";
+import img2 from "../../assets/how it works/2.png";
+import img3 from "../../assets/how it works/3.png";
+import img4 from "../../assets/how it works/4.png";
 import { motion } from "framer-motion";
 import { sowContainerVariant } from "@/animation";
 import useInViewAnimation from "@/animation/useScroll";
@@ -37,58 +37,53 @@ const HowItWorks = ({ data }: any) => {
   const dataArrE: dataType = [
     {
       id: 1,
-      img: img4,
-      header: "Download Targets",
-      des: `Download our unique black and white paper targets. Whether you're
-  a teacher, student, or a parent looking for an engaging activity
-  for your children, these targets are the starting point for
-  endless possibilities.`,
+      img: img1,
+      header: "Download & Print",
+      des: `Choose an OCTAR coloring activity and download it from the website or directly through the app, then print it and get ready to create.`,
     },
     {
       id: 2,
       img: img2,
       header: "Color",
-      des: `  Unleash your creativity and color the targets with any colors you
-      desire. Let your imagination run wild and make each target your
-      canvas for self-expression.`,
+      des: `Let your child choose their colors, use their imagination, and make every creation their own.`,
     },
     {
       id: 3,
       img: img3,
       header: "Scan with OCTAR",
-      des: `Use your mobile or tablet to scan the colored targets AR Code with our OCTAR app. Watch in amazement as the 2D drawings spring to life as captivating 3D models right before your eyes`,
+      des: `Open the OCTAR app and scan the colored page to watch your child’s creation come to life in 3D.`,
     },
     {
       id: 4,
-      img: img1,
-      header: "Interact and Learn",
-      des: `Dive into a world where learning is play, and play is learning. OCTAR's 3D models are not just visually stunning; they're educational tools that engage, entertain, and enlighten. Explore, interact, and discover the world of knowledge in a way that feels like an adventure`,
+      img: img4,
+      header: "Play & Learn",
+      des: `Explore, interact, play, and learn as your child’s creation becomes part of a fun, interactive learning adventure.`,
     },
   ];
   const dataArrA: dataType = [
     {
       id: 1,
       img: img4,
-      header: "تحميل الهدف (التارجت)",
-      des: `قم بتحميل ملفاتنا الورقية ذات اللونين الأبيض والأسود و سواء كنت مدرسًا أو طالبًا أو والد يبحث عن نشاط ممتع  وفريد لأطفاله، فإن هذه الأهداف هي نقطة البداية لعالم من التفاعل الذكي اللامتناهي, كما يمكنك شراء كتب التلوين مع صفحات الانشطة من المتجر الخاص بنا.`,
+      header: "حمّل واطبع",
+      des: `اختر نشاط التلوين المناسب، وحمّله من موقع OCTAR أو مباشرة من التطبيق، ثم اطبعه واستعد لبدء التجربة.`,
     },
     {
       id: 2,
       img: img2,
-      header: "التلوين",
-      des: `أطلق العنان لإبداعك ولون الأهداف بأي لون تريده, حرر خيالك واجعل كل هدف لوحة للتعبير عن ذاتك.  `,
+      header: "لوّن وأبدع",
+      des: `دع طفلك يختار ألوانه، ويطلق العنان لخياله، ويضيف لمسته الخاصة إلى كل رسمة.`,
     },
     {
       id: 3,
       img: img3,
-      header: "مسح رمز  QR ",
-      des: `افتح تطبيق أوكتار  OCTARعلي هاتفك المحمول أو جهازك اللوحي لمسح رمز QR Code للأهداف التي لونتها وشاهد كيف تنبض الوانك ثنائية الأبعاد بالحياة كنماذج ثلاثية الأبعاد أمام عينيك مباشرةً.`,
+      header: "امسح باستخدام OCTAR",
+      des: `افتح تطبيق OCTAR وامسح الصفحة بعد تلوينها، ليشاهد طفلك إبداعه ينبض بالحياة أمامه بتقنية ثلاثية الأبعاد.`,
     },
     {
       id: 4,
       img: img1,
-      header: "تفاعل وألعب وتعلم",
-      des: `اسبح في عالم جديد حيث تعلمك ينبع من اللعب والتفاعل، نماذج أوكتار OCTAR ثلاثية الأبعاد ليست مذهلة بصريًا فحسب؛ بل إنها أدوات تعليمية تجذب الانتباه وتسلي وتضئ دروب المعرفة. استكشف وتفاعل واكتشف عالم المعرفة بطريقة مليئة بالمغامرة والحماس.`,
+      header: "العب وتعلّم",
+      des: `دع طفلك يستكشف ويتفاعل ويلعب ويتعلّم، بينما يتحول ما أبدعه إلى جزء من مغامرة تعليمية تفاعلية ممتعة.`,
     },
   ];
   let dataArr = isArabic ? dataArrA : dataArrE;
@@ -149,7 +144,7 @@ const HowItWorks = ({ data }: any) => {
           <p>{t("process")}</p>
           <h1>{t("how")}</h1>
         </motion.div>
-        <div className={styles.divContainer}>
+        <div className={`${styles.divContainer} pt-2`}>
           {dataArr?.map((e, index: number) => {
             return (
               <motion.div
@@ -160,14 +155,14 @@ const HowItWorks = ({ data }: any) => {
                 // ref={refs.current[index]} // Attach ref to each element
                 animate={hasAnimated[index] ? "visible" : ""}
                 key={e.id}
-                className={styles.singleDiv}
+                className={`${styles.singleDiv} `}
               >
                 <Image src={e?.img} alt="how it works"></Image>
                 <h1>{e.header}</h1>
                 <h2 style={{ textAlign: isArabic ? "right" : "left" }}>
                   {e.des}
                 </h2>
-                <p className={styles.num}>{++index}</p>
+                {/* <p className={styles.num}>{++index}</p> */}
               </motion.div>
             );
           })}
