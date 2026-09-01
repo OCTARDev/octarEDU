@@ -202,7 +202,7 @@ const SlidingPane: React.FC<props> = ({ open, setOpen, firstLink }: props) => {
             >
               <Link href={`/${firstLink}/home/about`}> {tN("aboutUs")}</Link>
             </motion.li>
-            <motion.li variants={navItem} className={styles.liFont}>
+            {/* <motion.li variants={navItem} className={styles.liFont}>
               <div className={styles.special} onClick={hanldeChange}>
                 <p> {tN("services")}</p>
                 <button>
@@ -246,9 +246,9 @@ const SlidingPane: React.FC<props> = ({ open, setOpen, firstLink }: props) => {
               <Link href={`/${firstLink}/home/educational-service`}>
                 <p> {tN("educational")}</p>
               </Link>
-              {/* <p>Advertisements</p>
-              <p>Events</p> */}
-            </div>
+              <p>Advertisements</p>
+              <p>Events</p>
+            </div> */}
             <motion.li variants={navItem} className={styles.liFont}>
               <div className={styles.special} onClick={hanldeChangeSecond}>
                 <p>{tN("subscriptions")} </p>

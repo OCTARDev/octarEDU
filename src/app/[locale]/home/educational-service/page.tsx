@@ -5,8 +5,8 @@ import EducationsNav from "./components/nav";
 const EducationalService = () => {
   return (
     <div>
-      <Header />
-      <EducationsNav />
+      {/* <Header />
+      <EducationsNav /> */}
     </div>
   );
 };

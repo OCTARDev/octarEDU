@@ -197,13 +197,13 @@ const NavBar = () => {
                 >
                   <Link href={`/${firstLink}/home/individual/`}>{tN("subscriptions")}</Link>
                 </li>
-                <li
+                {/* <li
                   className={
                     pathname.includes("home/educational-service") ? ` ${styles.active}` : ""
                   }
                 >
                   <Link href={`/${firstLink}/home/educational-service/`}>{tN("services")}</Link>
-                </li>
+                </li> */}
 
 
                 <li

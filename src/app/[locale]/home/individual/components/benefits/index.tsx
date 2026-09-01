@@ -16,7 +16,7 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import useInViewAnimation from "@/animation/useScroll";
 import Image from "next/image";
-import img from "../../../../../../assets/individual/parents.webp";
+import img from "../../../../../../assets/individual/subscription.png";
 const Benefits = () => {
   const { ref, controls } = useInViewAnimation();
   const [value, setValue] = React.useState<string>("parents");

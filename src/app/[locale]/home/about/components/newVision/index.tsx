@@ -18,7 +18,7 @@ import {
   upContainerVariant,
 } from "@/animation";
 import img1 from "../../../../../../assets/compressed/Rectangle 11.webp";
-import img2 from "../../../../../../assets/compressed/Rectangle 38.webp";
+import img2 from "../../../../../../assets/compressed/Vision.png";
 import { useTranslations } from "next-intl";
 // import img3 from "../../../../../assets/History/3.webp";
 // import img4 from "../../../../../assets/History/4.webp";

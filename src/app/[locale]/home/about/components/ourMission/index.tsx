@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./style.module.scss";
-import img from "../../../../../../assets/compressed/Rectangle 12.webp";
+import img from "../../../../../../assets/compressed/Mission.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
