@@ -4,14 +4,15 @@
         "language": " English",
         "about": {
             "IntroducingOCTAR": "Introducing OCTAR",
-            "where": "where",
-            "creativity": "creativity",
-            "meet": "meets",
-            "learning": "learning",
-            "through": "through",
-            "imagination": "imagination",
-            "des": "Are you ready to unlock a world of creativity, fun, and interactive learning for students and kids? Meet OCTAR, the cutting-edge Augmented Reality (AR) app designed to transform your educational and leisure time into an extraordinary 3D experience.",
-            "free": "Start free trial"
+            "word1": "Turn",
+            "word2": "Screen",
+            "word3": "Time",
+            "word4": "Into",
+            "word5": "Creative",
+            "word6": "Learning",
+            "word7": "Time",
+            "des": "Your child colors, scans, and watches their creations come to life — turning hands-on play into fun, interactive learning in Arabic and English.",
+            "free": "Try OCTAR Free"
         },
         "whatIsOctar": {
             "aboutus": "About us",

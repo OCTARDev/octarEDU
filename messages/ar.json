@@ -4,13 +4,14 @@
         "language": "اللغة العربية",
         "about": {
             "IntroducingOCTAR": "مرحبا بكم ",
-            "where": "حيث",
-            "creativity": "إِلابـــــداع",
-            "meet": "يلتقي",
-            "learning": "بالتعلم ",
-            "through": "في عالم من",
-            "imagination": "الخيال",
-            "des": "كن مستعدا لاستكشاف عالم جديد من الإبداع والترفيه والتعلم! نقدم لكم أوكتار، التطبيق المذهل للواقع المعزز الذي يجعل من وقت التعليم والترفيه تجربة ثلاثية الأبعاد لا مثيل لها. هل أنتم مستعدون لدخول عالم مليء بالمرح والتفاعل لطلابكم وأطفالكم؟ انطلقوا معنا في رحلة ساحرة حيث يتقاطع الإبداع مع التعلم من خلال الخيال والترفيه.",
+            "word1": "حّول",
+            "word2": "وقت",
+            "word3": "الشاشة",
+            "word4": "إلى",
+            "word5": "وقت",
+            "word6": "لإلبداع",
+            "word7": "والتعلّم",
+            "des": "يلوّن طفلك، يمسح رسمته، ثم يشاهدها تنبض بالحياة أمامه — لتتحول متعة اللعب والإبداع إلى تجربة تعليمية تفاعلية باللغتين العربية والإنجليزية.",
             "free": "جربه الآن مجانا"
         },
         "whatIsOctar": {
@@ -88,9 +89,9 @@
         "home": "الصفحة الرئيسية",
         "about": "عن"
     },
-    "warning":{
-        "h1":"قم بتفعيل الاكونت",
-        "h2":"من فضلك فعل الاكونت ليمكنك استخدام كل مزايا الموقع"
+    "warning": {
+        "h1": "قم بتفعيل الاكونت",
+        "h2": "من فضلك فعل الاكونت ليمكنك استخدام كل مزايا الموقع"
     },
     "LocaleSwitcher": {
         "locale": "{locale, select, ar {Arabic} en {English} other {Unknown}}"
@@ -103,10 +104,10 @@
         "songs": "الاغاني",
         "coloringCategories": "مجموعات التلوين",
         "parents": "دليل الوالدين",
-        "profile":" الملف الشخصي",
-        "products":"المنتجات",
-        "lessonPlan":"خطة الدروس",
-        "studentNursery":"حضانات الطلاب"
+        "profile": " الملف الشخصي",
+        "products": "المنتجات",
+        "lessonPlan": "خطة الدروس",
+        "studentNursery": "حضانات الطلاب"
     },
     "dashboardHome": {
         "howItWorks": "كيف نستخدم   OCTAR ؟",
@@ -117,7 +118,7 @@
         "yourSubscriptionPlan": "خطة الاشتراك الخاصة بك",
         "subscriptionMessage": "غير مشترك",
         "subscribe": "اشترك",
-        "contact_us":"تواصل معنا",
+        "contact_us": "تواصل معنا",
         "benefits": "مزايا الاشتراك في تطبيق OCTAR",
         "parents": "الاباء",
         "kids": "الابناء",
@@ -128,9 +129,9 @@
         "free": "يرجي الاشتراك لاستكمال المغامرة",
         "freeTrialMessage": "ترجبتكم المجانية مع أوكتار ستنتهي في",
         "limited": "لفترة محدودة",
-        "free-word":"تواصل معنا",
-        "features":"مميزات",
-        "nursery-word":"حضانات"
+        "free-word": "تواصل معنا",
+        "features": "مميزات",
+        "nursery-word": "حضانات"
     },
     "dashboardSubscriptionPayment": {
         "back": "الرجوع الي الصفحة السابقة",
@@ -202,10 +203,10 @@
         "oldPassword": "كلمة المرور الحالية",
         "newPassword": "كلمة المرور الجديدة",
         "cPassword": "تأكيد كلمة المرور الجديدة",
-        "submit":"تعديل",
-        "placeholderOldPassword":"ادخل الباسورد الحالية",
-        "placeholderNewPassword":"ادخل الباسورد الجديد",
-        "placeholderCPassword":"اكد الباسورد"
+        "submit": "تعديل",
+        "placeholderOldPassword": "ادخل الباسورد الحالية",
+        "placeholderNewPassword": "ادخل الباسورد الجديد",
+        "placeholderCPassword": "اكد الباسورد"
     },
     "header": {
         "blog": "المدونة",
@@ -336,7 +337,7 @@
         "name": "الاشتراك الفردي",
         "list": {
             "name": "خطة الاشتراك الفردي",
-            "body":"اختار الخطة المناسبة لك",
+            "body": "اختار الخطة المناسبة لك",
             "dive": "إنطلق في عالم تطبيق أوكتار OCTAR ",
             "discover": "اكتشف مغامرات ثلاثية الأبعاد وموارد تعليمية لا حصر لها",
             "enjoy": "استمتع باشتراك مصمم خصيصًا للفئة العمرية لطفلك",
@@ -373,20 +374,20 @@
         "description": "الوصف",
         "targetDes": "اكتشف مخلوقات مذهلة في فئة الحيوانات في OCTAR. صُمم هذا القسم للمستكشفين الصغار، وهو يجسد ستة حيوانات رائعة: الأسد العظيم، والفيل اللطيف، والزرافة الطويلة، والفراشة الرقيقة، والنحلة النشطة، والضفدع القافز. من خلال تجارب الواقع المعزز الملونة، يتعلم الأطفال عن خصائص الحيوانات وموائلها وسلوكياتها. شاهد كيف تتحول الرسومات ثنائية الأبعاد إلى نماذج تفاعلية ثلاثية الأبعاد، مما يسمح للأطفال بمراقبة هذه الحيوانات والتفاعل معها عن قرب في بيئة افتراضية آمنة.",
         "back": "الرجوع الي الصفحة السابقة",
-        "options":{
+        "options": {
             "all": "الكل",
-            "free":"مجاني",
-            "english":"english",
-            "arabic":"اللغة العربية",
-            "product":"product"
+            "free": "مجاني",
+            "english": "english",
+            "arabic": "اللغة العربية",
+            "product": "product"
         }
     },
-    "codeCategoriesPage":{
-        "products":"المنتجات",
-        "havecode":"لديك كود تفعيل؟",
-        "enterlabel":" ادخل كود التفعيل لحجب كل الاصناف",
-        "searchlabel":"ادخل كود التفعيل",
-        "confirm":"تأكيد"
+    "codeCategoriesPage": {
+        "products": "المنتجات",
+        "havecode": "لديك كود تفعيل؟",
+        "enterlabel": " ادخل كود التفعيل لحجب كل الاصناف",
+        "searchlabel": "ادخل كود التفعيل",
+        "confirm": "تأكيد"
     },
     "footer": {
         "send": "ارسال",
@@ -415,7 +416,7 @@
                 "smarty": "التعليم",
                 "vividly": "الميديا",
                 "vreal": "تكنولوجيا العقارات",
-                "affilliates":"التابعة"
+                "affilliates": "التابعة"
             },
             "newsletter_subscription": {
                 "title": "الاشتراك في النشرة الإخبارية",
@@ -433,11 +434,11 @@
         "leave": "اترك استفسارك لفريقنا وسنقوم بالرد عليك في أقرب وقت ممكن.",
         "subject": "الموضوع",
         "phone": "رقم الهاتف",
-        "details":"التفاصيل",
-        "country":"الدولة",
-        "nursery_name":"اسم الحضانة",
-        "contact_person_name":"اسم الشخص",
-        "number_student":"عدد الطلاب"
+        "details": "التفاصيل",
+        "country": "الدولة",
+        "nursery_name": "اسم الحضانة",
+        "contact_person_name": "اسم الشخص",
+        "number_student": "عدد الطلاب"
     },
     "login": {
         "signIn": "تسجيل دخول",
@@ -449,12 +450,12 @@
         "forget": "هل نسيت كلمة المرور؟",
         "dont": "ليس لديك حساب",
         "create": "سجل معنا ",
-        "youtube_link":"https://www.youtube.com/watch?v=cZkrWm0mOKc",
-        "youtube_label":"الفيديو التعريفي للتسجيل"
+        "youtube_link": "https://www.youtube.com/watch?v=cZkrWm0mOKc",
+        "youtube_label": "الفيديو التعريفي للتسجيل"
     },
     "signup": {
-        "youtube_link":"https://www.youtube.com/watch?v=cZkrWm0mOKc",
-        "youtube_label":"الفيديو التعريفي للتسجيل",
+        "youtube_link": "https://www.youtube.com/watch?v=cZkrWm0mOKc",
+        "youtube_label": "الفيديو التعريفي للتسجيل",
         "createAccount": "سجل معنا",
         "des": "ليس لديك حساب؟ قم بالتسجيل الآن للحصول على دخول فوري!",
         "accountType": {

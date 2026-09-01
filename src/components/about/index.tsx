@@ -55,14 +55,15 @@ const About = ({ data }: any) => {
           <p>{t("about.IntroducingOCTAR")}</p>
           <div className={styles.hideH3}>
             <h3>
-              {t("about.where")}{" "}
-              <span className={styles.colorful}> {t("about.creativity")}</span>
-              <span> {t("about.meet")}</span>
+              {t("about.word1")}{" "}
+              <span> {t("about.word2")}</span>
+              <span> {t("about.word3")}</span>
             </h3>
             <h3>
-              <span className={styles.colorful}> {t("about.learning")}</span>
-              <span> {t("about.through")}</span>
-              <span> {t("about.imagination")}</span>
+              <span> {t("about.word4")}</span>
+              <span className={isArabic ? "" : styles.colorful}> {t("about.word5")}</span>
+              <span className={styles.colorful}> {t("about.word6")}</span>
+              <span className={isArabic ? styles.colorful : ""}> {t("about.word7")}</span>
             </h3>
           </div>
           <div className={styles.showH3}>
