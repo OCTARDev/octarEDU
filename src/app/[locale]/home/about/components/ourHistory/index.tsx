@@ -17,8 +17,8 @@ import {
   rightContainerVariant,
   upContainerVariant,
 } from "@/animation";
-import img1 from "../../../../../../assets/compressed/Rectangle 11.webp";
-import img2 from "../../../../../../assets/compressed/Rectangle 38.webp";
+import img1 from "../../../../../../assets/compressed/about us.png";
+// import img2 from "../../../../../../assets/compressed/Rectangle 38.webp";
 import { useTranslations } from "next-intl";
 // import img3 from "../../../../../assets/History/3.webp";
 // import img4 from "../../../../../assets/History/4.webp";
@@ -33,10 +33,7 @@ const OurHistory = ({ isArabic }: { isArabic: boolean }) => {
   const images: any = [
     {
       img: img1,
-    },
-    {
-      img: img2,
-    },
+    }
   ];
   const t = useTranslations("AboutPage");
   return (
@@ -72,6 +69,7 @@ const OurHistory = ({ isArabic }: { isArabic: boolean }) => {
               animate={controlsFour}
               ref={refFour}
               transition={{ delay: 0.5 }}
+              style={{ whiteSpace: 'pre-line' }}
             >
               {t("historyDes")}
             </motion.p>
