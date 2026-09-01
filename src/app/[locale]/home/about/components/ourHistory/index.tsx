@@ -69,7 +69,7 @@ const OurHistory = ({ isArabic }: { isArabic: boolean }) => {
               animate={controlsFour}
               ref={refFour}
               transition={{ delay: 0.5 }}
-              style={{ whiteSpace: 'pre-line' }}
+              className="whitespace-pre-line"
             >
               {t("historyDes")}
             </motion.p>

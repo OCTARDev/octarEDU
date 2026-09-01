@@ -146,7 +146,7 @@ export const firstArr = [
       </svg>
     ),
     content:
-      "We believe in nurturing creativity as a fundamental part of learning. We encourage individual expression and the exploration of new ideas",
+      "We give children the freedom to imagine, color, create, and express themselves, making creativity a natural part of every learning experience.",
     title: "Creativity",
   },
   {
@@ -184,8 +184,8 @@ export const firstArr = [
       </svg>
     ),
     content:
-      "We are committed to the power of education to transform lives. Our products are designed to enhance understanding and retention of educational concepts.",
-    title: "Education",
+      "We believe children learn best when they are curious, involved, and having fun. That's why we turn early learning into experiences children can explore through play.",
+    title: "Learning Through Play",
   },
   {
     icon: (
@@ -217,7 +217,7 @@ export const firstArr = [
       </svg>
     ),
     content:
-      "We strive to make learning accessible to all. Our solutions are user-friendly and available to a diverse range of users.",
+      "We aim to make engaging learning experiences easy to access and enjoy, with content in both Arabic and English designed for young learners and their families.",
     title: "Accessibility",
   },
 ];
@@ -369,7 +369,7 @@ export const firstArrArabic = [
       </svg>
     ),
     content:
-      "نؤمن بأهمية الإبداع كجزء أساسي من التعلم. نحن نشجع التعبير الفردي واستكشاف الأفكار الجديدة.",
+      "نمنح الطفل مساحة ليتخيّل ويلوّن ويبدع ويعبّر عن نفسه، ليصبح الإبداع جزءًا طبيعيًا من كل تجربة تعلّم.",
     title: "الإبداع",
   },
   {
@@ -407,8 +407,8 @@ export const firstArrArabic = [
       </svg>
     ),
     content:
-      "نحن ملتزمون بقوة التعليم في تغيير الحياة. منتجاتنا مصممة لتعزيز الفهم والاستيعاب للمفاهيم التعليمية.",
-    title: "التعليم",
+      "نؤمن بأن الطفل يتعلّم بصورة أفضل عندما يكون فضوليًا ومتفاعلًا ومستمتعًا، لذلك نحوّل مفاهيم التعلّم المبكر إلى تجارب يكتشفها الطفل من خلال اللعب.",
+    title: "التعلّم من خلال اللعب",
   },
   {
     icon: (
@@ -440,8 +440,8 @@ export const firstArrArabic = [
       </svg>
     ),
     content:
-      "نسعى لجعل التعليم متاحًا للجميع. حلولنا سهلة الاستخدام ومتاحة لمجموعة واسعة من المستخدمين.",
-    title: "إتاحة الوصول",
+      "نسعى إلى تقديم تجارب تعليمية ممتعة وسهلة الوصول والاستخدام، بمحتوى باللغتين العربية والإنجليزية يناسب الأطفال الصغار وأسرهم.",
+    title: "سهولة الوصول",
   },
 ];
 export const secondArr = [
@@ -480,7 +480,7 @@ export const secondArr = [
       </svg>
     ),
     content:
-      "We are dedicated to continuous innovation, pushing the boundaries of what's possible in AR education to provide the best experiences",
+      "We use technology with purpose — not for its own sake, but to create new ways for children to connect hands-on experiences with interactive learning.",
     title: "Innovation",
   },
   {
@@ -520,7 +520,7 @@ export const secondArr = [
       </svg>
     ),
     content:
-      "Quality is at the core of everything we do. We maintain the highest standards in content, technology, and user experience.",
+      "We care about every part of the experience, from educational content and creative activities to interaction and technology, and continuously work to make OCTAR better.",
     title: "Quality",
   },
   {
@@ -638,7 +638,7 @@ export const secondArr = [
       </svg>
     ),
     content:
-      "We aim to keep learners engaged and excited about the learning process. Our content is designed to be immersive and interactive.",
+      "We design experiences that invite children to participate, explore, and interact — rather than watch.",
     title: "Engagement",
   },
   {
@@ -678,8 +678,8 @@ export const secondArr = [
       </svg>
     ),
     content:
-      "We believe in the power of collaboration and partnership with schools, teachers, parents, and students to enhance education.",
-    title: "Collaboration",
+      "We believe learning is even more meaningful when families share the experience, creating opportunities for parents and children to explore, play, and learn together.",
+    title: "Togetherness",
   },
 ];
 
@@ -719,8 +719,8 @@ export const secondArrArabic = [
       </svg>
     ),
     content:
-      "نلتزم بالتجديد المستمر، متجاوزين حدود الممكن في تعليم الواقع المعزز لنقدم تجارب تعليمية فريدة.",
-    title: "الابتكار",
+      "نستخدم التكنولوجيا لهدف حقيقي، لا لمجرد استخدام التقنية، بل لابتكار طرق جديدة تربط بين ما يصنعه الطفل بيديه وما يكتشفه من خلال التعلّم التفاعلي.",
+    title: "الابتكار الهادف",
   },
   {
     icon: (
@@ -759,7 +759,7 @@ export const secondArrArabic = [
       </svg>
     ),
     content:
-      "نضع الجودة في صميم كل ما نقوم به، ملتزمين بأعلى المعايير في المحتوى والتقنية وتجربة المستخدم.",
+      "نهتم بكل تفاصيل التجربة، من المحتوى التعليمي والأنشطة الإبداعية إلى التفاعل والتكنولوجيا، ونعمل باستمرار على تطوير OCTAR وتقديم تجربة أفضل.",
     title: "الجودة",
   },
   {
@@ -877,8 +877,8 @@ export const secondArrArabic = [
       </svg>
     ),
     content:
-      "نهدف إلى إبقاء المتعلمين متفاعلين ومتحمسين لرحلة التعلم، نصمم لهم محتوى غامرًا وتفاعليًا يثير شغفهم.",
-    title: "التفاعل",
+      "نصمم تجارب تدعو الطفل للمشاركة والاستكشاف والتفاعل، بدلًا من الاكتفاء بالمشاهدة.",
+    title: "التفاعل والمشاركة",
   },
   {
     icon: (
@@ -917,7 +917,7 @@ export const secondArrArabic = [
       </svg>
     ),
     content:
-      "نؤمن بقوة الشراكة والتعاون مع المدارس والمعلمين وأولياء الأمور والطلاب لتحقيق نهضة تعليمية شاملة.",
-    title: "التعاون",
+      "نؤمن بأن التعلّم يصبح أكثر قيمة عندما تشارك الأسرة الطفل تجربته، لذلك نخلق فرصًا للأهل والأطفال للاستكشاف واللعب والتعلّم معًا.",
+    title: "معًا نتعلّم",
   },
 ];

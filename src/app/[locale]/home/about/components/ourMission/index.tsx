@@ -86,7 +86,8 @@ const OurMission = ({ isArabic }: { isArabic: boolean }) => {
                 <motion.span variants={upContainerVariant}>o</motion.span>
                 <motion.span variants={upContainerVariant}>n</motion.span> */}
               </motion.h1>
-              <p>{t("missionDec")}</p>
+              <p className="!font-bold">{t("missionDec1")}</p>
+              <p>{t("missionDec2")}</p>
             </motion.div>
           </Grid>
           <Grid item xs={12} md={6} order={{ sm: 2, lg: 1, md: 1 }}>

@@ -71,8 +71,19 @@ const NewVision = ({ isArabic }: { isArabic: boolean }) => {
               animate={controlsFour}
               ref={refFour}
               transition={{ delay: 0.5 }}
+              className="whitespace-pre-line !font-bold"
             >
-              {t("visionDec")}
+              {t("visionDec1")}
+            </motion.p>
+            <motion.p
+              variants={downContainerVariant}
+              initial="hidden"
+              animate={controlsFour}
+              ref={refFour}
+              transition={{ delay: 0.5 }}
+              className="whitespace-pre-line"
+            >
+              {t("visionDec2")}
             </motion.p>
           </motion.div>
         </Grid>
