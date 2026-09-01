@@ -22,11 +22,11 @@
         },
         "whatIsOctarFor": {
             "WhoisOCTARfor": "Who is OCTAR for ?",
-            "OCTARisdesigned": "OCTAR is designed with a dual focus, targeting schools and parents alike.",
-            "forSchools": "OCTAR is an invaluable tool for educators. Teachers can integrate OCTAR into their lessons, making learning a dynamic and interactive experience. It's an exceptional resource for elementary students, enhancing their understanding of various subjects while sparking their creativity",
-            "forParents": "OCTAR offers quality bonding time for parents and children. Explore the wonders of the universe, delve into history, or embark on a journey through science, all while having fun together",
+            "OCTARisdesigned": "Created for curious little learners and for parents who want playtime to be creative, interactive, and meaningful.",
+            "forChildren": "OCTAR is made for curious little minds who love to color, play, and discover. Children explore early-learning concepts through interactive adventures designed to make learning feel like part of the fun.",
+            "forParents": "OCTAR brings hands-on creativity and interactive learning together in one experience. From coloring and activity sheets to playful 3D adventures, children create, explore, and learn in both Arabic and English — on and beyond the screen.",
             "parents": "For parents",
-            "schools": "For schools"
+            "children": "For Children"
         },
         "howItWorks": {
             "how": "How it works ?",

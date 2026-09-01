@@ -54,7 +54,7 @@ const WhatIsOctarFor = () => {
               duration: 0.5,
             }}
           >
-            {t("schools")}
+            {t("children")}
           </motion.h1>
           <motion.p
             variants={downContainerVariant}
@@ -65,7 +65,7 @@ const WhatIsOctarFor = () => {
               duration: 0.8,
             }}
           >
-            {t("forSchools")}
+            {t("forChildren")}
           </motion.p>
         </motion.div>
         <motion.div>

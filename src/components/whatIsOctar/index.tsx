@@ -110,6 +110,7 @@ const WhatIsOctar = ({ data }: any) => {
             ref={refFour}
             initial="hidden"
             animate={controlsFour}
+            className="w-full"
             transition={{
               type: "tween",
               duration: 0.9,
