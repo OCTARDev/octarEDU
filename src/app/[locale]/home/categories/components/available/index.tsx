@@ -7,6 +7,7 @@ import CategoriesProducts from "../categoriesProducts";
 import Loader from "@/components/loader";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 const isAuthenticated = () => {
   try {
     if (typeof window !== "undefined") {
@@ -97,7 +98,14 @@ const Available = () => {
             </div>
           </div>
           <div>
-            <p>{t("des")}</p>
+            <p className="whitespace-pre-line">
+              {t("des1")}
+              <span className="font-bold">{t('des2')}</span>
+              {" "}
+              <Link href="/" className="font-bold underline hover:text-blue-500">{t('desLink')}</Link>
+              {' '}
+              <span className="font-bold">{t('des3')}</span>
+              </p>
           </div>
         </div>
       </div>
