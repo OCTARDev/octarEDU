@@ -367,7 +367,10 @@
         "cart": "Cart",
         "payment": "Go to payment",
         "deliveryFees": "Delivery fees",
-        "loading": "loading"
+        "loading": "loading",
+        "worldsKicker": "OCTAR Learning Worlds",
+        "worldsHeading": "Pick a world to explore",
+        "explore": "Explore this world"
     },
     "categoriesPage": {
         "availableCategories": "Explore OCTAR’s Learning Worlds",

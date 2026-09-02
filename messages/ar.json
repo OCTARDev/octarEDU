@@ -368,7 +368,10 @@
         "cart": "عربة التسوق",
         "payment": "اذهب الي الدفع",
         "deliveryFees": "ثمن التوصيل",
-        "loading": "برجاء الانتظار"
+        "loading": "برجاء الانتظار",
+        "worldsKicker": "عوالم التعلّم في أوكتار",
+        "worldsHeading": "اختر عالمًا لتستكشفه",
+        "explore": "استكشف هذا العالم"
     },
     "categoriesPage": {
         "availableCategories": "عوالم التعلّم",
