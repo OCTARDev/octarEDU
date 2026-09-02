@@ -229,7 +229,7 @@
         "individual": "Individual",
         "school": "Schools",
         "dashboard": "Dashboard",
-        "profile": "my space",
+        "profile": "My Space",
         "logout": "Logout",
         "signIn": "Sign in"
     },
@@ -371,9 +371,10 @@
     },
     "categoriesPage": {
         "availableCategories": "Explore OCTAR’s Learning Worlds",
+        "sub":"Explore OCTAR’s Learning Worlds",
         "des1": "Discover the variety of early-learning experiences waiting for your child in OCTAR. From letters and numbers to animals, fruits, professions, healthy habits, and more, each category turns familiar early-learning concepts into opportunities to create, explore, play, and learn.\nBrowse the categories below to discover what your child can explore with OCTAR.",
         "des2": "Ready to start? Visit the",
-        "desLink": "Portfolio",
+        "desLink": "my space",
         "des3": "to download and print OCTAR activities, then bring them to life with the app.",
         "title": "Title",
         "description": "Description",

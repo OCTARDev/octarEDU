@@ -98,14 +98,15 @@ const Available = () => {
             </div>
           </div>
           <div>
+            <p className="font-bold mb-2">{t('sub')}</p>
             <p className="whitespace-pre-line">
-              {t("des1")}
+              {t("des1")}{' '}
               <span className="font-bold">{t('des2')}</span>
               {" "}
-              <Link href="/" className="font-bold underline hover:text-blue-500">{t('desLink')}</Link>
+              <Link href={`/${isArabic ? 'ar' : 'en'}/dashboard/home/`} className="font-bold underline text-[#9e32a4] hover:text-blue-700/90">{t('desLink')}</Link>
               {' '}
               <span className="font-bold">{t('des3')}</span>
-              </p>
+            </p>
           </div>
         </div>
       </div>

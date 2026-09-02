@@ -1,5 +1,7 @@
 .aboutContainer {
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   display: flex;
   padding: 1.5rem 2.1875rem 1.5rem 4rem;
   align-items: center;
@@ -17,8 +19,11 @@
     gap: 1rem;
     margin: 5rem 0;
     padding-top: 4rem;
+    width: 100%;
+    max-width: 100%;
     div:nth-child(1) {
       width: 100%;
+      max-width: 100%;
       h1 {
         color: var(--grey-darkest, #321433);
         // font-family: Open Sans;
@@ -27,13 +32,16 @@
         font-weight: 800;
         line-height: 140%; /* 5.6rem */
         letter-spacing: -0.01875rem;
+        overflow-wrap: break-word;
       }
       .shape {
         position: relative;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        max-width: 100%;
         svg {
           position: absolute;
           top: -0.3rem;
@@ -44,6 +52,8 @@
       }
     }
     div:nth-child(2) {
+      width: 100%;
+      max-width: 100%;
       p {
         width: 80%;
       }
@@ -57,44 +67,23 @@
       align-items: center;
       justify-content: center;
       padding-left: 0;
-      margin: 0 auto;
-      &:nth-child(1) {
-        div {
-          text-align: center;
-        }
-      }
-    }
-  }
-}
-@media (max-width: 600px) {
-  .aboutContainer {
-    padding: 1.5rem 0;
-    .content {
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
+      margin: 5rem auto;
+      text-align: center;
       div:nth-child(1) {
+        text-align: center;
         .shape {
-          svg {
-            width: 9.83875rem;
-            height: 3.92738rem;
-            top: 0;
-            left: -1.8rem;
-            top: -0.8rem;
+          justify-content: center;
+          > div {
+            justify-content: center;
           }
         }
-
         h1 {
-          font-size: 1.5rem;
-        }
-        p {
-          font-size: 1.125rem;
+          font-size: 3rem;
         }
       }
       div:nth-child(2) {
         p {
           width: 100%;
-          font-size: 1.125rem;
         }
       }
     }
@@ -104,7 +93,53 @@
   .aboutContainer {
     .content {
       padding-top: 0;
-      margin: 0;
+      margin: 3rem auto;
+      div:nth-child(1) {
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .aboutContainer {
+    .content {
+      div:nth-child(1) {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .aboutContainer {
+    padding: 1.5rem 1.5rem;
+    .content {
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      div:nth-child(1) {
+        .shape {
+          svg {
+            width: 9.83875rem;
+            height: 3.92738rem;
+            top: -0.8rem;
+            left: -1.8rem;
+          }
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+      div:nth-child(2) {
+        p {
+          width: 100%;
+          font-size: 1.125rem;
+        }
+      }
     }
   }
 }
