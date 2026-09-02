@@ -41,22 +41,40 @@ const Categories = () => {
             query: { single: `${e.id}` },
           }}
           key={e.id}
-          className="w-full flex"
+          className={styles.cardLink}
         >
-          <div className={styles.categoryItem}>
-            <Image
-              src={e.media.file_path}
-              alt="Puzzles"
-              width={120}
-              height={120}
-              priority
-              className="!w-full"
-              // loading="lazy"
-              layout="responsive"
-              onLoadingComplete={handleImageLoad} // Track image load
-            />
-            <p>{e.title}</p>
-          </div>
+          <article className={styles.categoryItem}>
+            <span className={styles.blob} aria-hidden="true" />
+            <div className={styles.thumb}>
+              <Image
+                src={e.media.file_path}
+                alt={e.title}
+                width={120}
+                height={120}
+                priority
+                className={`${styles.thumbImg} !w-full`}
+                layout="responsive"
+                onLoadingComplete={handleImageLoad} // Track image load
+              />
+            </div>
+            <div className={styles.label}>
+              <p>{e.title}</p>
+              <span
+                className={`${styles.arrow} ${isArabic ? styles.arrowRtl : ""}`}
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
+          </article>
         </Link>
       );
     });

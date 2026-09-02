@@ -1,7 +1,16 @@
+$gradient: linear-gradient(135deg, #4e5ae2 0%, #9e32a4 54.17%, #d552d8 100%);
+
 .categories {
   text-align: center;
-  padding: 5rem 2rem;
-  background: #f9f9f9;
+  padding: 2.25rem 2rem 4rem;
+  /* soft brand-tinted ambience over the neutral surface */
+  background: radial-gradient(
+      circle at 12% 0%,
+      rgba(78, 90, 226, 0.07),
+      transparent 42%
+    ),
+    radial-gradient(circle at 88% 100%, rgba(213, 82, 216, 0.08), transparent 42%),
+    #f9f9f9;
 
   h2 {
     font-size: 2rem;
@@ -9,51 +18,228 @@
   }
 
   .categoryList {
-    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 244px));
+    justify-content: center;
+    gap: 1.75rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cardLink {
+    display: flex;
+    width: 100%;
+    border-radius: 22px;
+
+    &:focus-visible {
+      outline: 2px solid #9e32a4;
+      outline-offset: 4px;
+    }
   }
 
   .categoryItem {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1rem 1.35rem;
+    border-radius: 22px;
+    background: #ffffff;
+    border: 1px solid rgba(158, 50, 164, 0.12);
+    box-shadow: 0 1px 2px rgba(50, 20, 51, 0.04),
+      0 16px 34px -18px rgba(158, 50, 164, 0.28);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s ease, border-color 0.35s ease;
+
+    /* gradient accent that reveals on hover */
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: $gradient;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+  }
+
+  /* blurred gradient orb echoing the hero blob */
+  .blob {
+    position: absolute;
+    z-index: 0;
+    top: -70px;
+    left: 50%;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: $gradient;
+    filter: blur(42px);
+    opacity: 0.18;
+    transform: translateX(-50%);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .thumb {
+    position: relative;
+    z-index: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0.5rem;
+    background: linear-gradient(
+      160deg,
+      rgba(78, 90, 226, 0.1),
+      rgba(213, 82, 216, 0.1)
+    );
+
+    .thumbImg {
+      display: block;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+
+  .label {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    display: flex;
     align-items: center;
-    text-align: center;
-/*     max-width: 150px; */
-    @apply bg-[#9e32a4]/20 hover:bg-[#9e32a4]/40 px-4 py-5 rounded-xl h-full w-full flex-grow;  
+    justify-content: center;
+    gap: 0.5rem;
 
     p {
-      margin-top: 0.5rem;
+      margin: 0;
       font-size: 1rem;
-      color: #333;
-      @apply font-bold capitalize text-center;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: #321433;
+      letter-spacing: -0.01875rem;
+      overflow-wrap: break-word;
+      transition: color 0.3s ease;
+    }
+  }
+
+  .arrow {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: #9e32a4;
+    background: rgba(158, 50, 164, 0.12);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.35s ease, transform 0.35s ease, background 0.35s ease,
+      color 0.35s ease;
+
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    &.arrowRtl svg {
+      transform: scaleX(-1);
+    }
+  }
+
+  /* ---- hover / focus state ---- */
+  .cardLink:hover,
+  .cardLink:focus-visible {
+    .categoryItem {
+      transform: translateY(-8px);
+      border-color: rgba(158, 50, 164, 0.28);
+      box-shadow: 0 2px 4px rgba(50, 20, 51, 0.05),
+        0 28px 50px -20px rgba(158, 50, 164, 0.45);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    .blob {
+      opacity: 0.3;
+      transform: translateX(-50%) scale(1.15);
+    }
+
+    .thumbImg {
+      transform: scale(1.07);
+    }
+
+    .label p {
+      background: $gradient;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .arrow {
+      opacity: 1;
+      transform: translateX(0);
+      background: $gradient;
+      color: #ffffff;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .categoryItem,
+    .blob,
+    .thumbImg,
+    .arrow {
+      transition: none;
+    }
+
+    .cardLink:hover .categoryItem {
+      transform: none;
     }
   }
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .categoryList {
-    gap: 1rem;
-  }
+  .categories {
+    padding: 4rem 1.5rem;
 
-  .categoryItem {
-    /* max-width: 120px; */
+    .categoryList {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
+      gap: 1.25rem;
+    }
 
-    p {
-      font-size: 0.9rem;
+    .label p {
+      font-size: 0.95rem;
+    }
+
+    /* touch devices have no hover: keep the arrow visible */
+    .arrow {
+      opacity: 1;
+      transform: none;
     }
   }
 }
 
 @media (max-width: 480px) {
   .categories {
-    padding: 1rem;
-  }
+    padding: 3rem 1rem;
 
-  .categoryItem {
-    /* max-width: 100px; */
+    .categoryList {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+      max-width: 320px;
+    }
 
-    p {
-      font-size: 0.8rem;
+    .categoryItem {
+      padding: 0.85rem 0.85rem 1.1rem;
+      border-radius: 18px;
+    }
+
+    .label p {
+      font-size: 1rem;
     }
   }
 }
