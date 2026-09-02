@@ -72,7 +72,7 @@ const Subscription = ({ data, isArabic }: any) => {
                     }}
                   >
                     <p>{account.title}</p>
-                    <p>{t("subscription")}</p>
+                    {/* <p>{t("subscription")}</p> */}
                   </div>
                   <ul>
                     {account.account_type_description.map((desc: any) => {
