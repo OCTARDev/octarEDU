@@ -35,7 +35,10 @@ const Available = () => {
   const t = useTranslations("categoriesPage");
   return (
     <div>
-      <div className={`${styles?.aboutContainer} ${isArabic && "arabic"}`}>
+      <div
+        id="learningWorlds"
+        className={`${styles?.aboutContainer} ${isArabic && "arabic"}`}
+      >
         <div className={styles.content}>
           <div>
             <div className={styles.shape}>
