@@ -60,6 +60,12 @@
     }
   }
 }
+/* wraps the products grid + the subscription CTA. `position: relative` makes it
+   the containing block the CTA parks against once it stops floating. */
+.productsZone {
+  position: relative;
+}
+
 @media (max-width: 893px) {
   .aboutContainer {
     padding: 1.5rem 4rem;

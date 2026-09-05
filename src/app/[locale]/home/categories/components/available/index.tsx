@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 import AnimatedTextWord from "@/animation/animatingText";
 import { mainUrl } from "@/lib";
 import CategoriesProducts from "../categoriesProducts";
+import SubscriptionCta from "../subscriptionCta";
 import Loader from "@/components/loader";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -113,7 +114,10 @@ const Available = () => {
           </div>
         </div>
       </div>
-      <CategoriesProducts lang={lang} />
+      <div id="productsStickyZone" className={styles.productsZone}>
+        <CategoriesProducts lang={lang} />
+        <SubscriptionCta />
+      </div>
     </div>
   );
 };
