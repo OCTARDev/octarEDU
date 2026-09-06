@@ -7,7 +7,7 @@ import AnimatedTextWord from "@/animation/animatingText";
 import { motion } from "framer-motion";
 import useInViewAnimation from "@/animation/useScroll";
 import { leftContainerVariant } from "@/animation";
-import imgIndividual from "../../../../../../assets/compressed/sub3.jpeg";
+import imgIndividual from "../../../../../../assets/compressed/individual-hero.jpeg";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 const Header = () => {

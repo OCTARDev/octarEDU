@@ -8,8 +8,8 @@ import { TbWorld } from "react-icons/tb";
 import { MdTranslate } from "react-icons/md";
 import { LuPencil, LuArrowDown } from "react-icons/lu";
 import styles from "./style.module.scss";
-import heroEn from "../../../../../../assets/Categories/category-hero-en.webp";
-import heroAr from "../../../../../../assets/Categories/category-hero-ar.webp";
+import heroEn from "../../../../../../assets/Categories/category-hero-en.jpeg";
+import heroAr from "../../../../../../assets/Categories/category-hero-ar.jpeg";
 import { leftContainerVariant, rightContainerVariant } from "@/animation";
 
 const SCROLL_TARGET_ID = "learningWorlds";
